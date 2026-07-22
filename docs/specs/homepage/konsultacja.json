@@ -1,0 +1,197 @@
+{
+ "assets": [
+  {
+   "name": "Rectangle144 — zdjęcie (dwie kobiety czytające książkę)",
+   "classification": "user-upload",
+   "kind": "zdjęcie",
+   "nodeId": "3798:5179"
+  }
+ ],
+ "colors": [
+  {
+   "role": "tło sekcji (edge-to-edge, 1920×848)",
+   "hex": "#E0E0E0"
+  },
+  {
+   "role": "tło karty tekstowej (lewa kolumna) — BRAK wypełnienia, tylko border, dziedziczy tło sekcji",
+   "hex": "transparent"
+  },
+  {
+   "role": "border karty tekstowej i ramki zdjęcia (4px solid)",
+   "hex": "#0A0A0A"
+  },
+  {
+   "role": "tekst H2",
+   "hex": "#0A0A0A"
+  },
+  {
+   "role": "tekst akapitu",
+   "hex": "#0A0A0A"
+  },
+  {
+   "role": "tekst przycisku",
+   "hex": "#0A0A0A"
+  },
+  {
+   "role": "tło przycisku (akcent)",
+   "hex": "#FFA370"
+  }
+ ],
+ "typography": [
+  {
+   "element": "H2 'Zamów bezpłatną konsultację'",
+   "family": "PP Mori",
+   "sizePx": 80,
+   "weight": "Bold (nazwany instance Figma; zakładane font-variation-settings 'wght' 700 — do weryfikacji na realnym pliku fonta)",
+   "lineHeight": "96px",
+   "letterSpacing": "-0.8px",
+   "transform": "none"
+  },
+  {
+   "element": "Akapit (opis pod H2)",
+   "family": "PP Mori",
+   "sizePx": 26,
+   "weight": "Regular (400)",
+   "lineHeight": "41px",
+   "letterSpacing": "0px",
+   "transform": "none"
+  },
+  {
+   "element": "Label przycisku 'UMÓW SIĘ NA ROZMOWĘ'",
+   "family": "PP Mori",
+   "sizePx": 30,
+   "weight": "Regular (400) — mimo wizualnie 'grubszego' wrażenia, Figma zwraca styl Regular",
+   "lineHeight": "20px (UWAGA: mniejszy niż font-size 30px — możliwy artefakt eksportu Figma przy auto-layout; zweryfikować wizualnie przy buildzie)",
+   "letterSpacing": "0.3px",
+   "transform": "uppercase"
+  }
+ ],
+ "spacing": [
+  {
+   "what": "padding boczny sekcji (do kontenera treści, oba boki)",
+   "value": "64px"
+  },
+  {
+   "what": "szerokość kontenera treści (1920 − 2×64)",
+   "value": "1792px"
+  },
+  {
+   "what": "padding góra/dół sekcji do bloku kolumn (848 − 708)/2",
+   "value": "70px"
+  },
+  {
+   "what": "gap między kolumną karty a kolumną zdjęcia",
+   "value": "32px"
+  },
+  {
+   "what": "grubość bordera karty i zdjęcia",
+   "value": "4px"
+  },
+  {
+   "what": "padding-left tekstu (H2 i akapit) względem lewej krawędzi karty",
+   "value": "~92px"
+  },
+  {
+   "what": "padding-top H2 względem górnej krawędzi karty",
+   "value": "~104px"
+  },
+  {
+   "what": "gap H2 → akapit",
+   "value": "~36px"
+  },
+  {
+   "what": "gap akapit → przycisk",
+   "value": "~158px"
+  },
+  {
+   "what": "padding-left przycisku względem lewej krawędzi karty (ASYMETRIA vs tekst — patrz openQuestions)",
+   "value": "~443px"
+  },
+  {
+   "what": "margines dół przycisk → dolna krawędź karty",
+   "value": "~56px"
+  },
+  {
+   "what": "padding wewnętrzny przycisku (top/right/bottom/left)",
+   "value": "12px / 80px / 11px / 60px"
+  },
+  {
+   "what": "wysokość przycisku",
+   "value": "80px"
+  }
+ ],
+ "radii": [
+  {
+   "what": "karta tekstowa (lewa kolumna)",
+   "px": 0
+  },
+  {
+   "what": "ramka zdjęcia (prawa kolumna)",
+   "px": 0
+  },
+  {
+   "what": "przycisk (efektywnie pełny pill, bo 50px > połowa wysokości 80px)",
+   "px": 50
+  }
+ ],
+ "interactivity": "Brak dedykowanego node'a/wariantu \"hover\" wśród analizowanych elementów (3798:5178–5182) — Figma nie eksponuje stanu hover przycisku w tej sekcji. Statyczna sekcja: żadnego slidera/akordeonu/marquee. Jedyna interaktywność do zaimplementowania to standardowy hover przycisku wg konwencji projektu (@media (hover: hover)) — konkretny kolor/efekt hover nie jest zdefiniowany w designie, do ustalenia z userem.",
+ "repeatable": "Brak elementów powtarzalnych (nie lista/grid) — pojedyncza instancja CTA: nagłówek + opis + przycisk + zdjęcie. Pola edytowalne w edytorze: heading (RichText H2), description (RichText paragraf), buttonText (RichText inline w przycisku), buttonUrl (LinkControl), image (MediaUpload, obiekt {id,url,alt} z responsive srcset — to zdjęcie to user-upload, NIE hardcoded asset).",
+ "suggestedBlock": {
+  "name": "cta-konsultacja",
+  "prefix": "atcc",
+  "attributes": [
+   {
+    "name": "heading",
+    "type": "string",
+    "note": "RichText, inline na stronie; default 'Zamów bezpłatną konsultację'"
+   },
+   {
+    "name": "description",
+    "type": "string",
+    "note": "RichText (paragraf), inline; default aktualny tekst z Figmy"
+   },
+   {
+    "name": "buttonText",
+    "type": "string",
+    "note": "RichText wewnątrz <button>/<a>, inline; default 'Umów się na rozmowę'; render.php musi też wymusić uppercase w CSS (text-transform), nie w treści"
+   },
+   {
+    "name": "buttonUrl",
+    "type": "string",
+    "note": "LinkControl (popover), inline — docelowy URL/telefon/CF7-anchor konsultacji"
+   },
+   {
+    "name": "buttonNewTab",
+    "type": "boolean",
+    "note": "sidebar toggle — otwórz w nowej karcie (opcjonalne, niewidoczna konfiguracja)"
+   },
+   {
+    "name": "image",
+    "type": "object",
+    "note": "MediaUpload {id,url,alt}; user-upload — fallback do window.ADWISE.themeUri identyczny w edit.js i render.php"
+   },
+   {
+    "name": "anchor",
+    "type": "string",
+    "note": "jawnie w attributes — blok SSR (save→null), wymóg reguł projektu"
+   },
+   {
+    "name": "className",
+    "type": "string",
+    "note": "jawnie w attributes — blok SSR (save→null), wymóg reguł projektu"
+   }
+  ]
+ },
+ "section": "SKONTAKTUJ SIĘ — CTA konsultacja (node 3798:5175/5176, plik 4tFw94vUyaEZdUSjp1eXgW). Desktop 1920×848px, brak wersji mobile w tym frame (nie zgadywano wartości mobile).",
+ "layout": "Sekcja edge-to-edge: tło #E0E0E0 rozciąga się na pełną szerokość ramki 1920px (full-bleed, brak marginesu zewnętrznego wokół sekcji jako całości). Wewnątrz: kontener treści 1792px (1920 − 2×64px paddingu bocznego), dwie kolumny obok siebie (flex/grid 2-col), obie o identycznej wysokości 708px, wyśrodkowane pionowo w sekcji (70px marginesu góra/dół). Kolumna A (karta tekstowa, tylko border 4px #0A0A0A bez wypełnienia) = 1024px (~57,1% kontenera), kolumna B (zdjęcie w ramce 4px #0A0A0A) = 736px (~41,1%), gap między kolumnami 32px. Wewnątrz karty: H2 → akapit → przycisk w pionowym stosie, lewo-wyrównane (poza przyciskiem — patrz openQuestions, przycisk ma znacznie większy left-indent niż tekst). Zdjęcie wypełnia swoją ramkę w całości (object-fit: cover, inset 0, bez marginesu wewnętrznego). Brak nakładających się elementów — layout czysto sekwencyjny, żadnych elementów position:absolute nachodzących na siebie poza samą ramką/borderem.",
+ "notes": "WAŻNA ROZBIEŻNOŚĆ z briefem zadania: task opisuje tę sekcję jako \"ciemna sekcja: biała duża karta\" z pomarańczowym przyciskiem, ale DOKŁADNE wartości z Figma design_context (nie zgadywane) pokazują: tło sekcji #E0E0E0 (jasnoszare, nie #0A0A0A), karta bez żadnego wypełnienia (transparent, tylko 4px border #0A0A0A — nie biała), cały tekst czarny #0A0A0A (nie biały), a zdjęcie i karta mają ostre, kwadratowe rogi (border-radius: 0, nie \"rounded rect\" jak sugerował hint). Jedyny element zgodny z ciemnym designem systemu to pomarańczowy akcent #FFA370 na przycisku. To wygląda na niedoskonaloną (wireframe/grayscale) wersję tej konkretnej sekcji w Figmie, podczas gdy reszta homepage ma prawdopodobnie już finalną ciemną stylistykę — MUSI być potwierdzone z userem przed implementacją (patrz openQuestions #1-2). Typografia, proporcje kolumn (1024/736), gap 32px, przycisk-pill z paddingiem 60/80/12/11 i font PP Mori — te wartości są precyzyjne i spójne między screenshotem a design_context, można je przyjąć bez zastrzeżeń. Namespace projektu = \"atonce\", prefix PHP \"atonce_\" (z project.md) — stąd sugerowany prefix CSS \"atcc\" (4 litery, zgodny z konwencją 2-5 znaków).",
+ "openQuestions": [
+  "KLUCZOWE: Figma literalnie pokazuje jasnoszarą sekcję (#E0E0E0), przezroczystą kartę (tylko border 4px #0A0A0A, brak wypełnienia) i czarny tekst — a nie ciemną sekcję #0A0A0A + białą kartę + biały tekst jak opisano w briefie zadania. Którą wersję implementować: literalne wartości z Figmy (jasny wireframe) czy zamierzoną ciemną stylistykę (odwrócone kolory: tło #0A0A0A, karta biała/off-white, tekst biały, border usunięty lub jasny)?",
+  "Karta i zdjęcie mają w Figmie border-radius: 0 (ostre rogi) — brief sugerował 'rounded rect' dla zdjęcia. Jaki promień zaokrąglenia zastosować dla zdjęcia i/lub karty (0px literalnie z designu, czy np. 24-32px jak w innych sekcjach tego designu)?",
+  "Przycisk ma padding-left ~443px od lewej krawędzi karty, czyli dużo więcej niż H2/akapit (~92px) — bardzo asymetryczne wcięcie, nie wyrównane do tekstu ani wycentrowane w karcie. Czy to zamierzone (tak zostawić 1:1 z Figmy), czy w bloku WP przycisk powinien być wyrównany flush-left z nagłówkiem/akapitem (bardziej typowy wzorzec CTA)?",
+  "Sekcja jest full-bleed (edge-to-edge, tło na całą szerokość 1920px) z paddingiem bocznym 64px do treści — czy blok ma używać align:'full' z hardcodowanym 64px paddingiem, czy zmapować na istniejące tokeny kontenera/wide z theme.json tego projektu (żeby było spójne z resztą strony)?",
+  "Brak zdefiniowanego stanu hover przycisku w Figmie (żaden analizowany node nie miał wariantu hover) — jaki hover zastosować (przyciemniony pomarańcz, scale, brak zmiany)?",
+  "PP Mori jako font variable — Figma zwraca tylko nazwane style 'Bold'/'Regular' (zakładane wght 700/400). Czy realny plik fonta w projekcie ma niestandardowe osie wymagające innych wartości font-variation-settings?",
+  "Karta bez wypełnienia (transparent) ujawnia tło sekcji przez środek — czy w finalnym bloku karta ma dostać faktyczne tło (np. białe, zgodnie z sugestią briefu) z ewentualnym usunięciem/zmianą bordera, czy zostawić czysto obrysowy (border-only) styl 1:1 z Figmy?"
+ ]
+}

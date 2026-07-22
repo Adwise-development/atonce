@@ -1,0 +1,206 @@
+{
+ "section": "Usługi — akordeon \"Czym się zajmujemy?\" (homepage AT ONCE, sekcja ciemna)",
+ "layout": "Sekcja edge-to-edge, tło pełne #0A0A0A (bleed do krawędzi viewportu). Wewnątrz: label overline \"USŁUGI\" + H2 \"Czym się zajmujemy?\" (osobny blok tytułowy — node poza zakresem tego zapytania, patrz openQuestions), pod spodem akordeon poziomy: flex row, 6 pozycji, gap=32px (zmierzone identycznie między wszystkimi elementami: panel↔kol.2, kol.2↔kol.3 itd.). Pozycja 1 \"Doradztwo\" = aktywna/rozwinięta: biały panel szer. 1151px, wys. ~700-702px, zawiera numer \"1\" w lewym-dolnym rogu na cienkim czarnym pasku (node \"Rectangle 119\", 100px), tytuł H3-like + opis (max-width tekstu ~719px) lewo-górnie, przycisk CTA prawo-dolnie. Pozycje 2-6 = zwinięte: wąskie czarne kolumny 95-96px szer. × 700-702px wys., każda z numerem (1-6, wyśrodkowany, ~42px od dołu wiersza) i podpisem pionowym (obrócony -90°, czyta się od dołu do góry) nad numerem. Brak nakładania elementów (uporządkowany rząd, gap 32px). Cały akordeon mierzy 1794px szerokości w canvasie 1920px → marginesy boczne ~60-66px (prawdopodobnie zamierzone 60px symetryczne, różnica z zaokrągleń narzędzia). Brak wersji mobile w tym frame.",
+ "colors": [
+  {
+   "role": "tło sekcji (pełne, edge-to-edge)",
+   "hex": "#0A0A0A"
+  },
+  {
+   "role": "tło kolumn zwiniętych (poz. 2-6)",
+   "hex": "#0A0A0A"
+  },
+  {
+   "role": "border kolumn zwiniętych (default, 4px, identyczny z tłem = niewidoczny)",
+   "hex": "#0A0A0A"
+  },
+  {
+   "role": "tło panelu rozwiniętego / aktywnego (poz. 1) — NIEPOTWIERDZONE przez design_context, założenie na podstawie screenshota",
+   "hex": "#FFFFFF"
+  },
+  {
+   "role": "tekst pionowy w kolumnach (numer + label, np. 'redakcja')",
+   "hex": "#E0E0E0"
+  },
+  {
+   "role": "tytuł panelu rozwiniętego (np. 'Doradztwo')",
+   "hex": "#0A0A0A"
+  },
+  {
+   "role": "opis panelu rozwiniętego (paragraf)",
+   "hex": "#0A0A0A"
+  },
+  {
+   "role": "tło przycisku CTA (akcent)",
+   "hex": "#FFA370"
+  },
+  {
+   "role": "tekst przycisku CTA",
+   "hex": "#0A0A0A"
+  }
+ ],
+ "typography": [
+  {
+   "element": "Tytuł panelu rozwiniętego (np. 'Doradztwo') — H3/H4 w markupie",
+   "family": "PP Mori",
+   "weight": "Bold",
+   "sizePx": 80,
+   "lineHeight": "90px",
+   "letterSpacing": "-0.8px",
+   "transform": "uppercase (CSS text-transform; string źródłowy zapisany normalnie 'Doradztwo')"
+  },
+  {
+   "element": "Opis panelu rozwiniętego (paragraf)",
+   "family": "PP Mori",
+   "weight": "Regular",
+   "sizePx": 20,
+   "lineHeight": "32px"
+  },
+  {
+   "element": "Label pionowy kolumny (np. 'redakcja','projekt','skład','druk','dystrybucja')",
+   "family": "PP Mori",
+   "weight": "Regular",
+   "sizePx": 40,
+   "lineHeight": "90px (po rotacji staje się 'grubością' bloku tekstu, dopasowaną do szer. kolumny ~96px)",
+   "letterSpacing": "-0.4px",
+   "transform": "uppercase (CSS; stringi źródłowe małymi literami) + rotate(-90deg), czyta się od dołu do góry"
+  },
+  {
+   "element": "Numer pozycji (1–6)",
+   "family": "PP Mori",
+   "weight": "Regular",
+   "sizePx": 40,
+   "lineHeight": "48px",
+   "letterSpacing": "-0.4px"
+  },
+  {
+   "element": "Tekst przycisku CTA 'DOWIEDZ SIĘ WIĘCEJ'",
+   "family": "PP Mori",
+   "weight": "Regular",
+   "sizePx": 27.5,
+   "lineHeight": "27.5px",
+   "letterSpacing": "0.275px (~0.01em)"
+  }
+ ],
+ "spacing": [
+  {
+   "what": "gap między pozycjami akordeonu (panel + 5 kolumn)",
+   "value": "32px"
+  },
+  {
+   "what": "szerokość kolumny zwiniętej (poz. 2-6)",
+   "value": "95–96px"
+  },
+  {
+   "what": "wysokość wiersza akordeonu (wszystkie pozycje)",
+   "value": "700–702px"
+  },
+  {
+   "what": "szerokość panelu rozwiniętego (poz. aktywna)",
+   "value": "1151px"
+  },
+  {
+   "what": "szerokość całego akordeonu (kontener)",
+   "value": "1794px (viewport 1920px → marginesy boczne ~60-66px)"
+  },
+  {
+   "what": "padding-left treści panelu (tytuł/opis od lewej krawędzi panelu)",
+   "value": "~176px"
+  },
+  {
+   "what": "padding-top do tytułu (od góry panelu)",
+   "value": "~144px"
+  },
+  {
+   "what": "gap tytuł → opis",
+   "value": "~40px"
+  },
+  {
+   "what": "padding-bottom do numeru w kolumnach (od dołu wiersza)",
+   "value": "~42px"
+  },
+  {
+   "what": "przycisk CTA — offset od prawej krawędzi panelu",
+   "value": "~70px"
+  },
+  {
+   "what": "przycisk CTA — offset od dołu panelu",
+   "value": "~54px"
+  },
+  {
+   "what": "padding wewnętrzny przycisku CTA",
+   "value": "~11.6px góra / ~10.2px dół / ~36.4px lewo-prawo (asymetria pionowa, optyczne wyśrodkowanie tekstu)"
+  }
+ ],
+ "radii": [
+  {
+   "what": "przycisk CTA 'DOWIEDZ SIĘ WIĘCEJ' (potwierdzone dokładnie)",
+   "px": 24
+  },
+  {
+   "what": "kolumny zwinięte (poz. 2-6) — SZACUNEK ze screenshota (wygląda na pełne zaokrąglenie/pill, radius≈połowa szerokości), design_context nie zwrócił klasy rounded mimo typu 'rounded-rectangle' w metadata",
+   "px": 48
+  },
+  {
+   "what": "panel rozwinięty (poz. aktywna) — SZACUNEK, niepotwierdzone",
+   "px": 48
+  }
+ ],
+ "assets": [
+  {
+   "name": "Przycisk 'DOWIEDZ SIĘ WIĘCEJ' (component instance)",
+   "classification": "hardcoded",
+   "kind": "komponent/button",
+   "nodeId": "3798:5242"
+  }
+ ],
+ "interactivity": "Akordeon poziomy (accordion/tabs): 6 pozycji w jednym rzędzie. Domyślnie 1 pozycja aktywna/rozwinięta (tu poz. 1 \"Doradztwo\") jako szeroki biały panel z tytułem+opisem+CTA; pozostałe 5 zwinięte jako wąskie czarne kolumny z numerem i podpisem pionowym. Kliknięcie zwiniętej kolumny prawdopodobnie zamienia ją z aktualnie aktywną (rozwija kliknięta, zwija poprzednio aktywna) — typowy wzorzec przełącznika/tab, nie multi-open. Żaden z 6 zapytanych node'ów nie miał w nazwie wariantu \"hover\" (mimo hintu w zadaniu), więc stan hover kolumn zwiniętych NIE jest potwierdzony wprost — ale border 4px w kolorze identycznym z tłem (#0A0A0A na #0A0A0A, czyli niewidoczny) silnie sugeruje, że w stanie hover/focus border zmienia kolor (np. na akcent #FFA370). Animacja rozwijania/zwijania (zmiana szerokości panelu) — prawdopodobnie CSS transition na width/flex-basis; do ustalenia w implementacji (JS: klik = zmiana activeIndex + toggle klas .is-active/.is-collapsed).",
+ "repeatable": "6 pozycji usługowych (Doradztwo, Redakcja, Projekt, Skład, Druk, Dystrybucja). Pola edytowalne inline per pozycja: tytuł (RichText, 1 linia, wyświetlany uppercase przez CSS), opis (RichText, widoczny tylko gdy pozycja aktywna), przycisk CTA — label (RichText) + URL (LinkControl popover), widoczny tylko gdy aktywna. Numer generowany automatycznie z indexu (nieedytowalny). \"+ Dodaj\"/\"✕\" pod listą per konwencję theme — ALE lista może być zamierzenie stała (6 realnych usług firmy), patrz openQuestions.",
+ "suggestedBlock": {
+  "name": "uslugi-akordeon",
+  "prefix": "ato",
+  "attributes": [
+   {
+    "name": "sectionLabel",
+    "type": "string",
+    "note": "inline RichText, domyślnie 'USŁUGI' — overline label nad H2"
+   },
+   {
+    "name": "heading",
+    "type": "string",
+    "note": "inline RichText H2, domyślnie 'Czym się zajmujemy?'"
+   },
+   {
+    "name": "items",
+    "type": "array",
+    "note": "repeatable, każdy item: {title:string, description:string(richtext), buttonLabel:string, buttonUrl:string} — domyślnie 6: Doradztwo/Redakcja/Projekt/Skład/Druk/Dystrybucja"
+   },
+   {
+    "name": "activeIndex",
+    "type": "number",
+    "note": "index domyślnie rozwiniętej pozycji, default 0"
+   },
+   {
+    "name": "anchor",
+    "type": "string",
+    "note": "wymagane jawnie w attributes — blok SSR (save=null)"
+   },
+   {
+    "name": "className",
+    "type": "string",
+    "note": "wymagane jawnie w attributes — blok SSR (save=null)"
+   }
+  ]
+ },
+ "openQuestions": [
+  "Panel rozwinięty (poz. aktywna) — dokładny hex tła NIE był w zakresie zapytanych node'ów; założono #FFFFFF na podstawie screenshota, wymaga potwierdzenia osobnym get_design_context na node'ie 'Rectangle 115' (3798:5231).",
+  "Border-radius kolumn (~48px) i panelu (~48px) to szacunek ze screenshota — design_context na node'ie kolumny (3798:5227) NIE zwrócił klasy rounded mimo że metadata typuje go jako 'rounded-rectangle'; do zweryfikowania bezpośrednio we Figma (Corner radius property) przed implementacją CSS.",
+  "Border 4px #0A0A0A na kolumnach (niewidoczny w default) — czy to przygotowanie pod stan hover/active (np. zmiana na akcent #FFA370)? Brak jawnego node'a wariantu 'hover' w dostarczonej liście do potwierdzenia z userem/Figmą.",
+  "Typografia tytułu sekcji ('USŁUGI' label + H2 'Czym się zajmujemy?') NIE została pobrana — te node'y nie były w zakresie wskazanych ID do get_design_context w tym zadaniu. Potrzebne osobne zapytanie (prawdopodobnie współdzielony wzorzec label+H2 używany też w innych sekcjach homepage — sprawdzić czy już udokumentowany w theme.json/project.md).",
+  "Czy lista 6 usług jest w pełni repeatable (+Dodaj/✕ per konwencję theme) czy celowo fixed-count (6 realnych usług firmy z edytowalną tylko treścią, bez możliwości dodania/usunięcia pozycji)?",
+  "Architektura interaktywności: czysty vanilla JS (toggle klas na front) czy WP Interactivity API (data-wp-interactive) — zgodnie z docs/patterns/animations.md / editor-gotchas.md, decyzja do ustalenia przed implementacją.",
+  "Czy sekcja ma być full-width/align:full w Gutenbergu (tło edge-to-edge #0A0A0A) z wewnętrznym kontenerem ograniczonym do zmierzonych ~1794-1800px, zgodnie z resztą layoutu strony — do potwierdzenia spójności z innymi sekcjami homepage.",
+  "Paddingi wewnątrz panelu (lewo ~176px, góra ~144px, dół do CTA ~54px) wyliczone z bounding boxów tekstu względem rogu panelu — jeśli panel to Auto Layout frame we Figmie, rzeczywiste wartości padding mogą się nieznacznie różnić; do zweryfikowania przy imporcie do kodu."
+ ],
+ "notes": "Screenshot sekcji: /private/tmp/claude-501/-Applications-MAMP-htdocs-atonce-wp-content-themes-atonce/a19b065e-9b30-4274-a525-6e3eee1df571/scratchpad/uslugi-1.png. Projekt (sprawdzony w repo): namespace bloków 'atonce', prefix PHP 'atonce_' (z project.md), folder blocks/ jeszcze pusty — to pierwszy blok w projekcie, stąd zaproponowany prefix CSS 'ato' jest świeżą propozycją (do zatwierdzenia/zmiany przez usera, nic wcześniej nie ustala konwencji). Font PP Mori jest variable — zgodnie z regułą CLAUDE.md, warianty Bold/Regular powinny być mapowane przez font-variation-settings (nie tylko font-weight), jeśli osie zmienności są zdefiniowane w theme.json; design_context zwrócił tu jedynie nazwane instancje 'PP_Mori:Bold' / 'PP_Mori:Regular'. Metadata node'a 3798:5225 potwierdza dokładne współrzędne wszystkich 6 pozycji i teksty — użyte do wyliczenia gapów/paddingów. Numer '1' (pozycja aktywna) renderuje się na osobnym cienkim czarnym pasku (node wektor 'Rectangle 119', x=60, width=100) leżącym tuż przy lewej krawędzi białego panelu (x=62) — wizualnie to spójne z wzorem pozostałych kolumn (numer w rogu na czarnym tle), warto to zachować jako stały element markupu (numer zawsze na ciemnym tle, niezależnie od stanu expanded/collapsed)."
+}

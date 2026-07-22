@@ -1,0 +1,121 @@
+{
+ "section": "MODUŁ CTA — marquee pill-buttonów (homepage AT ONCE, node 3798:5276 „MODUL CTA\" + druga instancja placeholder 3798:5064)",
+ "layout": "Jeden rząd (brak wrap, brak grid/kolumn) — flex row, align-items: center, gap: 48px między pigułkami. Instancja marquee (3798:5276): frame x=-46 do canvas 1920, width=2012, dzieci rozciągają się od x=0 do x=3727 (5. pigułka kończy się poza frame) → treść świadomie wychodzi poza szerokość płótna z obu stron = pasek jest edge-to-edge/full-bleed, bez ograniczenia do content-container, i musi być hostowany w sekcji z overflow:hidden + nieskończona pętla (marquee). Wysokość pigułki stała: 124px (h-[124px] w obu instancjach). Szerokość pigułki: auto/hug-content (padding 80px każda strona + szerokość tekstu), NIE stała. Druga instancja (3798:5064, referencyjna „CTA DO WPISANIA\", bez overflow) ma frame 1920×260 z rzędem pigułek zaczynającym się na y=68 → górny/dolny margines modułu = 68px symetrycznie (260 − 124 − 68 = 68). Brak zmiany layoutu przy innym breakpoincie w tym frame (tylko desktop 1920px, wersji mobile brak — nie zgadywać).",
+ "colors": [
+  {
+   "role": "tekst napisu w pigułce (wszystkie warianty, także na tle pomarańczowym)",
+   "hex": "#0A0A0A"
+  },
+  {
+   "role": "border pigułki wariant outline (nieaktywny)",
+   "hex": "#0A0A0A"
+  },
+  {
+   "role": "tło pigułki wariant aktywny/wyróżniony (accent)",
+   "hex": "#FFA370"
+  },
+  {
+   "role": "tło pigułki wariant outline (nieaktywny)",
+   "hex": "transparent (brak fill w design_context)"
+  },
+  {
+   "role": "tło za rzędem pigułek w obu screenshotach (zmierzone piksele RGB 224,224,224) — NIEPOTWIERDZONE czy to realne tło sekcji czy tło płótna Figma (frame „MODUL CTA” nie ma własnego fill w design_context, więc to może być artefakt renderu, nie design intent)",
+   "hex": "#E0E0E0 (wartość zmierzona, nie z tokenu)"
+  }
+ ],
+ "typography": [
+  {
+   "element": "label pigułki (tekst CTA, np. „ZOBACZ NASZE PORTFOLIO” / „NASZE PORTFOLIO” / „CTA DO WPISANIA”)",
+   "family": "PP Mori",
+   "sizePx": 50,
+   "weight": "Regular (nazwa stylu z Figmy; konkretne wartości osi font-variation-settings dla variable fonta NIE zostały ujawnione przez export — do potwierdzenia)",
+   "lineHeight": "normal",
+   "letterSpacing": "-0.5px",
+   "transform": "uppercase (tekst w warstwie zapisany małymi literami, wymuszony CSS text-transform:uppercase — więc w edytorze user wpisuje tekst dowolną wielkością liter)"
+  }
+ ],
+ "spacing": [
+  {
+   "what": "gap między pigułkami w rzędzie",
+   "value": "48px (potwierdzone przez pozycje x w obu instancjach: 884-836, 1553-1505, 2222-2174, 2891-2843 = 48px; oraz 647-599=48px)"
+  },
+  {
+   "what": "padding pigułki — poziomy (lewo/prawo)",
+   "value": "80px"
+  },
+  {
+   "what": "padding pigułki — góra",
+   "value": "17px"
+  },
+  {
+   "what": "padding pigułki — dół",
+   "value": "10px (asymetryczny top/bottom — prawdopodobnie optyczne wyśrodkowanie fontu PP Mori)"
+  },
+  {
+   "what": "wysokość pigułki (fixed)",
+   "value": "124px"
+  },
+  {
+   "what": "grubość border (wariant outline)",
+   "value": "3px"
+  },
+  {
+   "what": "padding modułu góra/dół (z instancji referencyjnej 3798:5064, non-overflow)",
+   "value": "68px / 68px (260 wys. modułu − 124 wys. pigułki = 136 / 2)"
+  }
+ ],
+ "radii": [
+  {
+   "what": "border-radius pigułki (obie wersje: outline i active)",
+   "px": 100
+  }
+ ],
+ "assets": [],
+ "interactivity": "Marquee/ticker — poziomy, nieskończony scroll w pętli (treść świadomie wychodzi poza canvas po obu stronach, patrz layout). Kierunek, prędkość/czas pełnej pętli i ewentualny pause-on-hover NIE są zdefiniowane statycznie w Figmie (design to tylko klatka/snapshot) — wymagana decyzja implementacyjna (CSS @keyframes translateX + duplikacja listy pigułek 2× dla seamless loop, lub JS/GSAP). W nazwach node'ów BRAK warstw/wariantów „hover” dla BUTTON big w tej sekcji — nie znaleziono zaprojektowanego stanu hover; jeśli ma być, trzeba go ustalić z userem (np. lekkie przyciemnienie/pauza). Jedna pigułka na rząd jest wyróżniona kolorem accent (#FFA370) — pozycja wyróżnionej pigułki RÓŻNI SIĘ między dwiema zaobserwowanymi instancjami (2. pozycja w 3798:5276, 1. pozycja w 3798:5064) → flaga „aktywny/wyróżniony” musi być per-item, nie hardkodowana na stałej pozycji.",
+ "repeatable": "Lista pigułek (items[]), każda z: (1) text — treść CTA, inline editable (RichText lub plain text, wyświetlany uppercase przez CSS niezależnie od wpisanej wielkości liter), (2) isActive/variant — flaga czy pigułka ma wariant accent (tło #FFA370, brak border) czy outline (border 3px #0A0A0A, tło transparent) — edytowalne per-item (np. toggle w sidebar bloku lub kontrolka przy hover nad danym itemem w liście, zgodnie z konwencją „✕ na hover / + Dodaj pod listą” z docs/block-template.md). Liczba pigułek dowolna (obserwowano 5 w obu instancjach, ale to może być tylko wycinek nieskończonej pętli — do ustalenia ile unikalnych itemów user ma wpisywać, reszta pętli generowana automatycznie przez duplikację w markupie/JS).",
+ "suggestedBlock": {
+  "name": "cta-marquee",
+  "prefix": "ctam",
+  "attributes": [
+   {
+    "name": "items",
+    "type": "array",
+    "note": "array obiektów {text:string, isActive:boolean}; default = przykładowe 3-5 pozycji; edytowalne inline w podglądzie (repeatable pattern z docs/block-template.md)"
+   },
+   {
+    "name": "speed",
+    "type": "number",
+    "note": "sekundy na pełny cykl pętli marquee — konfiguracja niewidoczna, sidebar (np. RangeControl), wartość domyślna do ustalenia z userem"
+   },
+   {
+    "name": "direction",
+    "type": "string",
+    "note": "enum 'left'|'right' — kierunek przewijania, sidebar SelectControl, default 'left'"
+   },
+   {
+    "name": "pauseOnHover",
+    "type": "boolean",
+    "note": "czy zatrzymać animację pod kursorem — sidebar ToggleControl, do potwierdzenia z userem czy w ogóle potrzebne (brak stanu hover w designie)"
+   },
+   {
+    "name": "anchor",
+    "type": "string",
+    "note": "wymagane jawnie w attributes — blok SSR (save→null), inaczej ginie po save zgodnie z regułą CLAUDE.md"
+   },
+   {
+    "name": "className",
+    "type": "string",
+    "note": "wymagane jawnie w attributes — jw."
+   }
+  ]
+ },
+ "openQuestions": [
+  "Prawdziwe tło sekcji NIEPOTWIERDZONE: design_context dla obu frame'ów „MODUL CTA” nie zwraca żadnej klasy tła (transparent/brak fill), a screenshoty pokazują jednolite jasnoszare #E0E0E0 — to może być: (a) świadome jasne tło tej konkretnej sekcji jako 'invert band' na tle ogólnie ciemnego motywu strony (#0A0A0A), co ma sens bo tekst/border pigułek są ciemne (#0A0A0A) i wymagają jasnego tła by być czytelne, albo (b) artefakt renderu Figmy (domyślne tło płótna, bo query'owany frame nie ma własnego fill, a prawdziwe tło dziedziczy z rodzica poza zakresem query). Trzeba potwierdzić realne tło sekcji (np. zrzut całej strony/theme.json) zanim zakodujemy kolory.",
+  "Pozycja wyróżnionej (pomarańczowej) pigułki różni się między dwiema zaobserwowanymi instancjami (pozycja 2 vs pozycja 1) — potwierdzić czy to ma być stała reguła (np. zawsze pierwszy element) czy dowolny wybór redaktora per-item w edytorze.",
+  "Czy pigułki są klikalnymi linkami (href per item, np. do strony portfolio) czy czysto dekoracyjny ticker tekstowy bez linkowania? Nazwy typu „ZOBACZ NASZE PORTFOLIO” sugerują CTA/link, ale brak potwierdzenia pola URL.",
+  "Parametry marquee (kierunek, prędkość/czas pętli, pause-on-hover) nie są zdefiniowane w statycznym designie Figma — do ustalenia z userem przed implementacją CSS/JS.",
+  "Ile unikalnych pigułek domyślnie w atrybucie items (obserwowano 5 w obu instancjach — może to tylko wycinek nieskończonej pętli) i czy duplikacja listy dla seamless loop ma być częścią danych bloku czy generowana automatycznie w render.php/view.js.",
+  "Font PP Mori (variable) — export ujawnił tylko nazwę stylu 'Regular', bez wartości osi font-variation-settings; potwierdzić czy zwykłe font-weight:400 wystarczy czy potrzebna konkretna oś wagi/szerokości zgodnie z regułą CLAUDE.md o variable fontach.",
+  "Ten frame to wyłącznie desktop 1920px — brak wersji mobile w Figmie; potwierdzić z userem docelowe zachowanie marquee na mobile (np. wolniejsze tempo, mniejsze pigułki) zamiast zgadywać wartości."
+ ]
+}

@@ -1,0 +1,232 @@
+{
+ "section": "PORTFOLIO — kategorie + okładki książek (homepage AT ONCE, desktop 1920px, node'y luźne bez wrappera na stronie GŁÓWNA, y≈6591–7741, x≈132–1809)",
+ "layout": "Sekcja NIE ma własnej ramki/tła — to luźne node'y bezpośrednio na canvasie strony GŁÓWNA (tło sekcji domyślnie = tło strony, założenie: biel #FFFFFF w naprzemiennym rytmie ciemne/jasne sekcje — do potwierdzenia, nie zmierzone wprost). Blok = akordeon poziomy w jednym rzędzie o stałej wysokości 749px: 4 wąskie kolumny kategorii (każda 90px szer., tło #0A0A0A, tekst etykiety obrócony -90° / pionowy, kolor #E0E0E0) + 1 szeroki panel otwartej kategorii (1198×749px, tło #E0E0E0, border 3.742px #0A0A0A). Kolejność x: BELETRYSTYKA(x=132)→podręczniki(x=251)→poezja(x=371)→INNE(x=489)→gap→panel otwarty \"KSIĄŻKI NAUKOWE\"(x=611, w=1198). Gap między kolumnami ~29-30px, gap kolumny→panel ~32px. Łącznie 5 kategorii (4 zwinięte + 1 domyślnie otwarta), wzorzec identyczny jak akordeon w sekcji USŁUGI (tam też 1 szeroki panel \"Doradztwo\" + kolumny numerowane 2-6). Całość ~1677px szer. wewnątrz canvasu 1920px, inset lewy ~132px / prawy ~111px (lekko asymetryczny, prawdopodobnie tolerancja projektowa — polecam użyć standardowego kontenera motywu, np. tokenu z innych sekcji gdzie tytuł ma x=160/w=1026). Wewnątrz otwartego panelu: nagłówek kategorii top-left (inset 60px/16px od krawędzi panelu), poniżej \"coverflow\" slider 3 okładek (środkowa 678×582px wyśrodkowana i większa, boczne 504×432px mniejsze i częściowo wychodzące poza lewą/prawą krawędź panelu — overflow ~45-48px, efekt peek/3D), oraz 2 okrągłe przyciski-strzałki (next: dół-prawo, w pełni wewnątrz panelu, ~60px od prawej/~49px od dołu; prev: dół-lewo, ~119px od lewej, lekko zachodzi ~11px pod dolną krawędź panelu). Tytuł sekcji (\"tytul\" frame, x=160,y=6591,w=1026,h=449) to osobny blok flex-column gap 40px: eyebrow + H2, offset górny 70px (prawdopodobnie anchor/scroll-margin theme'u). Border-radius: brak widocznej klasy \"rounded-\" w kodzie dla panelu/kolumn/okładek mimo że node type to \"rounded-rectangle\" w metadanych Figmy — praktycznie 0px (ostre rogi), do zweryfikowania w inspektorze. Przyciski strzałek to pełne koła (~60×59px, radius 50%).",
+ "colors": [
+  {
+   "role": "tło sekcji (brak własnego prostokąta w designie — założenie: biel strony w naprzemiennym rytmie sekcji, NIE zmierzone wprost)",
+   "hex": "#FFFFFF (do potwierdzenia)"
+  },
+  {
+   "role": "tło kolumny kategorii (zwinięta zakładka)",
+   "hex": "#0A0A0A"
+  },
+  {
+   "role": "border kolumny kategorii (ten sam kolor co tło — niewidoczna, prawdopodobnie hairline/artefakt)",
+   "hex": "#0A0A0A"
+  },
+  {
+   "role": "tło otwartego panelu (karta aktywnej kategorii)",
+   "hex": "#E0E0E0"
+  },
+  {
+   "role": "border otwartego panelu",
+   "hex": "#0A0A0A (3.742px solid)"
+  },
+  {
+   "role": "tekst eyebrow + H2 tytułu sekcji",
+   "hex": "#0A0A0A"
+  },
+  {
+   "role": "tekst etykiet kolumn (zwinięte kategorie: BELETRYSTYKA, podręczniki, poezja, INNE)",
+   "hex": "#E0E0E0"
+  },
+  {
+   "role": "tekst nagłówka aktywnej kategorii w panelu (np. KSIĄŻKI NAUKOWE)",
+   "hex": "#0A0A0A"
+  },
+  {
+   "role": "akcent — tło okrągłych przycisków strzałek slidera",
+   "hex": "#FFA370"
+  },
+  {
+   "role": "ikona strzałki wewnątrz przycisku akcentowego",
+   "hex": "#0A0A0A"
+  }
+ ],
+ "typography": [
+  {
+   "element": "eyebrow \"NASZE PORTFOLIO WYDAWNICZE\"",
+   "family": "PP Mori",
+   "sizePx": 20,
+   "weight": "Regular (400)",
+   "lineHeight": "20px",
+   "letterSpacing": "0.4px (+2%)",
+   "transform": "uppercase"
+  },
+  {
+   "element": "H2 \"Zobacz zaprojektowane przez nas książki\"",
+   "family": "PP Mori",
+   "sizePx": 80,
+   "weight": "Bold (700) — variable font, użyć font-variation-settings",
+   "lineHeight": "96px",
+   "letterSpacing": "-0.8px (-1%)",
+   "transform": "none"
+  },
+  {
+   "element": "etykieta kolumny kategorii (zwinięta, tekst obrócony -90°/pionowy) — np. BELETRYSTYKA, podręczniki, poezja, INNE",
+   "family": "PP Mori",
+   "sizePx": 37.422,
+   "weight": "Regular (400)",
+   "lineHeight": "84.199px (wartość identyczna jak w nagłówku panelu mimo innego font-size — prawdopodobnie współdzielony styl tekstowy Figmy, przy 1-linijkowym tekście wizualnie nieistotna, NIE kopiować dosłownie do CSS bez weryfikacji)",
+   "letterSpacing": "-0.374px (-1%)",
+   "transform": "uppercase"
+  },
+  {
+   "element": "nagłówek aktywnej kategorii w otwartym panelu (np. \"KSIĄŻKI NAUKOWE\")",
+   "family": "PP Mori",
+   "sizePx": 36,
+   "weight": "Regular (400)",
+   "lineHeight": "84.199px (jw. — shared style; realna wysokość boxa tekstu to 74px, tekst jednoliniowy)",
+   "letterSpacing": "-0.36px (-1%)",
+   "transform": "uppercase"
+  }
+ ],
+ "spacing": [
+  {
+   "what": "gap eyebrow → H2 w bloku tytułu",
+   "value": "40px"
+  },
+  {
+   "what": "offset góra bloku tytułu (prawdopodobnie anchor/scroll-margin theme'u)",
+   "value": "70px"
+  },
+  {
+   "what": "szerokość zwiniętej kolumny kategorii",
+   "value": "90px"
+  },
+  {
+   "what": "wysokość rzędu accordion (kolumny = panel)",
+   "value": "749px"
+  },
+  {
+   "what": "gap między kolumnami kategorii",
+   "value": "~29–30px"
+  },
+  {
+   "what": "gap ostatnia kolumna → panel otwarty",
+   "value": "~32px"
+  },
+  {
+   "what": "szerokość panelu otwartego",
+   "value": "1198px"
+  },
+  {
+   "what": "border panelu",
+   "value": "3.742px solid"
+  },
+  {
+   "what": "inset nagłówka kategorii w panelu (od lewej/góry)",
+   "value": "60px / 16px"
+  },
+  {
+   "what": "strzałka next — offset od prawej/dołu panelu",
+   "value": "~60px / ~49px"
+  },
+  {
+   "what": "strzałka prev — offset od lewej panelu / zachodzenie pod dolną krawędź",
+   "value": "~119px od lewej, ~11px poniżej dolnej krawędzi panelu"
+  },
+  {
+   "what": "okładka centralna (aktywna) w slajderze — rozmiar i offset od góry panelu",
+   "value": "678×582px, ~63px od góry"
+  },
+  {
+   "what": "okładki boczne (peek/coverflow) — rozmiar i overflow poza panel",
+   "value": "~504×432px, wystają ~45–48px poza lewą/prawą krawędź panelu"
+  },
+  {
+   "what": "lewy inset sekcji na canvasie 1920px (do pierwszej kolumny)",
+   "value": "~132px"
+  },
+  {
+   "what": "prawy inset sekcji (od prawej krawędzi panelu do krawędzi canvasu)",
+   "value": "~111px"
+  }
+ ],
+ "radii": [
+  {
+   "what": "panel otwartej kategorii",
+   "px": 0
+  },
+  {
+   "what": "kolumna kategorii (zwinięta)",
+   "px": 0
+  },
+  {
+   "what": "okładka książki (obraz)",
+   "px": 0
+  },
+  {
+   "what": "przycisk strzałki (okrągły, akcent)",
+   "px": 30
+  }
+ ],
+ "assets": [
+  {
+   "name": "Okładka książki (powidoki 1/2/3 w slajderze coverflow, kategoria \"książki naukowe\")",
+   "classification": "user-upload",
+   "kind": "zdjęcie/okładka",
+   "nodeId": "3798:5090"
+  },
+  {
+   "name": "Strzałka next (przycisk nawigacji slidera)",
+   "classification": "hardcoded",
+   "kind": "ikona/przycisk",
+   "nodeId": "3798:5072"
+  },
+  {
+   "name": "Strzałka prev (przycisk nawigacji slidera)",
+   "classification": "hardcoded",
+   "kind": "ikona/przycisk",
+   "nodeId": "3798:5075"
+  }
+ ],
+ "interactivity": "Akordeon poziomy (identyczny wzorzec jak sekcja USŁUGI): kliknięcie zwiniętej kolumny kategorii rozwija ją w szeroki panel (i zwija poprzednio aktywną) — obecnie w designie domyślnie otwarta jest \"KSIĄŻKI NAUKOWE\". Wewnątrz otwartego panelu: slider/coverflow okładek książek — środkowa okładka większa i wyśrodkowana, sąsiednie mniejsze i częściowo widoczne (peek) poza krawędziami panelu; nawigacja przez 2 okrągłe przyciski strzałek (prev/next) w rogach dolnej krawędzi panelu. Brak node'ów z sufiksem \"hover\" w tej sekcji (w przeciwieństwie do np. kart bloga w tym samym pliku) — brak unikalnych stanów hover do odtworzenia 1:1, stosować standardowe konwencje hover z motywu.",
+ "repeatable": "Kategorie (5 pozycji: BELETRYSTYKA, podręczniki, poezja, INNE, KSIĄŻKI NAUKOWE) — pole edytowalne inline: etykieta kategorii (RichText) + która jest domyślnie aktywna. Każda kategoria zawiera repeatable listę okładek książek (obiekty {id,url,alt}, MediaUpload) renderowaną w sliderze aktywnej kategorii — \".map()\" w podglądzie, \"✕\" na hover przy każdej okładce, \"+ Dodaj okładkę\" pod listą; analogicznie \"+ Dodaj kategorię\" na poziomie kolumn (choć liczba 5 wydaje się stała wg designu — patrz openQuestions).",
+ "suggestedBlock": {
+  "name": "portfolio-katalog",
+  "prefix": "pfk",
+  "attributes": [
+   {
+    "name": "eyebrow",
+    "type": "string",
+    "note": "tekst nadtytułu, domyślnie \"Nasze portfolio wydawnicze\" — inline RichText"
+   },
+   {
+    "name": "heading",
+    "type": "string",
+    "note": "H2, domyślnie \"Zobacz zaprojektowane przez nas książki\" — inline RichText"
+   },
+   {
+    "name": "categories",
+    "type": "array",
+    "note": "lista kategorii: [{label:string, covers:[{id,url,alt}]}] — 5 wg designu (Beletrystyka, Podręczniki, Poezja, Inne, Książki naukowe); label inline RichText per kolumna, covers = repeatable MediaUpload lista okładek"
+   },
+   {
+    "name": "activeIndex",
+    "type": "number",
+    "note": "indeks domyślnie otwartej kategorii (design pokazuje ostatnią — \"Książki naukowe\"); rozważyć czy to atrybut sidebar czy zawsze pierwsza otwarta na froncie"
+   },
+   {
+    "name": "anchor",
+    "type": "string",
+    "note": "jawnie w attributes — blok SSR (save→null)"
+   },
+   {
+    "name": "className",
+    "type": "string",
+    "note": "jawnie w attributes — blok SSR (save→null)"
+   }
+  ]
+ },
+ "notes": "Design ma dokładnie 5 kategorii portfolio, nie 4: 4 zwinięte kolumny widoczne w designie (BELETRYSTYKA, podręczniki, poezja, INNE) + 1 aktywna/otwarta (\"KSIĄŻKI NAUKOWE\"), która nie występuje wśród zwiniętych etykiet — analogicznie do sekcji USŁUGI, gdzie \"Doradztwo\" jest otwartym pierwszym elementem, a \"redakcja/projekt/skład/druk/dystrybucja\" to zwinięte kolumny 2-6. Okładki (powidoki 1/2/3) mają node type \"rounded-rectangle\" w metadanych Figmy, ale wygenerowany kod nie zawiera klasy zaokrąglenia — podobnie panel i kolumny — potraktowano to jako radius=0, do szybkiej weryfikacji wzrokowej w Figma inspektorze. Wartość line-height 84.199px pojawia się identycznie i dla etykiet kolumn (37.4px) i dla nagłówka panelu (36px) — najpewniej współdzielony styl tekstowy w Figmie, nieistotny wizualnie dla jednoliniowego tekstu, ale nie należy go kopiować dosłownie jako realny line-height w SCSS bez sprawdzenia. Wszystkie tracking values są spójne z resztą designu (-1% dla nagłówków/etykiet, +2% dla eyebrow) — prawdopodobnie odpowiadają już istniejącym presetom typograficznym motywu (theme.json) i warto je stamtąd reużyć zamiast hardkodować. Zero node'ów z frazą \"hover\" w tej sekcji (w przeciwieństwie do kart bloga w tym samym pliku Figma) — nie znaleziono unikalnych wariantów hover do odtworzenia. Zrzuty ekranu zapisane lokalnie: /private/tmp/claude-501/-Applications-MAMP-htdocs-atonce-wp-content-themes-atonce/a19b065e-9b30-4274-a525-6e3eee1df571/scratchpad/portfolio-1.png (tytuł), portfolio-2.png (panel — render wyszedł jako płaska jasnoszara plama, bo Rectangle 115 to zwykły prostokąt-liść bez dzieci; realna zawartość [nagłówek, okładki, strzałki] to osobne, nakładające się node'y-rodzeństwo na canvasie, potwierdzone przez get_metadata), portfolio-3.png (przykładowa kolumna kategorii, jednolity czarny prostokąt).",
+ "openQuestions": [
+  "Czy 5 kategorii (BELETRYSTYKA, podręczniki, poezja, INNE, KSIĄŻKI NAUKOWE) to kompletna i docelowa lista, czy klient będzie dodawał/usuwał kategorie? Wpływa na to, czy \"categories\" to stała lista 5 pozycji, czy w pełni repeatable (+Dodaj kategorię).",
+  "Czy \"KSIĄŻKI NAUKOWE\" ma być domyślnie otwarta na froncie (jak w zrzucie Figmy), czy to tylko stan zrzutu, a realnie pierwsza kategoria (BELETRYSTYKA) powinna być otwarta domyślnie?",
+  "Kategorie/okładki jako statyczne atrybuty bloku (edytowalne w edytorze) czy dynamiczny CPT+taksonomia (np. CPT \"książka\" + taxonomy \"kategoria-portfolio\"), szczególnie jeśli realna liczba okładek per kategoria może być duża — patrz docs/patterns/dynamic-blocks.md.",
+  "Logika akordeonu ma być spójna z sekcją USŁUGI (ten sam wzorzec wizualny) — czy to ma być współdzielony komponent/JS-hook między oboma blokami, czy niezależna implementacja per blok?",
+  "Tło sekcji nie jest zdefiniowane żadnym prostokątem w Figmie — założono biel strony (#FFFFFF) w naprzemiennym rytmie ciemne/jasne sekcje; proszę potwierdzić.",
+  "Slider okładek: czy zawsze pokazuje dokładnie 3 pozycje (peek coverflow) niezależnie od liczby okładek w kategorii, czy przewijalny przez dowolną liczbę pozycji (>3) sterowaną strzałkami prev/next?",
+  "Kontener/full-width: sekcja mierzy ~1677px z asymetrycznym insetem (132px lewo / 111px prawo) na canvasie 1920px — czy użyć istniejącego standardowego kontenera motywu (np. tokenu, gdzie inne bloki tytułowe mają x=160/w=1026), czy odtworzyć dokładnie zmierzone (asymetryczne) wartości?"
+ ]
+}

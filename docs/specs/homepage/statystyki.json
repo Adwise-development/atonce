@@ -1,0 +1,150 @@
+{
+ "section": "MODUŁ STATYSTYKI — \"AT ONCE w liczbach\" / \"Co warto o nas wiedzieć?\" (sekcja ciemna, homepage AT ONCE). Node główny: 3798:5282 (frame, desktop 1920×1136). Struktura: eyebrow (mały nagłówek uppercase) → H2 → rząd 3 kart statystyk w układzie schodkowym (rosnące wysokości), wyrównanych do dołu.",
+ "layout": "Sekcja edge-to-edge na canvasie 1920px, tło pełne #0A0A0A (bez marginesu bocznego dla tła). Wewnątrz: kontener treści wyśrodkowany, zmierzona szerokość ≈1660px (side padding ≈130px każda strona) — UWAGA: to więcej niż `wideSize:1440px` z obecnego theme.json, więc blok prawdopodobnie potrzebuje własnego max-width w SCSS zamiast polegać na natywnym `align:\"wide\"`. Pionowo: eyebrow → gap ≈45px → heading (H2) → gap ≈166px → rząd kart. Rząd kart = 3 równe kolumny (flex lub grid, `repeat(3,1fr)`), szerokość kolumny zmierzona ≈510px, gap między kolumnami ≈64px (3×510+2×64≈1658 ≈ szerokość kontenera — spójne). Karty mają RÓŻNE wysokości: 438 / 518 / 582px (dokładnie potwierdzone pomiarem pikseli screenshota vs. hint), rosnąco od lewej do prawej, WSZYSTKIE wyrównane do tej samej linii dolnej (align-items: flex-end / bottom-aligned) — potwierdzone: dolna krawędź wszystkich 3 kart wypada na identycznym Y na screenshocie. Karty to proste prostokąty bez zaokrągleń (zweryfikowane zoomem na 3 rogach — ostre 90°). Wewnątrz karty: ogromna liczba (240px, wyśrodkowana tekstowo) nad podpisem (32px, wyśrodkowany, może zawijać się do 2 linii), całość zdaje się być dociśnięta do dołu karty (przestrzeń pusta nad liczbą rośnie wraz ze wzrostem wysokości karty — stąd efekt \"schodków\"). Sekcja NIE ma wersji mobile w tym frame'ie.",
+ "colors": [
+  {
+   "hex": "#0A0A0A",
+   "role": "tło całej sekcji (edge-to-edge) ORAZ kolor tekstu WEWNĄTRZ kart (liczba + podpis) — potwierdzone przez design_context (node 3798:5291, 3798:5294: text-[#0a0a0a]) i próbkowanie pikseli tła"
+  },
+  {
+   "hex": "#E0E0E0",
+   "role": "tło wszystkich 3 kart statystyk — potwierdzone przez design_context na node 3798:5288 (Rectangle134: bg-[#e0e0e0]) i próbkowaniem pikseli kart 1 i 3 (identyczny odcień — BRAK wariantu koloru między kartami, mimo sugestii w hincie). Ten sam odcień #E0E0E0 użyty też jako kolor tekstu eyebrow + heading na ciemnym tle (zmierzone próbkowaniem najjaśniejszego piksela w obu tekstach — nie pobierane przez design_context, więc przybliżone ale wysoce prawdopodobne że to dokładnie ten sam token)"
+  },
+  {
+   "hex": "#FFA370 (akcent, wg briefu ogólnego)",
+   "role": "NIE WYSTĘPUJE w tej sekcji na statycznym screenshocie — brak pomarańczowego w całym module. Możliwe że akcent dotyczy innych sekcji homepage lub stanów hover niewidocznych na screenshocie (patrz openQuestions)"
+  }
+ ],
+ "typography": [
+  {
+   "element": "eyebrow \"AT ONCE W LICZBACH\"",
+   "family": "PP Mori (przybliżone — NIE pobierane przez design_context, poza dozwolonym zakresem)",
+   "sizePx": 14,
+   "weight": "Regular/Medium (przybliżone)",
+   "transform": "uppercase",
+   "letterSpacing": "szerokie, ~0.06-0.1em (przybliżone, pomiar wizualny)",
+   "lineHeight": "przybliżone ~1.2"
+  },
+  {
+   "element": "heading H2 \"Co warto o nas wiedzieć?\"",
+   "family": "PP Mori (przybliżone)",
+   "sizePx": 68,
+   "weight": "Bold/Semibold (przybliżone — grubość kreski wyraźnie większa niż liczba/podpis, które są 'Regular')",
+   "lineHeight": "przybliżone ~1.05-1.1",
+   "letterSpacing": "przybliżone, lekko ujemny jak w pozostałych elementach"
+  },
+  {
+   "element": "liczba (np. \"68\", node 3798:5294) — WARTOŚĆ DOKŁADNA",
+   "family": "PP Mori:Regular",
+   "sizePx": 240,
+   "weight": "Regular",
+   "lineHeight": "240px (100%, leading-[240px] = tight/brak dodatkowego interlinia)",
+   "letterSpacing": "-2.4px (~-1% rozmiaru)",
+   "transform": "none"
+  },
+  {
+   "element": "podpis karty np. \"specjalistów pracuje z nami\" (node 3798:5291) — WARTOŚĆ DOKŁADNA",
+   "family": "PP Mori:Regular",
+   "sizePx": 32,
+   "weight": "Regular",
+   "lineHeight": "40px (125%)",
+   "letterSpacing": "-0.32px (~-1% rozmiaru)",
+   "transform": "none"
+  }
+ ],
+ "spacing": [
+  {
+   "what": "padding-top sekcji (od góry do eyebrow)",
+   "value": "≈101px (przybliżone, pomiar screenshota)"
+  },
+  {
+   "what": "gap eyebrow → heading",
+   "value": "≈45px (przybliżone)"
+  },
+  {
+   "what": "gap heading → góra rzędu kart (najwyższa karta, 582px)",
+   "value": "≈166px (przybliżone)"
+  },
+  {
+   "what": "padding-bottom sekcji (od dołu kart do końca sekcji)",
+   "value": "≈155px (przybliżone)"
+  },
+  {
+   "what": "gap między kartami (kolumnami)",
+   "value": "≈64px (zmierzone: 46px w screenshocie 1400px-wide × skala 1920/1400)"
+  },
+  {
+   "what": "szerokość pojedynczej karty (kolumny)",
+   "value": "≈510px (zmierzone)"
+  },
+  {
+   "what": "szerokość kontenera treści (3 karty + 2 gapy)",
+   "value": "≈1658-1660px, side padding ≈130px każda strona (zmierzone)"
+  },
+  {
+   "what": "wysokość karty 1 (\"47\")",
+   "value": "438px (dokładne — potwierdzone pomiarem pikseli, zgodne z hintem)"
+  },
+  {
+   "what": "wysokość karty 2 (\"68\")",
+   "value": "518px (dokładne — potwierdzone pomiarem pikseli, zgodne z hintem)"
+  },
+  {
+   "what": "wysokość karty 3 (\"154\")",
+   "value": "582px (dokładne — potwierdzone pomiarem pikseli, zgodne z hintem)"
+  },
+  {
+   "what": "gap liczba → podpis wewnątrz karty (ink-to-ink)",
+   "value": "≈24-32px (przybliżone/niepewne — mierzone pośrednio z pikseli glifów, nie z design_context na parent frame karty)"
+  }
+ ],
+ "radii": [
+  {
+   "what": "karty statystyk (wszystkie 3, identycznie)",
+   "px": 0
+  }
+ ],
+ "assets": [],
+ "interactivity": "Brak potwierdzonej interaktywności — na statycznym screenshocie i w nazwach zapytanych node'ów (Rectangle134, tekst liczby, tekst podpisu) NIE ma wariantów \"hover\"/\"active\". Sekcja wygląda na czysto statyczny display 3 kart ze statystykami (bez slidera, akordeonu, marquee). Nie sprawdzano nazw node'ów poza dozwolonym zakresem (3798:5288/5291/5294) — jeśli w drzewie warstw karty istnieją warianty hover, nie zostały wykryte tym zapytaniem.",
+ "repeatable": "3 karty statystyk w STAŁYM układzie schodkowym: pozycja 1→438px, pozycja 2→518px, pozycja 3→582px (wysokości przypisane do POZYCJI, nie do treści), wszystkie wyrównane do wspólnej linii dolnej. Pola edytowalne przez usera per karta (inline, RichText): `number` (wartość liczby, np. \"47\"/\"68\"/\"154\") i `caption` (podpis, 1-2 linie tekstu). Na poziomie bloku edytowalne również: `eyebrow` i `heading` (RichText). WAŻNE: ponieważ wysokości są częścią stałego designu (efekt \"schodków\"), typowy wzorzec \"repeatable .map() + ✕ + '+ Dodaj'\" z docs/block-template.md może nie pasować wprost — patrz openQuestions pkt 1.",
+ "suggestedBlock": {
+  "name": "stats-liczby",
+  "prefix": "stat",
+  "attributes": [
+   {
+    "name": "eyebrow",
+    "type": "string",
+    "note": "domyślnie 'AT ONCE W LICZBACH', RichText inline"
+   },
+   {
+    "name": "heading",
+    "type": "string",
+    "note": "domyślnie 'Co warto o nas wiedzieć?', RichText inline (H2)"
+   },
+   {
+    "name": "items",
+    "type": "array",
+    "note": "domyślnie 3 elementy {number:string, caption:string}; wysokość karty (438/518/582px) mapowana z indeksu pozycji przez klasę modifier (.stat__card--1/--2/--3), NIE jest atrybutem — patrz openQuestions pkt 1 czy to ma być sztywne czy w pełni repeatable"
+   },
+   {
+    "name": "anchor",
+    "type": "string",
+    "note": "supports — SSR, jawnie w attributes"
+   },
+   {
+    "name": "className",
+    "type": "string",
+    "note": "supports — SSR, jawnie w attributes"
+   }
+  ]
+ },
+ "notes": "Metodologia: wartości KOLORÓW i TYPOGRAFII liczby+podpisu pochodzą z get_design_context (dokładne, cytowane z kodu referencyjnego). Pozostałe wymiary (spacing, szerokości, wysokości kart, radius) zostały zmierzone analitycznie z pobranego screenshota (Python/PIL, wykrywanie krawędzi kolorów px-po-px) i przeliczone przez współczynnik skali 1920/1400≈1.371 (screenshot był renderowany w 1400px zamiast oryginalnych 1920px) — dokładność ±2-5px. Wysokości kart (438/518/582) zostały NIEZALEŻNIE zweryfikowane pomiarem i pasują dokładnie do hintu z zadania, co daje wysoką pewność poprawności metody skalowania. Radius=0 potwierdzone wizualnie (zoom 6x na 3 rogach, ostre 90°, brak antyaliasingu sugerującego zaokrąglenie). Screenshot źródłowy zapisany lokalnie: /private/tmp/claude-501/-Applications-MAMP-htdocs-atonce-wp-content-themes-atonce/a19b065e-9b30-4274-a525-6e3eee1df571/scratchpad/statystyki-1.png (oraz pomocnicze crop'y card1-corner.png, card3-corner.png, card1-bottom-corner.png w tym samym folderze). Node 3798:5288 (Rectangle134) to prawdopodobnie tło ŚRODKOWEJ karty (68) sądząc po dopasowaniu koloru #E0E0E0 do wszystkich 3 kart identycznie — nie było potrzeby osobnego zapytania per karta 1/3, bo kolor jest wspólny.",
+ "openQuestions": [
+  "Czy 3 karty statystyk mają być SZTYWNO 3 (stałe wysokości schodkowe 438/518/582px przypisane do pozycji 1/2/3, layout łamie się przy innej liczbie) czy blok ma być w pełni repeatable (+Dodaj/✕ wg konwencji docs/block-template.md) mimo ryzyka złamania układu schodkowego przy 2 lub 4+ elementach?",
+  "Sekcja jest edge-to-edge (tło #0A0A0A na całą szerokość 1920px) z wewnętrznym kontenerem ~1660px, co PRZEKRACZA `wideSize:1440px` z obecnego theme.json — czy blok ma dostać własny max-width w SCSS (np. custom `.stat__inner{max-width:1660px}`) niezależny od natywnego `align:\"wide\"`, czy zaktualizować `wideSize` w theme.json globalnie?",
+  "Dokładna typografia EYEBROW i HEADING (rozmiar, waga, letter-spacing) NIE była pobierana przez get_design_context — poza dozwolonym zakresem kroku 4 (tylko 3798:5288/5291/5294). Podane wartości (14px eyebrow, 68px heading) są SZACUNKOWE z pomiaru screenshota. Potwierdzić dokładnie, jeśli wymagana precyzja pikselowa (dodatkowy get_design_context na node nagłówka/eyebrow, poza obecnym zleceniem).",
+  "Akcent pomarańczowy #FFA370 (wg ogólnego briefu designu) NIE występuje nigdzie w tej sekcji na statycznym screenshocie — potwierdzić czy jest w ogóle używany w tym module (np. hover na kartach — niewidoczny na screenshocie) czy moduł statystyk celowo jest monochromatyczny (czarno-biały).",
+  "PP Mori jest variable font wg ogólnego briefu, ale design_context zwraca dla liczby i podpisu statyczny styl 'PP Mori:Regular' (bez osi wght/font-variation-settings) — potwierdzić czy w CSS bloku użyć mimo to `font-variation-settings: 'wght' 400` (spójność z resztą theme) czy zwykłego `font-weight: 400`.",
+  "Gap liczba→podpis wewnątrz karty oraz padding góra/dół karty NIE są dostępne wprost z design_context (mierzone pośrednio z pikseli glifów, niepewność ±10-15px) — potwierdzić dokładne wartości jeśli ma to być pixel-perfect (wymaga dodatkowego zapytania o node rodzica pojedynczej karty, którego ID nie było w dozwolonym zakresie)."
+ ]
+}

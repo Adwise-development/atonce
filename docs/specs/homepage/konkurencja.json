@@ -1,0 +1,203 @@
+{
+ "section": "KONKURENCJA — sekcja \"Co zyskasz, wybierając nasz model współpracy?\" (3 modele: Outsourcing / Zespół wydawniczy / Model at once — porównanie kart)",
+ "layout": "Sekcja JASNA (biała), edge-to-edge, desktop 1920px. Nad kartami: eyebrow \"MODELE WYDAWNICZE NA RYNKU\" + H2 \"Co zyskasz, wybierając nasz model współpracy?\" (te 2 elementy poza zakresem pobranych node'ów — wartości tylko wizualne/przybliżone, patrz openQuestions). Poniżej: grid 3 kolumny × 1 wiersz, karty 544×660px każda (stała wartość, BRAK wersji mobile w tym frame). Zmierzone współrzędne (canvas 1920px): karta 1 left=96px, karta 3 left≈1248px (prawa krawędź ≈1792px) → wynika z tego gap między kartami ≈32px, margines sekcji lewy ≈96px, prawy ≈128px (ASYMETRIA — do potwierdzenia, patrz openQuestions; w implementacji zalecany symetryczny kontener wyśrodkowany). Karty NIE nachodzą na siebie, brak overlapu. Każda karta: obramowanie 1px solid #0A0A0A, narożniki ostre (radius 0), tło karty wizualnie identyczne z tłem sekcji (biel) — WAŻNA KOREKTA hipotezy z briefu: karta \"Model at once\" (featured) NIE jest ciemna — wszystkie 3 karty mają identyczny jasny styl (białe tło, czarny 1px border). Jedyne różnice wyróżnienia karty 3: (a) ikony punktów — pomarańczowy wypełniony check zamiast szarego obrysowanego \"x w kółku\", (b) nagłówek karty 3 ma większy font-size (56px vs 52px w kartach 1/2), (c) karta 3 ma 8 punktów listy vs 3-4 w kartach 1/2. Struktura karty (mierzone na kartach 1 i 3 przez get_design_context): padding od krawędzi karty do treści ≈32px (lewo), ≈39-40px (góra, do eyebrow \"MODEL n\"), gap eyebrow→heading ≈10px, gap heading→lista ≈80px (przy 1-liniowym heading), lista = pionowy stos wierszy (ikona 27.2×27.2px + tekst), gap poziomy ikona↔tekst ≈19-20px, gap pionowy między wierszami listy =16px (spójne z odstępem akapitów w tekście źródłowym), line-height tekstu punktu=28px.",
+ "colors": [
+  {
+   "role": "tło sekcji (jasna)",
+   "hex": "#FFFFFF (przybliżone — nie potwierdzone dokładnym hex z design_context, node sekcji poza zakresem pobierania)"
+  },
+  {
+   "role": "tło karty (wygląda identycznie jak tło sekcji, brak osobnego fillu — prostokąt karty to prawdopodobnie samo obramowanie wyeksportowane jako obraz)",
+   "hex": "#FFFFFF (przybliżone, jw.)"
+  },
+  {
+   "role": "tekst (eyebrow, nagłówki kart, tekst punktów) + obramowanie karty",
+   "hex": "#0A0A0A"
+  },
+  {
+   "role": "akcent — wypełnienie ikony 'check' w karcie wyróżnionej (Model at once)",
+   "hex": "#FFA370"
+  },
+  {
+   "role": "ikona 'x w kółku' w kartach standard (Model 1, Model 2) — szary/neutralny, dokładny hex NIE zgłoszony przez design_context (nie ma go na liście 'styles contained in design' dla karty 1, prawdopodobnie to rastrowa ikona z własnym, niezależnym kolorem lub #0A0A0A z opacity)",
+   "hex": "nieznany dokładnie — do potwierdzenia, wizualnie jasny/średni szary"
+  }
+ ],
+ "typography": [
+  {
+   "element": "Card eyebrow ('MODEL 1' / 'MODEL 3', prawdopodobnie też 'MODEL 2')",
+   "family": "PP Mori",
+   "sizePx": 20,
+   "weight": "400 (Regular — brak font-variation-settings w exporcie, brak niestandardowej osi)",
+   "lineHeight": "normal",
+   "letterSpacing": "-0.2px",
+   "transform": "uppercase"
+  },
+  {
+   "element": "Card heading — wariant standard (np. 'OUTSOURCING', 'ZESPÓŁ WYDAWNICZY')",
+   "family": "PP Mori",
+   "sizePx": 52,
+   "weight": "400",
+   "lineHeight": "66px",
+   "letterSpacing": "-0.52px",
+   "transform": "uppercase"
+  },
+  {
+   "element": "Card heading — wariant featured ('MODEL AT ONCE')",
+   "family": "PP Mori",
+   "sizePx": 56,
+   "weight": "400",
+   "lineHeight": "66px",
+   "letterSpacing": "-0.56px",
+   "transform": "uppercase"
+  },
+  {
+   "element": "Tekst pozycji listy (wszystkie karty)",
+   "family": "PP Mori",
+   "sizePx": 16,
+   "weight": "400",
+   "lineHeight": "28px",
+   "letterSpacing": "brak danych w exporcie (domyślne 0)",
+   "transform": "none"
+  },
+  {
+   "element": "[PRZYBLIŻONE, POZA ZAKRESEM] Eyebrow sekcji 'MODELE WYDAWNICZE NA RYNKU'",
+   "family": "PP Mori (zakładane)",
+   "sizePx": 14,
+   "weight": "400 (przybliżone)",
+   "lineHeight": "brak danych",
+   "letterSpacing": "brak danych",
+   "transform": "uppercase"
+  },
+  {
+   "element": "[PRZYBLIŻONE, POZA ZAKRESEM] H2 sekcji 'Co zyskasz, wybierając nasz model współpracy?'",
+   "family": "PP Mori (zakładane)",
+   "sizePx": 48,
+   "weight": "600-700 (wizualnie pogrubiony, cięższy niż nagłówki kart — do potwierdzenia get_design_context)",
+   "lineHeight": "brak danych",
+   "letterSpacing": "brak danych",
+   "transform": "none (sentence case)"
+  }
+ ],
+ "spacing": [
+  {
+   "what": "Rozmiar karty (stały, brak clamp — brak wersji mobile w tym frame)",
+   "value": "544 × 660px"
+  },
+  {
+   "what": "Padding karty — lewo do treści",
+   "value": "~32px"
+  },
+  {
+   "what": "Padding karty — góra do eyebrow",
+   "value": "~39-40px"
+  },
+  {
+   "what": "Gap eyebrow → heading (w karcie)",
+   "value": "~10px"
+  },
+  {
+   "what": "Gap heading → lista (przy 1-liniowym heading)",
+   "value": "~80px"
+  },
+  {
+   "what": "Gap poziomy ikona ↔ tekst pozycji",
+   "value": "~19-20px"
+  },
+  {
+   "what": "Gap pionowy między pozycjami listy",
+   "value": "16px"
+  },
+  {
+   "what": "Rozmiar ikony punktu",
+   "value": "27.2 × 27.2px"
+  },
+  {
+   "what": "Gap między kartami (kolumny grida)",
+   "value": "~32px (zmierzone; do zweryfikowania — układ 96/32/32/128 nie jest w pełni symetryczny, patrz openQuestions)"
+  },
+  {
+   "what": "Margines sekcji — lewy",
+   "value": "~96px"
+  },
+  {
+   "what": "Margines sekcji — prawy",
+   "value": "~128px (ASYMETRIA vs lewy, do potwierdzenia)"
+  }
+ ],
+ "radii": [
+  {
+   "what": "Karta (obramowanie, wszystkie warianty)",
+   "px": 0
+  },
+  {
+   "what": "Ikona punktu (kółko — x lub check)",
+   "px": 13.6
+  }
+ ],
+ "assets": [
+  {
+   "name": "Prostokąt tła/obramowania karty (Rectangle136 / Rectangle142 / analogiczny dla karty 2)",
+   "classification": "hardcoded",
+   "kind": "dekoracja/border",
+   "nodeId": "3798:5096, 3798:5143 (+ odpowiednik karty 2, niepobrany)"
+  },
+  {
+   "name": "Ikona 'x w kółku' (status neutralny/negatywny) — karty standard",
+   "classification": "hardcoded",
+   "kind": "ikona",
+   "nodeId": "3798:5101, 3798:5106, 3798:5111, 3798:5116 (Model 1) — 3 różne asset ID mimo wizualnie identycznego wyglądu, prawdopodobnie duplikaty tego samego glifu"
+  },
+  {
+   "name": "Ikona 'check' pomarańczowa w kółku (status pozytywny) — karta featured",
+   "classification": "hardcoded",
+   "kind": "ikona",
+   "nodeId": "3798:5148, 5151, 5154, 5157, 5160, 5163, 5166, 5169 (Model 3) — kilka asset ID, wizualnie ten sam glif powtórzony"
+  }
+ ],
+ "interactivity": "Brak interaktywności w tej sekcji — statyczna siatka 3 kart porównawczych. Brak nazw node'ów z sufiksem \"hover\"/\"active\", brak sliderów, akordeonów, marquee. Jedyna 'dynamika' to wizualne wyróżnienie karty 3 przez kolor ikony (pomarańcz) i większy font nagłówka (56 vs 52px) — czysto statyczne stylowanie wariantu, nie interakcja.",
+ "repeatable": "Dwupoziomowa struktura repeatable: (1) \"Karta modelu\" — prawdopodobnie STAŁE 3 karty (treść biznesowa specyficzna: Outsourcing / Zespół wydawniczy / Model at once), niekoniecznie otwarty add/remove kart — każda ma: eyebrow (tekst, np. \"Model 1\"), heading (tekst, np. \"Outsourcing\"), variant ('standard'|'featured' — steruje kolorem ikony i font-size nagłówka), items (repeatable). (2) \"Pozycja listy\" wewnątrz karty — W PEŁNI repeatable: ikona (automatyczna z variant karty, NIE user-editable per-pozycja) + tekst (edytowalny, RichText/string). Liczba pozycji różna per karta: Model 1 = 4, Model 2 = 3 (ustalone tylko wizualnie ze screenshota, karta 2 poza zakresem pobierania), Model 3 = 8. W edytorze: \"✕\" na hover pozycji, \"+ Dodaj pozycję\" pod listą (nie sidebar), zgodnie z konwencją repeatable items.",
+ "suggestedBlock": {
+  "name": "cooperation-models",
+  "prefix": "acm",
+  "attributes": [
+   {
+    "name": "sectionEyebrow",
+    "type": "string",
+    "note": "inline RichText, default 'MODELE WYDAWNICZE NA RYNKU' — wartości typograficzne przybliżone, node poza zakresem pobrania"
+   },
+   {
+    "name": "sectionHeading",
+    "type": "string",
+    "note": "inline RichText, default 'Co zyskasz, wybierając nasz model współpracy?' — wartości typograficzne przybliżone"
+   },
+   {
+    "name": "cards",
+    "type": "array",
+    "note": "3 elementy (prawdopodobnie stałe, nie open repeater — do potwierdzenia z userem). Każdy: {eyebrow:string, heading:string, variant:'standard'|'featured', items:[{text:string}]}. 'items' to osobny repeater wewnątrz każdej karty (add/remove pozycji). Ikona pozycji NIE jest atrybutem — wynika automatycznie z 'variant' karty (standard→x-circle hardcoded, featured→check-orange hardcoded)"
+   },
+   {
+    "name": "anchor",
+    "type": "string",
+    "note": "jawnie w attributes — blok SSR (save→null)"
+   },
+   {
+    "name": "className",
+    "type": "string",
+    "note": "jawnie w attributes — blok SSR (save→null)"
+   }
+  ]
+ },
+ "notes": "KOREKTA hipotezy z briefu: karta \"Model at once\" (Model 3, wyróżniona) NIE ma ciemnego tła — wszystkie 3 karty mają identyczny jasny styl (białe tło + czarne 1px obramowanie, narożniki ostre). Wyróżnienie karty 3 realizowane jest wyłącznie przez: (1) kolor ikony punktu (pomarańcz #FFA370 zamiast szarego obrysu), (2) nieco większy font-size nagłówka (56px vs 52px), (3) liczbę punktów (8 vs 3-4, bo to lista korzyści a nie wad). Tekst punktów w Model 1 (pozycje 3 i 4) wygląda na sklejone bez separatora dwa zdania w jednym akapicie (brak kropki między zdaniami) — może być zamierzonym \"flowing text\" albo błędem źródłowym, patrz openQuestions. W Model 3 pozycja 8 zawiera literówkę źródłową \"płatnikviem\" zamiast \"płatnikiem\". Model 2 (Zespół wydawniczy) NIE był pobierany przez get_design_context zgodnie z instrukcją zakresu (tylko node'y 3798:5095 i 3798:5142) — treść i układ karty 2 pochodzą wyłącznie z ogólnego screenshota sekcji (3798:5093), więc dokładne px/hex dla tej karty nie są potwierdzone (zakładam identyczną strukturę jak karta 1/standard). Sekcja nagłówkowa (eyebrow strony + H2) także poza zakresem pobranych node'ów — wartości typograficzne w tym raporcie są tylko wizualnym przybliżeniem ze screenshota, zalecane dociągnięcie get_design_context na tamtym node przed finalną implementacją, jeśli potrzebna precyzja co do px/tracking/weight. Layout kolumn: zmierzone wartości (lewy margines 96px, gap między kartami 32px, prawy margines 128px) nie są w pełni symetryczne — flagowane w openQuestions, w implementacji zalecany prosty, spójny kontener (np. max-width wyśrodkowany) zamiast kopiowania asymetrii 1:1. Brak font-variation-settings w otrzymanym kodzie referencyjnym (tylko 'PP_Mori:Regular') — nie wykryto użycia innej wagi wariable fontu w tej sekcji.",
+ "openQuestions": [
+  "Dokładny hex tła sekcji/kart (biel czy konkretny token np. #FAFAFA z theme.json?) — node sekcji poza zakresem pobrania, potwierdzić przed kodem.",
+  "Dokładny kolor ikony 'x w kółku' (szary) w kartach standard — nie zgłoszony w design_context, wizualnie jasny/średni szary; hardcoded asset, ale warto potwierdzić hex do spójności z resztą theme.",
+  "Asymetria marginesów sekcji (lewy ~96px vs prawy ~128px, gap kart ~32px) — zamierzona czy przyjąć symetryczny kontener (np. max-width 1728px wyśrodkowany, gap 32-48px)?",
+  "Czy 'cards' to sztywna struktura 3 elementów (treść biznesowa specyficzna: Outsourcing/Zespół wydawniczy/Model at once, bez add/remove karty) czy user ma mieć pełny repeater kart? Rekomendacja: fixed 3 + atrybut variant, 'items' wewnątrz jako repeater edytowalny.",
+  "Merged zdania bez separatora w punktach 3 i 4 karty Model 1 — zamierzony flowing text (jeden blok RichText per pozycja) czy rozbić na osobne pozycje listy z własnymi ikonami?",
+  "Literówka 'płatnikviem' (Model 3, pozycja 8) — potwierdzić poprawną treść przed wpisaniem do WP ('płatnikiem').",
+  "Karta Model 2 (Zespół wydawniczy) nie została pobrana przez get_design_context (poza zakresem zadania) — czy dociągnąć dokładne wartości px/hex tej karty przed implementacją, czy wystarczy założenie 'identyczna struktura jak Model 1 (wariant standard)'?",
+  "Nagłówek sekcji (eyebrow + H2 'Co zyskasz...') poza zakresem pobranych node'ów — czy pobrać osobno get_design_context dla precyzyjnych wartości typograficznych przed kodowaniem tej części bloku?",
+  "Różnica w font-size nagłówka karty featured (56px) vs standard (52px) — potwierdzić że to celowy element wyróżnienia (część stylu 'variant=featured'), nie przypadkowa rozbieżność w pliku Figma."
+ ]
+}

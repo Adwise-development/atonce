@@ -1,0 +1,234 @@
+{
+ "section": "MODUŁ KONTAKT (node 5721:1069 / instance treści 3798:6553) — sekcja \"ekspert + formularz kontaktowy CF7\", strona główna AT ONCE, plik Figma 4tFw94vUyaEZdUSjp1eXgW. Desktop 1920×924, TYLKO desktop — brak wersji mobile w tym frame, nie zgadywać wartości mobile.",
+ "layout": "Sekcja edge-to-edge, 1920×924, tło #E0E0E0 na całą szerokość viewportu (UWAGA: to NIE ciemne #0A0A0A jak reszta strony — patrz openQuestions #1). Układ 2-kolumnowy (w eksporcie Figmy elementy leżą \"absolute\" względem sekcji, logicznie odpowiada flex/grid 2 kolumn):\n\nLEWA kolumna (\"ekspert\"): start przy left:160px (= padding-left sekcji). Pionowo od góry: okrągły avatar 339×339px (top≈69px) → gap≈39px → label \"EKSPERT AT ONCE\" uppercase (wysokość≈41px) → gap≈101px → paragraf opisowy, width≈612px (top≈589px). Dół paragrafu (≈859px) wyrównany z dołem karty formularza (patrz niżej) — spójna oś dolna obu kolumn.\n\nPRAWA kolumna = karta formularza: prostokąt z samym obramowaniem 4px solid #0A0A0A, BEZ wypełnienia (widać przez nią tło sekcji #E0E0E0). Wymiary/pozycja w obrębie sekcji: left≈876px, top≈76px, width≈980px, height≈783px. Prawa krawędź karty leży 64px od prawej krawędzi sekcji — ASYMETRYCZNIE wobec lewego paddingu 160px (do potwierdzenia z userem, patrz openQuestions #2). Karta bez zaokrąglenia rogów (ostre kąty).\n\nWewnątrz karty, padding ≈84px (góra/lewo, wynika z 84 = prawdopodobnie 80px design + 4px border): flex-col z gap:72px między H2 a blokiem pól+button. Blok pól+button: flex-col, gap:48px, width:793px, items-end (button wyrównany do prawej krawędzi kolumny). Zawiera: (a) \"grid\" 3 pól formularza (e-mail / telefon / temat rozmowy) — każde: label 16px nad cienką linią (underline) ~31px niżej, odstęp między kolejnymi wierszami pól ~96-99px; (b) checkbox zgody 32×32px (border 3px) + tekst zgody 326px (wrap 2 linie, gap checkbox→tekst = 20px); (c) button \"WYŚLIJ\" (pill, 219×64px) wyrównany do prawej krawędzi kolumny pól, pod nią.\n\nFormularz to CF7 (shortcode) — pola/labelki input renderowane przez CF7, nie przez natywne bloki Gutenberg wewnątrz tego bloku.",
+ "colors": [
+  {
+   "role": "tło sekcji (edge-to-edge)",
+   "hex": "#E0E0E0"
+  },
+  {
+   "role": "tekst / bordery / ikony (kolor podstawowy treści w tym module — UWAGA: nie biel, mimo że reszta strony jest ciemna+biała)",
+   "hex": "#0A0A0A"
+  },
+  {
+   "role": "akcent (button WYŚLIJ, mały element dekoracyjny przy polu 'temat rozmowy')",
+   "hex": "#FFA370"
+  }
+ ],
+ "typography": [
+  {
+   "element": "H2 nagłówek karty 'Skontaktuj się z nami'",
+   "family": "PP Mori",
+   "sizePx": 80,
+   "weight": "Bold (variable font — ustal font-variation-settings z theme.json, nie sam font-weight)",
+   "lineHeight": "98px",
+   "letterSpacing": "-0.8px (~-1%)"
+  },
+  {
+   "element": "Paragraf eksperta 'Daj nam znać, z jakim wyzwaniem...'",
+   "family": "PP Mori",
+   "sizePx": 42,
+   "weight": "Regular",
+   "lineHeight": "54px",
+   "letterSpacing": "0 (brak)"
+  },
+  {
+   "element": "Label 'EKSPERT AT ONCE'",
+   "family": "PP Mori",
+   "sizePx": 26,
+   "weight": "Regular",
+   "lineHeight": "41px",
+   "transform": "uppercase"
+  },
+  {
+   "element": "Label pola formularza (e-mail / telefon / temat rozmowy — wspólny styl)",
+   "family": "PP Mori",
+   "sizePx": 16,
+   "weight": "Regular",
+   "lineHeight": "20px"
+  },
+  {
+   "element": "Tekst zgody przy checkboxie ('zgoda na przetwarzanie danych osobowych')",
+   "family": "PP Mori",
+   "sizePx": 16,
+   "weight": "Regular",
+   "lineHeight": "32px (uwaga: inny niż label pola mimo tego samego size — celowy większy odstęp pod wrap 2-liniowy)"
+  },
+  {
+   "element": "Label buttona 'WYŚLIJ'",
+   "family": "PP Mori",
+   "sizePx": 34,
+   "weight": "Regular (UWAGA: nie Bold, mimo że to CTA)",
+   "lineHeight": "normal",
+   "letterSpacing": "-0.34px (~-1%)",
+   "transform": "uppercase"
+  }
+ ],
+ "spacing": [
+  {
+   "what": "padding-left sekcji (lewa kolumna)",
+   "value": "160px"
+  },
+  {
+   "what": "odstęp: prawa krawędź karty → prawa krawędź sekcji",
+   "value": "64px (asymetryczne vs 160px lewo — potwierdź)"
+  },
+  {
+   "what": "karta formularza: pozycja/wymiary w sekcji",
+   "value": "left≈876px, top≈76px, width≈980px, height≈783px"
+  },
+  {
+   "what": "padding wewnątrz karty (góra/lewo, od bordera do treści)",
+   "value": "≈84px"
+  },
+  {
+   "what": "border karty",
+   "value": "4px solid #0A0A0A"
+  },
+  {
+   "what": "gap: H2 → blok pól+button",
+   "value": "72px"
+  },
+  {
+   "what": "gap: grid pól → button submit",
+   "value": "48px"
+  },
+  {
+   "what": "szerokość kolumny pól+button",
+   "value": "793px (792.904px)"
+  },
+  {
+   "what": "szerokość linii/inputu pod polem",
+   "value": "790px (789.355px)"
+  },
+  {
+   "what": "odstęp label pola → linia (underline) pod nim",
+   "value": "≈31px"
+  },
+  {
+   "what": "odstęp między kolejnymi wierszami pól (label→label)",
+   "value": "≈96-99px"
+  },
+  {
+   "what": "checkbox: rozmiar + border",
+   "value": "32×32px, border 3px solid #0A0A0A, bez radius"
+  },
+  {
+   "what": "gap: checkbox → tekst zgody",
+   "value": "20px"
+  },
+  {
+   "what": "szerokość tekstu zgody (wrap 2 linie)",
+   "value": "326px"
+  },
+  {
+   "what": "button submit: padding",
+   "value": "48px poziomo / 12px pionowo, wysokość całkowita 64px"
+  },
+  {
+   "what": "avatar → label 'EKSPERT AT ONCE'",
+   "value": "≈39px"
+  },
+  {
+   "what": "label 'EKSPERT AT ONCE' → paragraf",
+   "value": "≈101px"
+  },
+  {
+   "what": "szerokość paragrafu eksperta",
+   "value": "≈612px"
+  }
+ ],
+ "radii": [
+  {
+   "what": "button 'WYŚLIJ' (pill/fully-rounded)",
+   "px": 66.805
+  },
+  {
+   "what": "avatar eksperta (koło)",
+   "px": 169.5
+  },
+  {
+   "what": "border karty formularza (ostre rogi)",
+   "px": 0
+  },
+  {
+   "what": "checkbox zgody (ostre rogi)",
+   "px": 0
+  }
+ ],
+ "assets": [
+  {
+   "name": "Zdjęcie eksperta (Ellipse5, node 3798:6549)",
+   "classification": "user-upload",
+   "kind": "zdjęcie",
+   "nodeId": "3798:6549"
+  },
+  {
+   "name": "Linia pod polem formularza (Vector 13, powielona ×3 pod e-mail/telefon/temat rozmowy)",
+   "classification": "hardcoded",
+   "kind": "dekoracja/border — rekomendacja: zaimplementować jako CSS border-bottom, NIE jako <img>",
+   "nodeId": "3798:6543 / 3798:6544 / 3798:6545"
+  },
+  {
+   "name": "Mały obrócony pomarańczowy element 22×8px przy polu 'temat rozmowy' (instancja komponentu 'BUTTON WIĘCEJ' użyta nietypowo, rotate-90)",
+   "classification": "hardcoded",
+   "kind": "dekoracja — wygląda jak artefakt makiety (migający kursor tekstowy w polu), prawdopodobnie NIE do implementacji — patrz openQuestions",
+   "nodeId": "3798:6546"
+  }
+ ],
+ "interactivity": "Brak slidera/akordeonu/marquee w tym module. Hover na buttonie WYŚLIJ — standardowy wg konwencji projektu (@media (hover: hover)), brak jawnego wariantu \"hover\" w nazwach node'ów tego frame'u (sprawdzono metadata buttona 5721:1008 — pojedyncza instancja, brak sibling-wariantów w tym miejscu). Checkbox zgody — natywny toggle (stan \"checked\" NIEobecny w tym frame, styl zaznaczenia do ustalenia). Pola inputów — brak stanu focus/error w designzie (do zaimplementowania wg docs/css-conventions.md, walidacja position:absolute). Element przy \"temat rozmowy\" (node 3798:6546) sugeruje wizualnie \"kursor w trakcie pisania\", ale to prawdopodobnie artefakt Figmy, nie specyfikacja interakcji.",
+ "repeatable": "Brak natywnego repeatera (.map() + \"✕\" + \"+ Dodaj\") w tym module — 3 pola formularza (e-mail/telefon/temat rozmowy) należą do formularza CF7 renderowanego przez shortcode w render.php, nie są częścią atrybutów bloku. Edytowalne przez usera w edytorze Gutenberg: nagłówek H2 (RichText, domyślnie \"Skontaktuj się z nami\"), label \"EKSPERT AT ONCE\" (RichText), paragraf opisowy (RichText), zdjęcie eksperta (MediaUpload + \"✕\" → fallback window.ADWISE.themeUri), oraz wybór formularza CF7 (sidebar — ID/shortcode). Treść labelek pól, walidacja i tekst buttona submit generowanego przez CF7 konfiguruje się w CF7 (admin), nie w atrybutach tego bloku — wymaga stylowania wygenerowanego markupu .wpcf7 zgodnie z designem (docs/patterns/forms.md).",
+ "suggestedBlock": {
+  "name": "contact-expert-form",
+  "prefix": "atc",
+  "attributes": [
+   {
+    "name": "heading",
+    "type": "string",
+    "note": "RichText, domyślnie 'Skontaktuj się z nami'"
+   },
+   {
+    "name": "expertLabel",
+    "type": "string",
+    "note": "RichText, domyślnie 'EKSPERT AT ONCE', text-transform:uppercase w CSS (nie w treści)"
+   },
+   {
+    "name": "description",
+    "type": "string",
+    "note": "RichText, domyślnie 'Daj nam znać, z jakim wyzwaniem wydawniczym obecnie się mierzysz...'"
+   },
+   {
+    "name": "expertPhoto",
+    "type": "object",
+    "note": "{id,url,alt} — MediaUpload z fallbackiem do domyślnego zdjęcia w assets/images (render.php i edit.js identyczne, wg window.ADWISE.themeUri)"
+   },
+   {
+    "name": "cf7FormId",
+    "type": "string",
+    "note": "ID/shortcode formularza CF7 — sidebar SelectControl, render.php robi echo do_shortcode('[contact-form-7 id=\"...\"]')"
+   },
+   {
+    "name": "anchor",
+    "type": "string",
+    "note": "SSR (save→null) — jawnie w attributes, inaczej ginie po save"
+   },
+   {
+    "name": "className",
+    "type": "string",
+    "note": "SSR — jawnie w attributes"
+   }
+  ]
+ },
+ "notes": "Metodologia: get_metadata na 5721:1069 zwrócił WYŁĄCZNIE self-closing tag instancji bez dzieci (nietypowe — normalnie metadata schodzi w głąb); ponowiona próba dała ten sam wynik. Zamiast tego get_design_context na 5721:1069 zwrócił pełny kod (nie było fallbacku do samej metadaty — output nie okazał się \"za duży\"), co dało dokładne wartości Tailwind (kolory hex, px, border, radius, line-height) dla WSZYSTKICH dzieci na raz — z tego pochodzą wartości \"exact\" powyżej (gapy, bordery, radiusy, fonty). Wartości oznaczone \"≈\"/\"~\" są wyliczone z inset w % (Figma eksportuje pozycję jako % kontenera 1920×924) i mogą mieć błąd zaokrąglenia rzędu 1-3px — traktować jako bliskie referencje, nie piksel-perfect prawdę (zwłaszcza odstępy między wierszami pól i padding karty). Dodatkowo pobrano get_design_context na avatarze (3798:6549) — kontener obrazka NIE ma klasy rounded w eksportowanym kodzie (brak border-radius w JSX), mimo że na screenshocie i wg proporcji width=height=339px wygląda jak idealne koło — prawdopodobnie image-fill na kształcie Ellipse w Figmie (już wizualnie okrągłe/przycięte na poziomie assetu lub maski niewidocznej w kodzie eksportu) — w implementacji nałożyć object-fit:cover + border-radius:50% na kontener, żeby mieć pewność efektu niezależnie od proporcji uploadowanego zdjęcia. Nie pobierano żadnych innych assetów poza screenshotem sekcji (zgodnie z instrukcją) — URL-e assetów z design_context są tymczasowe (7 dni) i nie zostały ściągnięte na dysk. Font PP Mori to variable font już ustalony globalnie w projekcie (theme.json) — nie wynajdywać nowych wag/font-variation-settings, użyć istniejących tokenów Bold/Regular z theme.json. Kolorystyka tej sekcji (#E0E0E0/#0A0A0A/#FFA370) jest POTWIERDZONA wprost przez listę \"These styles are contained in the design\" z Figma MCP (nie zgadywana) — jest to jedyna sekcja jasna na inaczej ciemnej stronie, co warto zweryfikować z projektantem.",
+ "openQuestions": [
+  "Sekcja ma jasne tło #E0E0E0 (nie ciemne #0A0A0A jak reszta strony wg briefu) — potwierdzić czy to świadomy kontrastowy moduł, czy pomyłka w designie/inny wariant.",
+  "Asymetryczny padding sekcji: lewo 160px vs prawo-do-karty 64px — karta formularza wychodzi bliżej prawej krawędzi niż standardowy kontener. Trzymać się dokładnie tych wartości z Figmy, czy znormalizować do symetrycznego kontenera używanego w innych sekcjach strony (np. 160/160, ze zmniejszeniem szerokości karty)?",
+  "Mały pomarańczowy obrócony element 22×8px przy polu 'temat rozmowy' (node 3798:6546, komponent nazwany 'BUTTON WIĘCEJ' użyty nietypowo) wygląda jak artefakt makiety Figmy (migający kursor) — pominąć w implementacji czy to celowy element UI?",
+  "Pole 'temat rozmowy' — zwykły input tekstowy czy select/dropdown z listą tematów? (wizualnie identyczne z pozostałymi polami, ale nazwa sugeruje wybór kategorii).",
+  "Checkbox zgody — czy pole wymagane (required) w CF7? Stan 'zaznaczone' (checked) nie występuje w tym frame — jak ma wyglądać (checkmark SVG, wypełnienie akcentem #FFA370, inny)?",
+  "Button 'WYŚLIJ' — czy to natywny submit CF7 (wymaga nadpisania domyślnego markupu .wpcf7-form stylami z tego designu) czy custom wrapper wokół formularza CF7? Ustalić podejście zgodnie z docs/patterns/forms.md przed implementacją.",
+  "Brak wersji mobile w tym frame — breakpoint <1024px (stack kolumn na siebie, mobile padding/fonty) do ustalenia z userem osobno w kolejnym kroku; NIE zgadywać teraz.",
+  "Nazwa bloku 'contact-expert-form' i prefix CSS 'atc' to propozycja — namespace theme'u to nadal 'adwise' (wg style.css Text Domain + stałych ADWISE_* w functions.php) mimo brandu klienta 'AT ONCE' — potwierdzić z userem finalną nazwę/prefix zgodnie z projektem.",
+  "Dokładna grubość linii pod polami (SVG 'Vector 13') — design_context dał tylko inset -1.5px na kontenerze h-0, sugerujące ~1.5-3px, ale bez natywnej wartości stroke-width z pliku SVG — dopasować wizualnie przy implementacji (1-2px prawdopodobnie)."
+ ]
+}

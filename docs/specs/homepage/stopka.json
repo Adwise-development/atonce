@@ -1,0 +1,194 @@
+{
+ "assets": [
+  {
+   "name": "icon facebook",
+   "kind": "ikona (social)",
+   "classification": "hardcoded",
+   "nodeId": "1:81"
+  },
+  {
+   "name": "icon instagram",
+   "kind": "ikona (social)",
+   "classification": "hardcoded",
+   "nodeId": "1:84"
+  },
+  {
+   "name": "icon linkedin (bg square #0A0A0A + inner glyph)",
+   "kind": "ikona (social, złożona z 2 warstw)",
+   "classification": "hardcoded",
+   "nodeId": "1:87"
+  }
+ ],
+ "colors": [
+  {
+   "role": "tło całej sekcji STOPKA (background section)",
+   "hex": "#E0E0E0"
+  },
+  {
+   "role": "tekst (adres/linki/telefon/e-mail), tło kwadratów ikon social, kolor 4px border frame",
+   "hex": "#0A0A0A"
+  }
+ ],
+ "typography": [
+  {
+   "element": "Adres/dane firmy (AT ONCE SP. Z O.O. / ul. .../ KRS / NIP / Kapitał zakładowy)",
+   "family": "PP Mori",
+   "weight": "Regular (400)",
+   "sizePx": 16,
+   "lineHeight": "24px",
+   "letterSpacing": "0 (brak wartości w designie)",
+   "transform": "none"
+  },
+  {
+   "element": "Linki kolumnowe (Usługi, O nas, Dla kogo, Blog / Kontakt, Badanie rynku 2024, Polityka prywatności)",
+   "family": "PP Mori",
+   "weight": "Regular (400)",
+   "sizePx": 16,
+   "lineHeight": "24px",
+   "letterSpacing": "0",
+   "transform": "none"
+  },
+  {
+   "element": "Telefon + e-mail (+48 575 127 152 / hello@atonce.pl)",
+   "family": "PP Mori",
+   "weight": "Regular (400)",
+   "sizePx": 32,
+   "lineHeight": "40px",
+   "letterSpacing": "-0.32px (≈ -1% / -0.01em)",
+   "transform": "none"
+  }
+ ],
+ "spacing": [
+  {
+   "what": "Border frame (4px solid #0A0A0A) — inset od lewej krawędzi sekcji",
+   "value": "~64px"
+  },
+  {
+   "what": "Border frame — inset od prawej krawędzi",
+   "value": "~60px (rozbieżność z lewą to najpewniej zaokrąglenie % w eksporcie — sugeruję ujednolicić do 64px)"
+  },
+  {
+   "what": "Border frame — inset od góry",
+   "value": "~62px"
+  },
+  {
+   "what": "Border frame — inset od dołu",
+   "value": "~68px"
+  },
+  {
+   "what": "Border frame — szerokość × wysokość wynikowa",
+   "value": "~1796px × ~278px"
+  },
+  {
+   "what": "Blok adresu firmy — pozycja (left/top) i szerokość",
+   "value": "left 160px, top 129px, width ~245px"
+  },
+  {
+   "what": "Kolumna linków 1 (Usługi/O nas/Dla kogo/Blog) — pozycja",
+   "value": "left 632px, top 178px, width 66px"
+  },
+  {
+   "what": "Kolumna linków 2 (Kontakt/Badanie rynku 2024/Polityka prywatności) — pozycja",
+   "value": "left 792px, top 209px (whitespace-nowrap)"
+  },
+  {
+   "what": "Gap pionowy między linkami w obu kolumnach",
+   "value": "20px"
+  },
+  {
+   "what": "Odstęp poziomy left-to-left między kolumną 1 a kolumną 2",
+   "value": "160px"
+  },
+  {
+   "what": "Blok telefon/e-mail — pozycja i szerokość",
+   "value": "left ~1139px, top ~223px, width ~235px"
+  },
+  {
+   "what": "Ikony social — rozmiar pojedynczej ikony",
+   "value": "42×42px"
+  },
+  {
+   "what": "Ikony social — gap między ikonami",
+   "value": "~38px"
+  },
+  {
+   "what": "Ikony social — pozycja top (poziom wyrównania z blokiem telefon/e-mail)",
+   "value": "~243px"
+  },
+  {
+   "what": "LinkedIn — wewnętrzny glyph w kwadracie 42×42",
+   "value": "~27×27px, wyśrodkowany (padding ~7.5px)"
+  }
+ ],
+ "section": "STOPKA — Footer (node 90:897, symbol „STOPKA\", 1920×408, desktop only)",
+ "layout": "Sekcja edge-to-edge, pełna szerokość viewportu (1920px), wysokość 408px, tło #E0E0E0 (jasne — patrz openQuestions #1). Wewnątrz, absolutnie pozycjonowana, dekoracyjna ramka (border 4px solid #0A0A0A, bez własnego tła) wcięta ~64px od lewej/prawej i ~62–68px od góry/dołu — tworzy \"kartę\" ~1796×278px, ale to tylko obrys, nie osobny blok tła. Wewnątrz ramki, na jednej linii (mniej więcej), 4 grupy contentu ułożone poziomo (od lewej do prawej): (1) adres/dane firmy — pojedynczy multi-line tekst z <br>; (2) kolumna linków 1 (4 pozycje, pionowy stack, gap 20px); (3) kolumna linków 2 (3 pozycje, pionowy stack, gap 20px, przesunięta pionowo o ~31px niżej niż kolumna 1 — patrz openQuestions #3); (4) duży tekst telefon+e-mail (2 linie); (5) rząd 3 ikon social (flex row, gap ~38px) przy prawej krawędzi. W oryginalnym Figma-eksporcie wszystko jest pozycjonowane `absolute`/procentowo względem 1920×408 — w bloku WP należy przepisać na flex/grid (np. sekcja jako flex row justify-content:space-between z kolumnami, lub grid o zdefiniowanych obszarach), zachowując proporcje z clampem na wartościach (brak wersji mobile — nie zgadywać breakpointu, patrz openQuestions #4). Brak logo w tym frame'ie (patrz openQuestions #2). contentSize/wideSize z obecnego theme.json (1000px/1440px) NIE pasują do tego layoutu — sekcja jest praktycznie full-bleed z wąskim gutterem ~64px, więc blok potrzebuje własnego, szerszego max-width/paddingu, niezależnego od globalnych tokenów kontenera.",
+ "interactivity": "Brak node'ów z wariantami \"hover\" w nazwach warstw Figmy (icon facebook/instagram/linkedin, linki tekstowe — wszystkie tylko w stanie domyślnym). Brak jakiejkolwiek animacji/interakcji zdefiniowanej w tym frame (nie slider, nie akordeon, nie marquee). Rekomendacja: standardowy hover na linkach (np. podkreślenie/zmiana odcienia) i ikonach social (np. opacity 0.7 lub subtelny scale) zgodnie z `@media (hover: hover)` z reguł CLAUDE.md — ale w tym froncie brak koloru akcentowego (#FFA370) do wykorzystania na hover, do ustalenia z userem (patrz openQuestions #1 i #6).",
+ "repeatable": "1) Kolumna linków 1 i kolumna linków 2 — każda to lista powtarzalna {label, url} z „+ Dodaj\" pod listą i „✕\" na hover przy każdej pozycji (inline, nie sidebar) — domyślnie 4 pozycje (Usługi, O nas, Dla kogo, Blog) i 3 pozycje (Kontakt, Badanie rynku 2024, Polityka prywatności). 2) Blok adresu firmy — NIE repeatable, pojedyncze pole RichText multi-line (edytowalne inline) zawierające nazwę spółki/adres/KRS/NIP/kapitał. 3) Telefon i e-mail — dwa osobne pola inline (RichText lub proste text), renderowane jako `<a href=\"tel:...\">` / `<a href=\"mailto:...\">` z kolorem #0A0A0A. 4) Ikony social — stały zestaw 3 (facebook/instagram/linkedin), ikony hardcoded z theme assets (nie MediaUpload), ale URL każdej edytowalny inline (LinkControl na klik ikony) — bez opcji dodawania/usuwania ikon (chyba że user zdecyduje inaczej, patrz openQuestions #6).",
+ "radii": [
+  {
+   "what": "Ramka (border frame) sekcji",
+   "px": 0
+  },
+  {
+   "what": "Kwadraty ikon social (fb/ig/in)",
+   "px": 0
+  }
+ ],
+ "notes": "Odczyt: get_metadata na 90:897 zwrócił tylko sam symbol bez dzieci (traktowany jako atomowy węzeł), więc get_design_context wywołany bezpośrednio na 90:897 zwrócił od razu pełny kod (węzeł okazał się wystarczająco mały) — dodatkowo doprecyzowano pozycje przez get_design_context na dzieciach (1:80 Social Media, 1049:748 Podstony/linki, 1:96 telefon/e-mail, 1:99 adres, 1:98 border) dla dokładnych wartości px zamiast wyliczanych z % insetów. Namespace/prefix wg project.md: namespace bloków „atonce\", prefix PHP „atonce_\" — proponowana nazwa bloku „footer\" (pełna rejestracja `atonce/footer`), prefix CSS „ftr\". WAŻNA ROZBIEŻNOŚĆ: brief zakłada globalny motyw ciemny (#0A0A0A+biel, akcent #FFA370), ale realny frame STOPKA (90:897) ma jasne tło #E0E0E0 i zero akcentu pomarańczowego — potwierdzić z userem przed implementacją (openQuestions #1). Brak logo w tym symbolu mimo hintu w zadaniu (openQuestions #2). Screenshoty zapisane w scratchpad: stopka-1.png (cała sekcja 1400×298, oryginalnie 1920×408).",
+ "openQuestions": [
+  "Design brief zakłada globalnie ciemny motyw (#0A0A0A + biel, akcent #FFA370), ale ten konkretny frame STOPKA ma jasne tło #E0E0E0 i BRAK koloru akcentowego — czy to celowe (jasna 'karta' zamykająca stronę) czy trzeba zweryfikować w Figmie inny/aktualniejszy wariant footera przed budową bloku?",
+  "Hint zadania wspomina 'logo' w stopce, ale w design_context (90:897 i wszystkich jego dzieciach) nie ma żadnego node'a z logo — potwierdzić czy logo faktycznie nie występuje w tym frame, czy jest poza symbolem 90:897 i trzeba doczytać inny node.",
+  "Dwie kolumny linków są przesunięte pionowo względem siebie (start 178px vs 209px, różnica ~31px) — celowy 'schodkowy' układ w designie, czy wyrównać do wspólnej linii bazowej w finalnym CSS?",
+  "Brak wersji mobile dla tego frame'a (tylko desktop 1920) — layout/spacing mobile (w tym breakpoint @1024px z reguł CLAUDE.md) trzeba zaprojektować osobno, nie zgadywać teraz wartości.",
+  "Linki kolumnowe (Usługi, O nas, Dla kogo, Blog, Kontakt, Badanie rynku 2024, Polityka prywatności) — realne URL-e podstron (do ustalenia po zbudowaniu stron) czy placeholder '#' na start? Oraz: dwa osobne repeatery (kolumna 1 / kolumna 2) czy jeden repeater z polem 'kolumna'?",
+  "Ikony social — facebook/instagram w Figmie to gotowe obrazki (tło+glyph razem), linkedin to osobny kwadrat+glyph — ujednolicić wszystkie 3 jako spójne hardcoded SVG w assets/icons (ten sam styl), czy odwzorować 1:1 różnicę z warstw Figmy?",
+  "Border frame ma lekko asymetryczne wcięcia wynikające z zaokrągleń % (left ~64px vs right ~60px, top ~62px vs bottom ~68px) — proponuję ujednolicić do jednej spójnej wartości (np. 64px) w finalnym SCSS, potwierdź.",
+  "PP Mori — czy to variable font wymagający font-variation-settings (zasada z CLAUDE.md), czy dla tej sekcji wystarczy statyczny Regular 400 (w tym froncie użyta jest tylko jedna waga)?"
+ ],
+ "suggestedBlock": {
+  "name": "footer",
+  "prefix": "ftr",
+  "attributes": [
+   {
+    "name": "companyInfo",
+    "type": "string",
+    "note": "RichText (HTML z <br>) — nazwa spółki, adres, KRS, NIP, kapitał zakładowy; domyślnie treść z designu"
+   },
+   {
+    "name": "linksColumn1",
+    "type": "array",
+    "note": "lista {label:string, url:string}; domyślnie Usługi/O nas/Dla kogo/Blog; repeatable inline z '+ Dodaj' i '✕'"
+   },
+   {
+    "name": "linksColumn2",
+    "type": "array",
+    "note": "lista {label:string, url:string}; domyślnie Kontakt/Badanie rynku 2024/Polityka prywatności; repeatable inline"
+   },
+   {
+    "name": "phone",
+    "type": "string",
+    "note": "domyślnie '+48 575 127 152'; render jako <a href=\"tel:+48575127152\">"
+   },
+   {
+    "name": "email",
+    "type": "string",
+    "note": "domyślnie 'hello@atonce.pl'; render jako <a href=\"mailto:hello@atonce.pl\">"
+   },
+   {
+    "name": "socialLinks",
+    "type": "object",
+    "note": "{facebook:string, instagram:string, linkedin:string} — tylko URL, ikony hardcoded z theme assets (nie MediaUpload)"
+   },
+   {
+    "name": "anchor",
+    "type": "string",
+    "note": "supports.anchor — jawnie w attributes (SSR/save:null)"
+   },
+   {
+    "name": "className",
+    "type": "string",
+    "note": "supports.customClassName — jawnie w attributes (SSR/save:null)"
+   }
+  ]
+ }
+}

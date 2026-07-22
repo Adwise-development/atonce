@@ -1,0 +1,201 @@
+{
+ "assets": [
+  {
+   "name": "Zdjęcie tła slajd 2 (\"thought-catalog-o0Qqw21-0NI-unsplash 3\")",
+   "classification": "user-upload",
+   "kind": "zdjęcie (tło, object-fit cover + overlay rgba(0,0,0,0.2))",
+   "nodeId": "3798:5055"
+  },
+  {
+   "name": "Zdjęcie karty prawej slajd 3 (\"thought-catalog-o0Qqw21-0NI-unsplash 3\") — 3 nałożone warstwy fill tego samego zdjęcia w źródle Figma (prawdopodobnie duplikat/pozostałość, traktować jako 1 pole obrazu)",
+   "classification": "user-upload",
+   "kind": "zdjęcie",
+   "nodeId": "3798:5063"
+  },
+  {
+   "name": "Strzałki/dots nawigacji slidera",
+   "classification": "hardcoded",
+   "kind": "ikona — NIE znaleziono w zbadanym zakresie node'ów (3798:5049 i dzieci); może istnieć poza tym zakresem lub nie istnieć wcale",
+   "nodeId": ""
+  }
+ ],
+ "colors": [
+  {
+   "role": "tekst nagłówków/paragrafów + obramowanie wszystkich kart + tekst na przycisku CTA filled",
+   "hex": "#0A0A0A"
+  },
+  {
+   "role": "tekst nagłówka na zdjęciu, slajd 2 (kontrast na ciemnym tle zdjęcia)",
+   "hex": "#F7F7F7"
+  },
+  {
+   "role": "wypełnienie przycisku CTA głównego (filled) \"DOWIEDZ SIĘ WIĘCEJ\"",
+   "hex": "#FFA370"
+  },
+  {
+   "role": "overlay przyciemniający zdjęcie tła slajdu 2",
+   "hex": "rgba(0,0,0,0.2)"
+  },
+  {
+   "role": "tło kart — NIEPOTWIERDZONE przez API (export Figmy zwrócił dla \"ramka\" tylko border, zero jawnego fill); wg opisu zadania to \"biała karta\" — prawdopodobnie #FFFFFF, wymaga potwierdzenia w pliku Figma",
+   "hex": "#FFFFFF (niepewne)"
+  }
+ ],
+ "typography": [
+  {
+   "element": "H1 slajd 1 i 2 (\"Nagłówek 01\")",
+   "family": "PP Mori",
+   "sizePx": 80,
+   "weight": "700 Bold — variable font: font-variation-settings: 'wght' 700 (nie sam font-weight)",
+   "lineHeight": "1.05 (ratio, unitless) ≈ 84px",
+   "letterSpacing": "-2px",
+   "transform": "brak (mixed case, tekst wpisany normalnie)"
+  },
+  {
+   "element": "H1 slajd 3 — instancja z INNYM override niż slajd 1/2 (potwierdzone via API, nie literówka)",
+   "family": "PP Mori",
+   "sizePx": 80,
+   "weight": "700 Bold",
+   "lineHeight": "92px (wartość stała, ratio ≈1.15 — różni się od 1.05 w slajd 1/2)",
+   "letterSpacing": "0 / brak (różni się od -2px w slajd 1/2)",
+   "transform": "brak"
+  },
+  {
+   "element": "Paragraf / \"Tekst 01\" (slajd 1 i 3)",
+   "family": "PP Mori",
+   "sizePx": 26,
+   "weight": "400 Regular",
+   "lineHeight": "41px (ratio ≈1.577)",
+   "letterSpacing": "0",
+   "transform": "brak"
+  },
+  {
+   "element": "Label przycisku (oba warianty: filled i outline)",
+   "family": "PP Mori",
+   "sizePx": 37.81,
+   "weight": "400 Regular",
+   "lineHeight": "37.81px (≈1.0)",
+   "letterSpacing": "0.378px (~0.01em)",
+   "transform": "tekst źródłowy jest już WIELKIMI LITERAMI — do ustalenia czy to CSS text-transform:uppercase czy literalny zapis w RichText"
+  }
+ ],
+ "spacing": [
+  {
+   "what": "padding karty slajd 1 do kontenera treści",
+   "value": "left 107px / top 114px"
+  },
+  {
+   "what": "szerokość kontenera treści (slajd 1 i 2)",
+   "value": "1216px"
+  },
+  {
+   "what": "gap H1 ↔ paragraf (slajd 1)",
+   "value": "42px"
+  },
+  {
+   "what": "gap blok tekstowy ↔ rząd przycisków (slajd 1)",
+   "value": "64px"
+  },
+  {
+   "what": "gap między 2 przyciskami (slajd 1)",
+   "value": "26px"
+  },
+  {
+   "what": "padding przycisku filled \"DOWIEDZ SIĘ WIĘCEJ\"",
+   "value": "pionowo: top 16px / bottom 14px, poziomo: 50px"
+  },
+  {
+   "what": "padding przycisku outline \"SPRAWDŹ WARSZTAT STRATEGICZNY\"",
+   "value": "pionowo: top 16px / bottom 14px, poziomo: 32px"
+  },
+  {
+   "what": "wysokość obu przycisków",
+   "value": "66px"
+  },
+  {
+   "what": "grubość border przycisku outline",
+   "value": "1.375px"
+  },
+  {
+   "what": "grubość border kart — NIESPÓJNA między slajdami",
+   "value": "4px (slajd 1) vs 3px (slajd 2 i 3) — do potwierdzenia czy zamierzone"
+  },
+  {
+   "what": "padding lewej karty tekstowej slajd 3",
+   "value": "left 117.45px / top 110px (H1); paragraf top 520px"
+  },
+  {
+   "what": "szerokość dwóch kart slajdu 3",
+   "value": "lewa (tekst) 1099px / prawa (zdjęcie) 655px"
+  },
+  {
+   "what": "odstęp między kartami slajdu 3",
+   "value": "≈37px"
+  },
+  {
+   "what": "wymiary pojedynczej karty/slajdu",
+   "value": "1792×848px (slajd 1 i 2); slajd 3 = 1791px total (split 1099 + 37 gap + 655)"
+  },
+  {
+   "what": "viewport slidera osadzony w płótnie 1920px",
+   "value": "1790×848px, inset ≈64-65px z każdej strony (prawdopodobnie margines strony)"
+  }
+ ],
+ "radii": [
+  {
+   "what": "karty slajdów (wszystkie \"ramka\")",
+   "px": 0
+  },
+  {
+   "what": "przyciski (oba warianty)",
+   "px": 24
+  }
+ ],
+ "layout": "Sekcja BANER GŁÓWNY = poziomy slider 3 slajdów (Frame 2445, viewport widoczny 1790×848 osadzony w płótnie 1920px, inset ≈64-65px z każdej strony — prawdopodobnie margines/gutter strony, nie potwierdzony jawnie jako osobny fill sekcji w zbadanym zakresie node'ów). Każdy slajd to osobna \"karta\" ~1792px szer. × 848px wys. z obramowaniem #0A0A0A (border, BEZ zaokrąglenia rogów — radius 0), ułożone side-by-side w slidrze (translate/scroll per slajd w JS). Karty NIE mają jawnego fill w eksporcie Figma API (patrz openQuestions #1 — wg opisu zadania mają być \"białe karty\").\n\nSLAJD 1 (3798:5050, wariant \"cta\"): flex-col items-start wewnątrz karty; padding od krawędzi karty: left 107px / top 114px; kontener treści szer. 1216px. Struktura: blok [H1 + gap 42px + paragraf] (flex-col) → gap 64px → rząd 2 przycisków (flex-row, gap 26px, items-center, filled + outline). Prawa strona karty (~469px) pusta.\n\nSLAJD 2 (3798:5054, wariant \"image-heading\"): cała karta = zdjęcie tła (object-fit cover, mocno przeskalowane w źródle) + ciemny overlay rgba(0,0,0,0.2) na całości + osobna warstwa border 3px na wierzchu (identyczne wymiary co karta) + H1 (2 linie, ręcznie łamane w Figmie: \"Zobacz książki, które wydaliśmy dla naszych\" / \"klientów.\") w kolorze #F7F7F7, pozycja left 192px / top ≈203.5px, szer. 1216px. Brak paragrafu i przycisków.\n\nSLAJD 3 (3798:5058, wariant \"split\"): NIE jedna karta lecz DWIE oddzielne karty obok siebie w ramach jednego \"slajdu\" (1791px total): lewa karta tekstowa 1099px szer. (border 3px, bez fill) z paddingiem left 117.45px / top 110px → H1 (szer. 745.75px, INNY line-height/tracking niż slajd 1/2, patrz typography/openQuestions) + paragraf (top 520px, szer. 507px, identyczny styl jak slajd 1); prawa karta obrazu 655px szer. (border 3px, 3 nałożone warstwy fill tego samego zdjęcia); odstęp między kartami ≈37px. Brak przycisków (w przeciwieństwie do slajdu 1).\n\nZrzuty ekranu dla slajdów 2 i 3 (node 3798:5054, 3798:5058, oraz ich dzieci-obrazy) renderują się jako 1×1px placeholder mimo 3 prób (domyślnie, contentsOnly:true, izolowany node obrazu/ramki) — prawdopodobnie nody leżą poza aktualnie załadowanym viewportem aplikacji desktop Figma (x=1872 i x=3744, daleko na prawo od slajdu 1 przy x=0). Layout i wartości dla tych slajdów odtworzone w 100% z get_design_context (kod + dokładne wartości liczbowe) i get_metadata (współrzędne/wymiary), NIE ze zgadywania.",
+ "interactivity": "Poziomy slider 3 slajdów (swipe/drag, prawdopodobnie Swiper — theme ma `swiper` jako zależność opcjonalną wg CLAUDE.md). W zbadanym zakresie node'ów NIE znaleziono żadnych warstw/wariantów nazwanych \"hover\" — buttony powinny dostać standardowy hover front zgodnie z docs/patterns/buttons-links.md (@media hover:hover). W zbadanym zakresie NIE znaleziono też strzałek ani dotów nawigacyjnych slidera — do potwierdzenia czy mają być dodane (hardcoded ikony) czy slider ma działać tylko na swipe/autoplay bez widocznych kontrolek.",
+ "repeatable": "Slajdy (obecnie 3, każdy inny wariant layoutu): \"cta\" (H1 + paragraf + 2 buttony), \"image-heading\" (tylko zdjęcie tła + H1, bez paragrafu/buttonów), \"split\" (H1 + paragraf w osobnej karcie tekstowej + osobna karta zdjęcia obok, bez buttonów). Pola edytowalne per slajd w edytorze: heading (RichText), text (RichText — opcjonalne wg wariantu), image (MediaUpload → object {id,url,alt} — opcjonalne wg wariantu), buttons (max 2, tylko wariant \"cta\": {text, url, style: filled|outline}). \".map()\" w podglądzie edit.js, \"✕\" na hover do usunięcia slajdu, \"+ Dodaj slajd\" pod listą (nie w sidebarze) zgodnie z docs/block-template.md.",
+ "suggestedBlock": {
+  "name": "hero-slider",
+  "prefix": "ahs",
+  "attributes": [
+   {
+    "name": "slides",
+    "type": "array",
+    "note": "Tablica obiektów slajdów (repeatable). Każdy element: {variant: 'cta'|'image-heading'|'split', heading: string (RichText), text: string (RichText, opcjonalny wg wariantu), image: object {id,url,alt} (MediaUpload, opcjonalny wg wariantu), buttons: array max 2 × {text, url, style:'filled'|'outline'} (tylko wariant 'cta')}."
+   },
+   {
+    "name": "anchor",
+    "type": "string",
+    "note": "Wymagane jawnie w attributes — blok SSR (save→null), inaczej ginie po save (zgodnie z CLAUDE.md)."
+   },
+   {
+    "name": "className",
+    "type": "string",
+    "note": "Wymagane jawnie w attributes — customClassName support, SSR."
+   },
+   {
+    "name": "autoplay",
+    "type": "boolean",
+    "note": "Opcjonalne, sidebar toggle — NIE potwierdzone w designie (brak node'ów wskazujących na autoplay), do ustalenia z userem."
+   },
+   {
+    "name": "autoplaySpeed",
+    "type": "number",
+    "note": "Opcjonalne, sidebar (ms) — tylko gdy autoplay=true."
+   }
+  ]
+ },
+ "section": "BANER GŁÓWNY (Hero Slider, 3 slajdy) — Homepage AT ONCE, node 3798:5049 \"Frame 2445\" (fileKey 4tFw94vUyaEZdUSjp1eXgW)",
+ "notes": "1) Screenshoty slajdów 2 i 3 (i ich obrazów-dzieci) konsekwentnie zwracały PNG 1×1px mimo 3 prób z różnymi parametrami (domyślnie / contentsOnly:true / izolowany node obrazu) — obie ścieżki leżą przy x=1872 i x=3744 na canvasie, poza prawdopodobnym aktualnie renderowanym viewportem Figma desktop app. Wartości dla tych slajdów pochodzą w 100% z get_design_context (kod źródłowy + dokładne liczby) i get_metadata (współrzędne), zweryfikowane krzyżowo, NIE zgadywane.\n2) \"ramka\" (border kart) NIE ma jawnego fill w żadnym z 3 slajdów wg API — tylko border. Ekran renderu slajdu 1 pokazał jednolite tło #E0E0E0 (opaque, alpha=255, zweryfikowane pixel-po-pixelu przez PIL) — to wygląda na neutralny placeholder rendera Figma dla \"brak fill/transparent\", NIE na faktyczny kolor designu. Zgodnie z opisem zadania slajd 1 ma być \"białą kartą\" — przyjąłem to jako założenie robocze (#FFFFFF), ale wymaga potwierdzenia w pliku Figma (klik na warstwę \"ramka\" → panel Fill), bo API tego nie potwierdziło.\n3) H1 na slajdzie 3 (node 3798:5062) ma INNY line-height (92px / ratio ≈1.15) i BRAK letter-spacingu, podczas gdy H1 na slajdach 1 i 2 mają line-height 1.05 i tracking -2px — to realna różnica potwierdzona przez API (nie błąd odczytu), prawdopodobnie odklejona/nadpisana instancja tekstowa w Figmie.\n4) Karta obrazu na slajdzie 3 (3798:5063) ma 3 nałożone warstwy fill z tym samym zdjęciem Unsplash — potraktowane jako 1 logiczne pole obrazu w bloku (prawdopodobny artefakt/duplikat w pliku Figma).\n5) Grubość border kart różni się: 4px (slajd 1) vs 3px (slajd 2 i 3) — może być zamierzone (slajd 1 = \"główny\"/aktywny wariant) lub niespójność do ujednolicenia — flag w openQuestions.\n6) Brak wersji mobile w tym frame (zgodnie z założeniem zadania) — nie estymowano żadnych wartości mobile, będą wymagały osobnego designu/ustaleń.",
+ "openQuestions": [
+  "Potwierdź dokładny hex tła kart — export Figmy (\"ramka\") zwrócił TYLKO border #0A0A0A, zero jawnego fill; wg treści zadania to \"biała karta\", ale API tego nie potwierdza (może być świadomie transparentne na ciemnym tle sekcji, albo faktycznie białe — sprawdź warstwę w pliku Figma).",
+  "H1 slajd 3 ma inny line-height (92px/1.15 zamiast 1.05) i brak letter-spacingu (0 zamiast -2px) względem H1 slajd 1/2 — zamierzony wariant typograficzny czy niespójność do ujednolicenia w bloku?",
+  "Slajd 3 nie ma żadnych przycisków CTA (slajd 1 ma 2) — potwierdź czy to zamierzone (różne warianty = różna dostępność pól) czy blok i tak powinien mieć opcjonalne pole buttons dla każdego wariantu.",
+  "Nie znaleziono strzałek/dotów nawigacji slidera w zbadanym zakresie node'ów (3798:5049 i potomkowie) — dodać hardcoded ikony nawigacji, czy slider ma działać wyłącznie na swipe/autoplay bez widocznej chromy?",
+  "Brak jawnego node'u/wariantu \"hover\" dla przycisków w zbadanym zakresie — użyć domyślnego hover z docs/patterns/buttons-links.md, czy user ma dodatkowe wytyczne (np. inny hover fill/border)?",
+  "Model repeatable slides: czy user w edytorze może dodawać dowolną liczbę slajdów z wyborem wariantu (cta/image-heading/split) per slajd, czy blok ma być sztywno 3-slajdowy z ustalonymi z góry wariantami (3 osobne \"sloty\", nie generyczna lista)?",
+  "Grubość border kart różni się (4px slajd 1 vs 3px slajd 2/3) — potwierdź czy to celowe wyróżnienie pierwszego slajdu, czy ujednolicić do jednej wartości.",
+  "Czy blok ma być pełna szerokość (align full, tło #0A0A0A edge-to-edge) z kontenerem/slidrem ograniczonym do ~1790px (zmierzony viewport), zgodnie z typowym wzorcem theme, czy inny układ?",
+  "Autoplay slidera — nie ma żadnych wskazówek w designie; potwierdź czy ma być włączony domyślnie i z jaką prędkością, czy tylko manualne przewijanie."
+ ]
+}

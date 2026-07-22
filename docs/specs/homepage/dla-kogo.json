@@ -1,0 +1,193 @@
+{
+ "section": "DLA KOGO — sekcja \"Co zyskasz z AT ONCE?\" (3 karty: Wydawnictwo / Organizacje pozarządowe / Self-publisher)",
+ "layout": "Sekcja edge-to-edge, tło #0A0A0A na całą szerokość viewportu (1920px desktop, brak wersji mobile w frame). Wewnątrz: kontener treści ~1600px szerokości, wyśrodkowany, side padding sekcji ~160px (mierzone: lewa krawędź treści przy x≈162px, prawa symetrycznie). Układ pionowy: kicker \"DLA KOGO\" → h2 \"Co zyskasz z AT ONCE?\" → grid/flex 3 kolumn równej szerokości (karty 490×584px każda, gap między kartami ~70px, mierzone i kalibrowane względem znanej szerokości karty 490px). Karty NIE mają osobnego tła (fill = identyczny z tłem sekcji, #0A0A0A) — jedyna różnica to obrys 1px solid #E0E0E0, kwadratowe rogi (radius 0, zweryfikowane zbliżeniem narożnika). Każda karta to flex column: tytuł (góra) → opis (pod tytułem) → przycisk WIĘCEJ przypięty do dołu karty (widoczne: wszystkie 3 przyciski są na identycznej wysokości mimo różnej liczby linii opisu w każdej karcie → button prawdopodobnie margin-top:auto lub justify-content:space-between, NIE zwykły flow pod tekstem). Przycisk wyrównany do prawej krawędzi wewnętrznego paddingu karty (inset od prawej ~32px, od dołu ~36-40px). Brak zdjęć/ikon na kartach — czysto tekstowy value-prop layout. Brak nakładania się elementów.",
+ "colors": [
+  {
+   "role": "tło sekcji (edge-to-edge)",
+   "hex": "#0A0A0A"
+  },
+  {
+   "role": "tło karty (brak odrębnego fill — identyczne z tłem sekcji, tylko obrys wyróżnia kartę)",
+   "hex": "#0A0A0A"
+  },
+  {
+   "role": "obrys/border karty (1px solid, rogi kwadratowe)",
+   "hex": "#E0E0E0"
+  },
+  {
+   "role": "tekst — kicker, nagłówek h2, tytuł karty, opis karty (jeden spójny kolor tekstu w całej sekcji)",
+   "hex": "#E0E0E0"
+  },
+  {
+   "role": "akcent — tło przycisku WIĘCEJ",
+   "hex": "#FFA370"
+  },
+  {
+   "role": "tekst na przycisku WIĘCEJ (ciemny na jasnym akcencie)",
+   "hex": "#0A0A0A"
+  }
+ ],
+ "typography": [
+  {
+   "element": "kicker/eyebrow \"DLA KOGO\"",
+   "sizePx": 15,
+   "family": "PP Mori",
+   "weight": "przybliżone (Regular/Medium — nie potwierdzone design_context, node poza zakresem kroku 4)",
+   "lineHeight": "~20px (przybliżone)",
+   "letterSpacing": "~2px, szeroki tracking (przybliżone)",
+   "transform": "uppercase"
+  },
+  {
+   "element": "h2 \"Co zyskasz z AT ONCE?\"",
+   "sizePx": 64,
+   "family": "PP Mori",
+   "weight": "Bold (wizualnie grube, dokładny wariant/wght niepotwierdzony)",
+   "lineHeight": "~72px / ~1.1 (przybliżone)",
+   "letterSpacing": "normal (przybliżone)",
+   "transform": "none"
+  },
+  {
+   "element": "tytuł karty (np. WYDAWNICTWO) — node 3798:5256, dokładne z design_context",
+   "sizePx": 40,
+   "family": "PP Mori:Bold",
+   "weight": "Bold (variable font — sprawdzić font-variation-settings wght dokładny, nie tylko font-weight)",
+   "lineHeight": "40px",
+   "letterSpacing": "0.8px",
+   "transform": "uppercase"
+  },
+  {
+   "element": "opis karty — node 3798:5257, dokładne z design_context",
+   "sizePx": 20,
+   "family": "PP Mori:Regular",
+   "weight": "Regular",
+   "lineHeight": "32px",
+   "letterSpacing": "normal (brak tracking w design_context)",
+   "transform": "none"
+  },
+  {
+   "element": "label przycisku \"WIĘCEJ\" — node I3798:5258;441:511, dokładne z design_context",
+   "sizePx": 20,
+   "family": "PP Mori:Regular",
+   "weight": "Regular",
+   "lineHeight": "20px",
+   "letterSpacing": "0.2px",
+   "transform": "uppercase"
+  }
+ ],
+ "spacing": [
+  {
+   "what": "kontener treści (grid kart) — szerokość",
+   "value": "~1600px (mierzone piksele screenshota, kalibrowane skalą 1920/1400)"
+  },
+  {
+   "what": "section side padding (lewo/prawo, do krawędzi kart)",
+   "value": "~160-162px (mierzone)"
+  },
+  {
+   "what": "section padding-top (góra sekcji → kicker)",
+   "value": "~72-80px (przybliżone, mierzone ze screenshota, ink-top nie box-top)"
+  },
+  {
+   "what": "gap kicker → h2",
+   "value": "~54px (przybliżone)"
+  },
+  {
+   "what": "gap h2 → grid kart",
+   "value": "~148px (przybliżone, spory odstęp)"
+  },
+  {
+   "what": "section padding-bottom (dół kart → koniec sekcji)",
+   "value": "~140px (przybliżone)"
+  },
+  {
+   "what": "gap między kartami (kolumny)",
+   "value": "~70px (mierzone piksele, kalibrowane wg znanej szerokości karty 490px z hinta)"
+  },
+  {
+   "what": "rozmiar karty (Rectangle 121)",
+   "value": "490×584px (z hinta, potwierdzone pomiarem ~486-490 × ~580-584px)"
+  },
+  {
+   "what": "padding karty — góra/dół",
+   "value": "~40px (PRZYBLIŻONE — Rectangle121 to płaski prostokąt-obrys bez auto-layout, design_context nie ujawnił paddingu ramki; wartość z pomiaru pikselowego, do potwierdzenia w Figma inspect)"
+  },
+  {
+   "what": "padding karty — lewo/prawo",
+   "value": "~32px (PRZYBLIŻONE, jw. — spójne dla tytułu, opisu i prawej krawędzi przycisku)"
+  },
+  {
+   "what": "button padding (dokładne z design_context, node 3798:5258)",
+   "value": "padding-top 12px / padding-bottom 11px / padding-left+right 39px"
+  },
+  {
+   "what": "button — inset od prawej krawędzi karty",
+   "value": "~32px (mierzone, zgodne z lewym paddingiem tekstu)"
+  },
+  {
+   "what": "button — inset od dolnej krawędzi karty",
+   "value": "~36-40px (mierzone; identyczna wysokość przycisku we wszystkich 3 kartach niezależnie od długości opisu = button przypięty do dołu, nie w normalnym flow tekstu)"
+  }
+ ],
+ "assets": [
+  {
+   "name": "Obrys karty (Rectangle 121)",
+   "classification": "hardcoded",
+   "kind": "dekoracja/border (w Figma wyeksportowany jako img-fill, ale wizualnie to płaski prostokąt bez wypełnienia — w implementacji: CSS border, NIE <img>)",
+   "nodeId": "3798:5255"
+  }
+ ],
+ "interactivity": "Brak slidera/akordeonu/marquee w tej sekcji. Prawdopodobny hover na przycisku WIĘCEJ (wg konwencji theme: @media (hover: hover), np. przyciemnienie/rozjaśnienie tła #FFA370 lub lekki scale) — BRAK danych o wariancie hover w zbadanych node'ach (metadata i warianty nie były sprawdzane w tym zadaniu, krok 3 pominięty). Karty same w sobie nie wykazują animacji/hover w tym frame (brak wariantu widocznego). Do potwierdzenia z userem/designerem przed implementacją.",
+ "repeatable": "3 karty (Wydawnictwo / Organizacje pozarządowe / Self-publisher), każda z polami edytowalnymi przez usera: title (RichText, inline, uppercase przez CSS text-transform a nie ręczne caps), description (RichText, inline, wieloliniowy), buttonLabel (RichText inline, domyślnie \"WIĘCEJ\", uppercase przez CSS), buttonUrl (LinkControl — URL + ewentualnie \"otwórz w nowej karcie\"). Layout 3-kolumnowy na 1920px jest dopasowany dokładnie pod 3 elementy (490px karta × 3 + 2×70px gap ≈ 1600px kontener) — dodanie 4. karty złamałoby ten układ bez przeprojektowania.",
+ "suggestedBlock": {
+  "name": "dla-kogo",
+  "prefix": "atdk",
+  "attributes": [
+   {
+    "name": "kicker",
+    "type": "string",
+    "note": "RichText, inline, domyślnie \"DLA KOGO\", uppercase"
+   },
+   {
+    "name": "heading",
+    "type": "string",
+    "note": "RichText, inline, domyślnie \"Co zyskasz z AT ONCE?\""
+   },
+   {
+    "name": "cards",
+    "type": "array",
+    "note": "repeater 3× {title:string, description:string, buttonLabel:string, buttonUrl:string|object} — .map() w podglądzie, \"✕\" na hover, \"+ Dodaj\" pod listą (o ile user zdecyduje że to repeater, patrz openQuestions)"
+   },
+   {
+    "name": "anchor",
+    "type": "string",
+    "note": "SSR (save→null) — jawnie w attributes, inaczej ginie po save"
+   },
+   {
+    "name": "className",
+    "type": "string",
+    "note": "SSR — jawnie w attributes, jw."
+   }
+  ]
+ },
+ "radii": [
+  {
+   "what": "card border-radius",
+   "px": 0
+  },
+  {
+   "what": "button WIĘCEJ border-radius",
+   "px": 24
+  }
+ ],
+ "openQuestions": [
+  "HINT mówił \"jasna sekcja, ciemne karty\" — realny screenshot pokazuje ciemne tło sekcji (#0A0A0A) i karty BEZ odrębnego fill (tylko obrys #E0E0E0, ta sama barwa tła co sekcja) — potwierdzić z userem czy to zamierzony wygląd (dark-on-dark + sam obrys) czy hint odnosił się do innego wariantu/strony.",
+  "Kicker \"DLA KOGO\" i h2 \"Co zyskasz z AT ONCE?\" NIE były objęte get_design_context (poza zakresem 4 node'ów z kroku 4) — wartości typograficzne (rozmiar, waga, tracking) są przybliżone z pomiaru screenshota, nie exact. Sprawdzić dokładne wartości w Figma (albo potwierdzić że to współdzielony, już wcześniej wyspecyfikowany pattern nagłówka sekcji używany w innych sekcjach homepage) przed finalnym CSS.",
+  "Padding wewnętrzny karty (góra/dół/lewo/prawo) nie został ujawniony przez design_context (Rectangle121 to płaski obrys, nie auto-layout frame z padding) — wartości ~32/40px są przybliżone z pomiaru pikselowego; potwierdzić dokładnie w panelu inspekcji Figma przed implementacją CSS.",
+  "Przycisk WIĘCEJ jest przypięty do dołu karty niezależnie od długości opisu — potwierdzić mechanizm layoutu (flex column + margin-top:auto na buttonie vs justify-content:space-between na karcie).",
+  "Brak danych o wariancie hover (nie sprawdzano nazw wariantów/metadata) — jaki ma być hover przycisku WIĘCEJ i/lub karty?",
+  "Karty: prawdziwy repeater (dodaj/usuń) czy sztywna trójka atrybutów card1/card2/card3? Grid 3-kolumnowy 1920px jest zaprojektowany dokładnie pod 3 elementy, bez wersji mobile w tym frame — wpływa na decyzję.",
+  "Przycisk WIĘCEJ — link do osobnych podstron per segment (wydawnictwo/ngo/self-publisher) czy do jednej wspólnej strony/sekcji z kotwicą? Wpływa na typ pola buttonUrl.",
+  "Brak wersji mobile w tym frame (potwierdzone) — jak mają się zachowywać 3 kolumny <1024px (stack 1-col, 2+1, poziomy scroll?) — do ustalenia osobno, breakpoint dopiero na etapie CSS (nie zgadywać teraz)."
+ ],
+ "notes": "Zrzut sekcji zapisany w /private/tmp/claude-501/-Applications-MAMP-htdocs-atonce-wp-content-themes-atonce/a19b065e-9b30-4274-a525-6e3eee1df571/scratchpad/dla-kogo-1.png (1400×788, oryginał 1920×1080, node 3798:5250). Design_context pobrany dokładnie dla 4 node'ów wskazanych w zadaniu: 3798:5255 (Rectangle121/obrys karty — tylko img-fill placeholder, brak klas paddingu), 3798:5256 (tytuł karty \"wydawnictwo\" — dokładne wartości typograficzne), 3798:5257 (opis karty — dokładne wartości), 3798:5258 (przycisk WIĘCEJ — dokładne wartości, w tym padding i radius). Wszystkie 4 node'y należą do KARTY 1 (Wydawnictwo) — założono że karty 2 i 3 dzielą identyczną typografię/spacing/styl (tylko treść i długość opisu się różnią, zgodnie z regułą \"warianty zamiast duplikacji\" z CLAUDE.md). Wartości spacing/layout poza tymi 4 node'ami (kontener, gap gridu, padding karty, kicker/heading) wyznaczono analizą pikselową screenshota (Python/PIL, wykrywanie krawędzi/pasm jasności) skalowaną wg znanego rozmiaru karty 490×584px z hinta — oznaczone jako \"przybliżone/mierzone\", NIE jako dokładne wartości z design_context (zgodnie z instrukcją, metadata i dodatkowe node'y nie były pobierane w tym zadaniu). Kolor tekstu jest jednolity (#E0E0E0) dla kickera, nagłówka, tytułu i opisu karty — potwierdzone próbkowaniem pikseli (piki jasności 224,224,224 we wszystkich czterech elementach). Karty nie mają odrębnego tła — jedyny wyróżnik to 1px obrys #E0E0E0 na tle sekcji #0A0A0A, rogi kwadratowe (radius 0, potwierdzone zbliżeniem narożnika). Przycisk WIĘCEJ ma dokładny radius 24px (praktycznie pill przy wysokości ~43px) i dokładny padding z design_context (12px/11px/39px/39px). Font \"PP Mori\" występuje w exportcie jako statyczne warianty \"Bold\"/\"Regular\" mimo że to font variable — zgodnie z CLAUDE.md należy użyć font-variation-settings (wght) zamiast samego font-weight, dokładne wartości osi do potwierdzenia w pliku fonta/theme.json."
+}

@@ -1,0 +1,217 @@
+{
+ "section": "MODUŁ STRATEGIA — oś procesu \"Zarabiaj już teraz\" (node 3798:5184, canvas 1920×1190px). Jasna sekcja (białe tło) kontrastująca z resztą ciemnego designu strony: eyebrow + tytuł \"Zarabiaj już teraz\" + akapit po prawej u góry, poniżej diagram procesu wydawniczego (9 chipów rozłożonych wzdłuż osi czasu z podpisami 3 faz: projekt / marketing i przedsprzedaż / sprzedaż).",
+ "assets": [
+  {
+   "name": "Chipy procesu (okładka, layout, mockup, redakcja, skład, korekta, druk, ebook, dystrybucja)",
+   "classification": "hardcoded",
+   "kind": "CSS/HTML — prostokąt z obramowaniem 3px #0A0A0A, tło białe, bez grafiki/ikon w środku, tylko tekst"
+  },
+  {
+   "name": "Oś czasu (linia pozioma + strzałka na końcu)",
+   "classification": "hardcoded",
+   "kind": "SVG/CSS — linia z markerem strzałki, kolor akcentowy"
+  },
+  {
+   "name": "Tick marki (4x krótkie pionowe kreski na osi)",
+   "classification": "hardcoded",
+   "kind": "SVG/CSS — krótkie odcinki pionowe krzyżujące oś"
+  },
+  {
+   "name": "Dotted dividery sekcji (2x pełnowysokościowe pionowe linie kropkowane, granice projekt/marketing/sprzedaż)",
+   "classification": "hardcoded",
+   "kind": "SVG/CSS — linia kropkowana (dashed/dotted border)"
+  }
+ ],
+ "colors": [
+  {
+   "role": "Tło sekcji (jasny \"wybity\" blok na tle reszty ciemnego designu strony)",
+   "hex": "#FFFFFF"
+  },
+  {
+   "role": "Tło chipa procesu",
+   "hex": "#FFFFFF"
+  },
+  {
+   "role": "Tekst główny (title, paragraph, eyebrow, label chipa) + obramowanie chipa",
+   "hex": "#0A0A0A"
+  },
+  {
+   "role": "Akcent — linia osi czasu, strzałka, tick marki, dotted dividery (NIE odpytane bezpośrednio przez get_design_context — te vector node'y były poza zakresem kroku 4; przyjęto globalny akcent brandu z briefu, screenshot wizualnie zgadza się z pomarańczem). Do potwierdzenia dokładny hex przed implementacją.",
+   "hex": "#FFA370"
+  }
+ ],
+ "typography": [
+  {
+   "element": "Eyebrow / label sekcji (\"STRATEGIA SPRZEDAŻY KSIĄŻKI\")",
+   "family": "PP Mori",
+   "sizePx": 20,
+   "weight": "400 Regular",
+   "lineHeight": "20px",
+   "letterSpacing": "0.4px",
+   "transform": "uppercase"
+  },
+  {
+   "element": "Title (\"Zarabiaj już teraz\")",
+   "family": "PP Mori",
+   "sizePx": 80,
+   "weight": "700 Bold (variable font — dodać font-variation-settings 'wght' 700 obok font-weight)",
+   "lineHeight": "100px",
+   "letterSpacing": "-0.8px",
+   "transform": "none"
+  },
+  {
+   "element": "Paragraph (opis pod tytułem)",
+   "family": "PP Mori",
+   "sizePx": 20,
+   "weight": "400 Regular",
+   "lineHeight": "32px",
+   "letterSpacing": "normal (brak wartości w designie)",
+   "transform": "none"
+  },
+  {
+   "element": "Chip label (np. OKŁADKA, LAYOUT, MOCKUP, REDAKCJA, SKŁAD, KOREKTA, DRUK, EBOOK, DYSTRYBUCJA)",
+   "family": "PP Mori",
+   "sizePx": 34,
+   "weight": "400 Regular (variable font — font-variation-settings 'wght' 400)",
+   "lineHeight": "normal (bez jawnej wartości px w designie, ~1.2 domyślne przeglądarki)",
+   "letterSpacing": "-0.34px",
+   "transform": "uppercase"
+  },
+  {
+   "element": "Phase axis label (PROJEKT / MARKETING I PRZEDSPRZEDAŻ / SPRZEDAŻ) — NIE zmierzone bezpośrednio (node poza zakresem get_design_context wg instrukcji kroku 4). Wartości poniżej to ESTYMACJA na podstawie proporcji screenshota + wysokości text-boxa (36px, identycznej jak chip label) — wymaga potwierdzenia osobnym query przed implementacją, NIE traktować jako pewnik.",
+   "sizePx": 34,
+   "weight": "400 Regular (estymacja)",
+   "lineHeight": "normal (estymacja)",
+   "letterSpacing": "nieznane — nie zmierzone",
+   "transform": "uppercase (wizualnie, wg screenshota)"
+  }
+ ],
+ "spacing": [
+  {
+   "what": "Border chipa (grubość)",
+   "value": "3px"
+  },
+  {
+   "what": "Padding chipa (top/bottom/inline — asymetryczny, optyczne centrowanie tekstu)",
+   "value": "pt:15px pb:10px px:16px"
+  },
+  {
+   "what": "Wysokość chipa (standard)",
+   "value": "64px (skrajne rzędy 63px — zaokrąglenie)"
+  },
+  {
+   "what": "Gap między chipami (poziomy i pionowy, spójny w całym diagramie)",
+   "value": "32px"
+  },
+  {
+   "what": "Szerokość kolumny paragrafu (prawa kolumna nagłówka)",
+   "value": "640px"
+  },
+  {
+   "what": "Offset X kolumny paragrafu od lewej krawędzi sekcji",
+   "value": "1024px"
+  },
+  {
+   "what": "Offset X bloku title/eyebrow od lewej krawędzi sekcji (padding-left tekstu)",
+   "value": "160px"
+  },
+  {
+   "what": "Offset X diagramu od lewej krawędzi sekcji (padding-left diagramu)",
+   "value": "64px"
+  },
+  {
+   "what": "Padding-right diagramu (wyliczone: 1920 - 64 - 1824)",
+   "value": "32px (ASYMETRYCZNE względem lewego 64px — flaga w openQuestions)"
+  },
+  {
+   "what": "Gap eyebrow → title (pionowy)",
+   "value": "40px"
+  },
+  {
+   "what": "Gap title/paragraph blok → diagram (pionowy)",
+   "value": "285px (duży odstęp — prawdopodobnie padding sekcji, nie sam gap)"
+  },
+  {
+   "what": "Padding-top sekcji do eyebrow",
+   "value": "140px"
+  },
+  {
+   "what": "Padding-bottom sekcji po diagramie",
+   "value": "108px (1190 - 587 - 495)"
+  },
+  {
+   "what": "Wysokość całego diagramu (frame)",
+   "value": "495px"
+  },
+  {
+   "what": "Pozycja Y linii osi w diagramie",
+   "value": "366px od góry diagramu"
+  },
+  {
+   "what": "Wysokość tick marka",
+   "value": "62px"
+  },
+  {
+   "what": "Szerokość całej sekcji (canvas Figma)",
+   "value": "1920px, wysokość 1190px"
+  },
+  {
+   "what": "Szerokość diagramu (content)",
+   "value": "1824px"
+  }
+ ],
+ "interactivity": "Brak zidentyfikowanej interaktywności w metadata/nazwach node'ów (żadnych wariantów \"hover\", brak sliderów/akordeonów). Sekcja jest w pełni statyczna: tekst (eyebrow+title+paragraph) + diagram SVG/CSS. Jeśli front ma mieć subtelny hover na chipach (np. podświetlenie obramowania), to NIE wynika z designu i wymaga potwierdzenia z userem — nie dodawać na wyczucie.",
+ "repeatable": "Diagram (9 chipów + oś + podpisy faz) jest zgodnie z hintem TRAKTOWANY JAKO HARDCODED (stały markup HTML/CSS w render.php + style.scss) — NIE jako repeater edytowalny przez usera, bo pozycje/szerokości chipów są indywidualnie ręcznie rozstawione (nie jest to prosty grid o równych komórkach: szerokości chipów różnią się wg długości tekstu, niektóre chipy jak \"druk\" i \"redakcja\" spinają 2 kolumny). Edytowalne przez usera w edytorze są WYŁĄCZNIE 3 pola inline: eyebrowText, title, description (paragraph) — pojedyncze RichText, nie lista/repeater.",
+ "suggestedBlock": {
+  "name": "strategia-proces",
+  "prefix": "asp",
+  "attributes": [
+   {
+    "name": "anchor",
+    "type": "string",
+    "note": "SSR (save=>null) — jawnie w attributes, inaczej ginie po save"
+   },
+   {
+    "name": "className",
+    "type": "string",
+    "note": "SSR customClassName — jawnie w attributes"
+   },
+   {
+    "name": "eyebrowText",
+    "type": "string",
+    "note": "RichText inline (source: html), domyślnie 'Strategia sprzedaży książki'"
+   },
+   {
+    "name": "title",
+    "type": "string",
+    "note": "RichText inline (source: html), domyślnie 'Zarabiaj już teraz', renderowany jako PP Mori Bold 80/100"
+   },
+   {
+    "name": "description",
+    "type": "string",
+    "note": "RichText inline (source: html), domyślny długi akapit z designu"
+   }
+  ]
+ },
+ "radii": [
+  {
+   "what": "Chip procesu (wszystkie 9 etykiet)",
+   "px": 0
+  },
+  {
+   "what": "Brak innych zaokrąglonych elementów w tej sekcji (brak kart/obrazów/przycisków)",
+   "px": 0
+  }
+ ],
+ "layout": "Sekcja \"MODUŁ STRATEGIA\" — canvas 1920×1190px, tło białe (jasny blok kontrastujący z resztą ciemnej strony), prawdopodobnie align:full (edge-to-edge) z wewnętrznym insetem tekstu. DWIE strefy pionowe: (1) górny header — 2-kolumnowy układ flex/grid: lewa kolumna (eyebrow nad title, x=160px od lewej krawędzi sekcji, naturalna szerokość treści) + prawa kolumna paragraf (stała szerokość 640px, start x=1024px), obie kolumny top-aligned z niewielkim przesunięciem (paragraf zaczyna się ok. 33px niżej niż title, prawdopodobnie z powodu innej wysokości linii). (2) dolny diagram procesu — kontener 1824px szerokości (padding-left 64px, padding-right ~32px — ASYMETRYCZNE, do potwierdzenia), wysokość 495px, zbudowany jako bezwzględnie pozycjonowany układ (position:absolute / custom grid, NIE równy CSS grid) 9 chipów rozłożonych w 3 \"rzędach\" (y≈47, 143, 239) tworzących diagram procesu wydawniczego wzdłuż poziomej osi czasu (linia+strzałka na y=366, 4 tick marki co 256px), z 2 pełnowysokościowymi dotted dividerami (x=256, x=1536) wyznaczającymi 3 fazy podpisane pod osią: \"projekt\" / \"marketing i przedsprzedaż\" / \"sprzedaż\". Brak kolumn w klasycznym sensie CSS Grid o równych torach — szerokości chipów są zmienne (240/224/272/480/496px) dopasowane do treści i łączenia dwóch \"komórek\" (np. redakcja=240+32+224, druk=224+32+224). Rekomendacja: budować diagram jako hardcoded HTML+CSS (position:absolute w kontenerze o ustalonych proporcjach, skalowane przez % lub clamp) — zgodnie z hintem zadania.",
+ "notes": "Screenshot pobrany i obejrzany: /private/tmp/claude-501/-Applications-MAMP-htdocs-atonce-wp-content-themes-atonce/a19b065e-9b30-4274-a525-6e3eee1df571/scratchpad/strategia-1.png (node 3798:5184, 1400x868 render, oryginał 1920x1190).\n\nget_metadata wykonane na 3798:5187 (diagram) i dodatkowo na 3798:5184 (cały moduł) żeby zmierzyć kontener/kolumny tekstu — get_design_context NIE był wywoływany na żadnym z tych dwóch dużych node'ów (zgodnie z instrukcją), tylko screenshot + metadata.\n\nget_design_context wykonany na dokładnie 4 wskazanych małych node'ach: 3798:5191 (chip \"okładka\" — pełny wzór dla wszystkich 9 chipów), 3798:5186 (paragraph), 3798:5221 (eyebrow), 3798:5222 (title). Wartości typograficzne/kolory dla tych 4 elementów są DOKŁADNE z Figmy. Pozostałe elementy (oś czasu, tick marki, dotted dividery, podpisy faz) zostały opisane na podstawie metadata (pozycje/wymiary dokładne) + screenshota (kolor/proporcje wizualne) — NIE były bezpośrednio odpytane przez get_design_context, więc ich dokładny hex/typografia to najlepsza estymacja, nie pewnik.\n\nTheme: namespace/textdomain \"adwise\" (z style.css), brak istniejących bloków w /blocks (repo puste pod tym względem) — nazwa/prefix bloku to propozycja, nie potwierdzona konwencja z innych bloków. theme.json ma contentSize:1000px / wideSize:1440px — measured content width tej sekcji (1824-1920px) znacznie to przekracza, więc sekcja NIE używa standardowego kontenera theme.json, tylko własny full-bleed layout z inline paddingiem.\n\nFont PP Mori jest variable — chip/paragraph/eyebrow to Regular (400), title to Bold (700) — per zasadę CLAUDE.md użyć font-variation-settings obok font-weight.",
+ "openQuestions": [
+  "Diagram (9 chipów + oś + fazy) potraktowany jako HARDCODED wg hintu zadania — potwierdź, że user NIE chce edytować etykiet/faz z poziomu edytora (np. gdy proces wydawniczy się zmieni w przyszłości); jeśli tak, wymaga to repeatera zamiast statycznego markupu i zmienia scope atrybutów bloku.",
+  "Kolor akcentu (#FFA370) linii osi/strzałki/tick marków/dotted dividerów NIE był bezpośrednio zmierzony przez get_design_context (te vector node'y były poza zakresem kroku 4) — przyjęty z globalnego briefu; potwierdź dokładny hex przed implementacją albo domów dodatkowe query na node'y 3798:5208-5213/5216.",
+  "Typografia podpisów faz (PROJEKT / MARKETING I PRZEDSPRZEDAŻ / SPRZEDAŻ) to estymacja (34px, uppercase) — te text node'y (3798:5217-5219) nie były w liście do design_context; przed implementacją zalecane osobne query, żeby nie zgadywać finalnych wartości.",
+  "Padding lewy (64px) vs prawy (~32px) diagramu jest ASYMETRYCZNY w zmierzonych wartościach — potwierdź czy to celowe (np. zapas na strzałkę osi wychodzącą poza ostatni chip) czy naturalny wynik overshootu linii/strzałki, i jak to przełożyć na spójny padding-inline w CSS (full-bleed section).",
+  "Ten moduł jest JASNY (biel/czerń/pomarańcz) na tle reszty ciemnego designu strony (#0A0A0A) — potwierdź, że to zamierzony kontrastowy \"wybity\" blok w obrębie ciemnej strony głównej, a nie osobny wariant/tryb strony.",
+  "Nazwa bloku \"strategia-proces\" i prefix CSS \"asp\" to propozycja — w repo nie ma jeszcze żadnych innych bloków do porównania konwencji nazewnictwa/prefiksów; potwierdź z userem przed scaffoldingiem.",
+  "Layout diagramu (nierówne szerokości chipów, chipy spinające 2 kolumny jak \"druk\"/\"redakcja\") sugeruje bezwzględne pozycjonowanie zamiast CSS Grid — potwierdź podejście implementacyjne (position:absolute + %/clamp vs. CSS Grid z niestandardowymi column-span) przed kodowaniem."
+ ]
+}

@@ -1,0 +1,288 @@
+{
+ "section": "MODUŁ BLOG — \"Nasze artykuły\" (homepage AT ONCE), node 3798:5296, plik 4tFw94vUyaEZdUSjp1eXgW. Sekcja jasna tylko w sensie treści (nadal ciemne tło #0A0A0A + biały tekst — \"jasna\" z hinta odnosi się do kontrastu wobec reszty homepage, nie do palety). Desktop 1920px, brak wersji mobile w tym frame.",
+ "layout": "Sekcja edge-to-edge: prostokąt tła 1920×1264px (node 3798:5298) wypełnia całą szerokość. Wewnątrz: blok nagłówka (label \"blog\" + H2 \"Nasze artykuły\", gap 40px, Frame2394 160×2438, szer. 1026px) — lewy gutter 160px od krawędzi sekcji. Padding sekcji góra do labelu \"blog\": ~92px. Gap nagłówek→rząd kart: ~70px. Rząd 4 kart w linii: karty zaczynają się na x=160 (lewy gutter 160px), gap między kartami mierzony ~64–65px (stały), ostatnia karta kończy się na x≈1810.75 → prawy margines ~109px (ASYMETRYCZNY względem lewego 160px — patrz openQuestions). Zmierzona szerokość samego rzędu kart ~1651px, szerokość pojedynczej karty ~364px (hug-content, nie idealnie równe między wariantami: 363.75–364px). Karta = pionowy stos: data → obrazek kwadratowy (318×318px, pełna szerokość wnętrza karty) → tytuł → linia-separator → excerpt → (gap) → tagi wyrównane do prawej na dole karty. Wariant \"post wersja 2\" (środkowa karta) nie ma obrazka — tytuł dużo większy (56.8px, 2 linie) + dodatkowy akapit \"lead\" (28.4px) przed excerpt (14.2px). CTA \"WIĘCEJ ARTYKUŁÓW\" wyśrodkowany pod rzędem kart (środek przycisku x≈947, blisko środka kontenera 960), margines góra od najwyższej karty ~56–64px, padding sekcji dół po przycisku ~80px. theme.json ma contentSize 1000px / wideSize 1440px — rząd kart (~1651px) PRZEKRACZA wideSize, więc sekcja potrzebuje alignfull + własny padding, nie standardowego kontenera.",
+ "colors": [
+  {
+   "role": "tło sekcji (edge-to-edge)",
+   "hex": "#0A0A0A"
+  },
+  {
+   "role": "tło karty (identyczne z tłem sekcji, karta odróżnia się tylko obramowaniem)",
+   "hex": "#0A0A0A"
+  },
+  {
+   "role": "tekst (label, nagłówek, data, tytuł, excerpt, tagi)",
+   "hex": "#F7F7F7"
+  },
+  {
+   "role": "obramowanie karty (\"ramka\") i linia-separator",
+   "hex": "#F7F7F7"
+  },
+  {
+   "role": "tło przycisku CTA (akcent)",
+   "hex": "#FFA370"
+  },
+  {
+   "role": "tekst przycisku CTA",
+   "hex": "#0A0A0A"
+  }
+ ],
+ "typography": [
+  {
+   "element": "label sekcji \"blog\"",
+   "family": "PP Mori",
+   "sizePx": 20,
+   "weight": "Regular 400 (variable: font-variation-settings 'wght' 400)",
+   "lineHeight": "20px (100%)",
+   "letterSpacing": "0.4px (2%)",
+   "transform": "uppercase"
+  },
+  {
+   "element": "H2 \"Nasze artykuły\"",
+   "family": "PP Mori",
+   "sizePx": 80,
+   "weight": "Bold 700 (font-variation-settings 'wght' 700)",
+   "lineHeight": "96px (120%)",
+   "letterSpacing": "-0.8px (-1%)",
+   "transform": "none"
+  },
+  {
+   "element": "data karty (\"12 XI 2023\")",
+   "family": "PP Mori",
+   "sizePx": 14.2,
+   "weight": "Bold 700",
+   "lineHeight": "14.2px (100%)",
+   "letterSpacing": "0",
+   "transform": "none"
+  },
+  {
+   "element": "tytuł karty — wariant z obrazkiem",
+   "family": "PP Mori",
+   "sizePx": 35.5,
+   "weight": "Bold 700",
+   "lineHeight": "42.6px (120%)",
+   "letterSpacing": "0",
+   "transform": "none"
+  },
+  {
+   "element": "excerpt karty (wszystkie warianty)",
+   "family": "PP Mori",
+   "sizePx": 14.2,
+   "weight": "Regular 400",
+   "lineHeight": "24.2px (~170%)",
+   "letterSpacing": "0",
+   "transform": "none"
+  },
+  {
+   "element": "tagi (\"#design #projektowanie\")",
+   "family": "PP Mori",
+   "sizePx": 14.2,
+   "weight": "Regular 400",
+   "lineHeight": "24.2px",
+   "letterSpacing": "0",
+   "transform": "uppercase, text-align right"
+  },
+  {
+   "element": "tytuł karty — wariant bez obrazka (\"Design z sercem\")",
+   "family": "PP Mori",
+   "sizePx": 56.8,
+   "weight": "Bold 700",
+   "lineHeight": "52.6px (~92.5% — celowo ciasne, poniżej rozmiaru fontu)",
+   "letterSpacing": "0",
+   "transform": "none, 2 ręczne linie (twardy break, nie wrap)"
+  },
+  {
+   "element": "akapit lead — wariant bez obrazka",
+   "family": "PP Mori",
+   "sizePx": 28.4,
+   "weight": "Regular 400",
+   "lineHeight": "28.4px (100%)",
+   "letterSpacing": "0",
+   "transform": "none"
+  },
+  {
+   "element": "tekst przycisku CTA (\"WIĘCEJ ARTYKUŁÓW\")",
+   "family": "PP Mori",
+   "sizePx": 50,
+   "weight": "Regular 400",
+   "lineHeight": "normal",
+   "letterSpacing": "-0.5px (-1%)",
+   "transform": "uppercase"
+  }
+ ],
+ "spacing": [
+  {
+   "what": "padding sekcji góra (do labelu \"blog\")",
+   "value": "~92px"
+  },
+  {
+   "what": "padding sekcji dół (po przycisku CTA)",
+   "value": "~80px"
+  },
+  {
+   "what": "gap label→nagłówek H2",
+   "value": "40px"
+  },
+  {
+   "what": "gap nagłówek→rząd kart",
+   "value": "~70px"
+  },
+  {
+   "what": "gutter lewy kontenera",
+   "value": "160px"
+  },
+  {
+   "what": "gutter prawy kontenera (mierzone — asymetryczne, patrz openQuestions)",
+   "value": "~109px"
+  },
+  {
+   "what": "gap między kartami (kolumny)",
+   "value": "~64-65px"
+  },
+  {
+   "what": "padding wewnętrzny karty góra",
+   "value": "~25.6px"
+  },
+  {
+   "what": "padding wewnętrzny karty dół",
+   "value": "~15-24px (wariancja między wariantami tekstu)"
+  },
+  {
+   "what": "padding wewnętrzny karty lewo/prawo",
+   "value": "~22.7-23px"
+  },
+  {
+   "what": "gap: data → obrazek → blok tytułu",
+   "value": "21.3px"
+  },
+  {
+   "what": "gap: tytuł → linia separator",
+   "value": "14.2px"
+  },
+  {
+   "what": "gap: linia separator → excerpt",
+   "value": "35.5px"
+  },
+  {
+   "what": "gap: blok główny karty → tagi (dół)",
+   "value": "28.4px"
+  },
+  {
+   "what": "margines rząd kart → przycisk CTA",
+   "value": "~56-64px (zależny od najwyższej karty)"
+  },
+  {
+   "what": "padding przycisku CTA góra/dół",
+   "value": "17px / 10px"
+  },
+  {
+   "what": "padding przycisku CTA lewo/prawo",
+   "value": "80px"
+  },
+  {
+   "what": "rozmiar obrazka okładki (kwadrat)",
+   "value": "318.3×318.3px = pełna szerokość wnętrza karty"
+  }
+ ],
+ "assets": [
+  {
+   "name": "zdjęcie okładki posta (thought-catalog-o0Qqw21-0NI-unsplash)",
+   "classification": "user-upload",
+   "kind": "zdjęcie",
+   "nodeId": "3798:5308 / 5321 / 5347",
+   "note": "w praktyce dynamiczne z WP (featured image posta), nie MediaUpload atrybut statyczny — najbliższa kategoria schematu to user-upload"
+  },
+  {
+   "name": "ramka karty (obramowanie)",
+   "classification": "hardcoded",
+   "kind": "dekoracja",
+   "nodeId": "3798:5304/5317/5330/5343",
+   "note": "w Figmie wyeksportowane jako obrazek wektora — w implementacji to zwykły CSS border, NIE pobierać jako plik"
+  },
+  {
+   "name": "linia separator (Vector 16)",
+   "classification": "hardcoded",
+   "kind": "dekoracja",
+   "nodeId": "3798:5312 i analogiczne",
+   "note": "CSS border-top/hr, nie SVG"
+  }
+ ],
+ "interactivity": "Nazwy WSZYSTKICH 4 instancji kart zawierają \"hover\" (post wersja 1C hover / 1D hover / 2 hover) — w tym frame NIE ma wersji \"rest\" (bez hover), więc dokładny stan spoczynkowy karty nie jest dostępny do odczytu (patrz openQuestions). Widoczny stan to prawdopodobnie hover — sugeruje to interaktywność karty (cały card jest linkiem do posta, hover zmienia coś wizualnie — typowo: obramowanie zmienia kolor na akcent #FFA370, i/lub delikatny scale/zoom obrazka, i/lub podkreślenie tytułu). Dokładna specyfikacja różnicy rest↔hover NIEDOSTĘPNA w danych (brak węzła bez \"hover\" w nazwie) — do zaprojektowania minimalnie zgodnie z resztą theme (@media (hover: hover), docs/patterns/animations.md) lub do potwierdzenia z userem/innym frame'em Figmy. Przycisk CTA — standardowy hover wg docs/patterns/buttons-links.md. Brak slidera/akordeonu/marquee w tej sekcji.",
+ "repeatable": "Karta posta ×4 w gridzie. Pola pochodzące z WP (dynamiczne, NIE atrybuty bloku — blok czyta najnowsze wpisy przez WP_Query/get_posts): data publikacji (post_date, format \"d LLL yyyy\" w stylu polskim np. \"12 XI 2023\"), obrazek okładki = featured image (fallback gdy post nie ma miniaturki — do ustalenia czy to wariant \"bez obrazka\" czy domyślny asset theme, patrz openQuestions), tytuł (post_title, cała karta linkuje do permalink), excerpt (post_excerpt lub auto-generowany, przycięty do ok. 2-3 linii), tagi (post_tags, limit np. 2 widoczne, format \"#tag\" lowercase bez spacji). Edytowalne w edytorze (sidebar, niewidoczna konfiguracja): liczba postów do wyświetlenia (postsToShow, domyślnie 4), filtr kategorii/taksonomii (opcjonalnie), limit wyświetlanych tagów. Edytowalne inline (widoczna treść, RichText/LinkControl): label sekcji \"blog\", nagłówek H2 \"Nasze artykuły\", tekst przycisku CTA i jego link (domyślnie do archiwum bloga).",
+ "radii": [
+  {
+   "what": "obramowanie karty (\"ramka\")",
+   "px": 0
+  },
+  {
+   "what": "obrazek okładki (kwadrat)",
+   "px": 0
+  },
+  {
+   "what": "przycisk CTA (pill)",
+   "px": 100
+  }
+ ],
+ "suggestedBlock": {
+  "name": "blog-posts",
+  "prefix": "blg",
+  "attributes": [
+   {
+    "name": "sectionLabel",
+    "type": "string",
+    "note": "RichText, domyślnie \"blog\", uppercase przez CSS text-transform"
+   },
+   {
+    "name": "heading",
+    "type": "string",
+    "note": "RichText, domyślnie \"Nasze artykuły\""
+   },
+   {
+    "name": "postsToShow",
+    "type": "number",
+    "note": "sidebar, domyślnie 4"
+   },
+   {
+    "name": "categoryId",
+    "type": "number",
+    "note": "sidebar (opcjonalnie), 0 = wszystkie kategorie"
+   },
+   {
+    "name": "tagLimit",
+    "type": "number",
+    "note": "sidebar, domyślnie 2 — ile tagów pokazać per karta"
+   },
+   {
+    "name": "ctaText",
+    "type": "string",
+    "note": "RichText, domyślnie \"Więcej artykułów\""
+   },
+   {
+    "name": "ctaLink",
+    "type": "object",
+    "note": "{url, opensInNewTab} przez LinkControl popover, domyślnie link do archiwum bloga"
+   },
+   {
+    "name": "anchor",
+    "type": "string",
+    "note": "wymagane jawnie — blok SSR (save→null)"
+   },
+   {
+    "name": "className",
+    "type": "string",
+    "note": "wymagane jawnie — blok SSR (save→null)"
+   }
+  ]
+ },
+ "notes": "Screenshoty zapisane lokalnie: /private/tmp/claude-501/-Applications-MAMP-htdocs-atonce-wp-content-themes-atonce/a19b065e-9b30-4274-a525-6e3eee1df571/scratchpad/blog-1.png (cała sekcja), blog-card.png (pojedyncza karta, node 3798:5303), corner-topleft.png / corner-topright.png / photo-corner-topleft.png (zbliżenia rogów — potwierdzają brak zaokrąglenia, ~0px). Brak błędów rate-limit z Figma MCP podczas pobierania. get_metadata użyty na dużym node 3798:5296 (13 dzieci) — get_design_context wywołany tylko na małych/pojedynczych node'ach (3798:5316 karta z obrazkiem, 3798:5329 karta bez obrazka, 3798:5299 przycisk, 3798:5300 nagłówek, 3798:5317 sama ramka). Font PP Mori to variable font — instancje \"Regular\"/\"Bold\" zmapowane na wght 400/700 założeniowo (standard), do potwierdzenia przy realnym imporcie pliku fonta (fvar axes). Wartości px z Figmy mają ułamkowe końcówki (np. 14.209, 24.155, 35.523) — to efekt skalowania komponentu w designie 1920px; w CSS zaokrąglić sensownie lub przeliczyć na rem/clamp wg docs/css-conventions.md.",
+ "openQuestions": [
+  "Ta sekcja Figmy zawiera WYŁĄCZNIE stan \"hover\" (wszystkie 4 nazwy node'ów: \"...hover\") — brak stanu spoczynkowego (rest) w tym frame. Jak ma wyglądać stan domyślny (bez hover) karty? Czy jest osobny frame z wersją rest, czy hover=rest (brak animacji)?",
+  "Wariant \"post wersja 2 hover\" (środkowa karta, BEZ obrazka, dużo większy tytuł 56.8px + dodatkowy akapit lead 28.4px) — czy to: (a) fallback stylu gdy post nie ma featured image, (b) osobny typ \"wyróżniony/sticky post\", czy (c) tylko przykład w mocku i w praktyce WSZYSTKIE 4 karty renderowane wg jednego szablonu z obrazkiem? To determinuje czy blok potrzebuje jednej czy dwóch ścieżek renderowania karty.",
+  "Kontener rzędu kart jest asymetryczny w mocku: 160px lewy gutter vs ~109px prawy (rząd kart ~1651px szerokości), a theme.json ma wideSize 1440px < 1651px. Rekomendacja: alignfull + własny padding-inline (clamp), NIE standardowy align=wide/contentSize. Potwierdzić z userem docelową szerokość kontenera/gutterów zamiast kopiować asymetrię 1:1 z mocku (prawdopodobnie niedokładność w Figmie).",
+  "Brak wersji mobile w tym frame (zgodnie z briefem) — jak ułożyć grid @1024px i niżej (2 kolumny? 1 kolumna karuzela?) oraz jakie clamp wartości typografii/spacingu na mobile — wymaga osobnego frame'a lub decyzji usera, NIE zgadywać.",
+  "Dokładna grubość i kolor obramowania karty (\"ramka\") nie były dostępne tekstowo z design_context (węzeł wyeksportowany jako obrazek wektora) — zmierzone wizualnie jako cienkie ~1px #F7F7F7; do potwierdzenia dokładnej wartości (np. eksport SVG/inspektor Figma) przed implementacją.",
+  "Limit tagów: mock zawsze pokazuje dokładnie 2 (\"#design #projektowanie\"). Czy to sztywny limit (przycinać do 2), czy pokazywać tyle ile ma post z zawijaniem?",
+  "Docelowy link przycisku \"WIĘCEJ ARTYKUŁÓW\" — archiwum bloga (statyczny href) czy paginacja/load-more w tym samym bloku (wymagałoby JS/Interactivity API)?",
+  "Nazwa bloku i prefix CSS (\"blog-posts\" / \"blg\") to propozycja — tabela bloków w project.md jest pusta (pierwszy blok w projekcie), więc warto potwierdzić konwencję nazewnictwa z userem zanim ustali się precedens dla kolejnych bloków."
+ ]
+}

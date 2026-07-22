@@ -1,0 +1,236 @@
+{
+ "assets": [
+  {
+   "name": "Ikona cudzysłowu — wariant ciemny (na jasnej karcie)",
+   "kind": "ikona",
+   "classification": "hardcoded",
+   "nodeId": "1538:671"
+  },
+  {
+   "name": "Ikona cudzysłowu — wariant biały (na ciemnej karcie, 3. karta)",
+   "kind": "ikona",
+   "classification": "hardcoded",
+   "nodeId": "1538:676"
+  },
+  {
+   "name": "Przycisk nawigacji \"poprzedni\" — okrągły, pomarańczowe tło + strzałka (asset łączy kółko+ikonę w jednym pliku w exporcie; rekomendacja: rozbić na CSS circle + inline SVG strzałki, żeby przycisk był prawdziwym <button> z hover)",
+   "kind": "ikona/dekoracja",
+   "classification": "hardcoded",
+   "nodeId": "1501:633"
+  },
+  {
+   "name": "Przycisk nawigacji \"następny\" — okrągły, pomarańczowe tło + strzałka (jak wyżej)",
+   "kind": "ikona/dekoracja",
+   "classification": "hardcoded",
+   "nodeId": "1501:630"
+  }
+ ],
+ "colors": [
+  {
+   "hex": "#E0E0E0",
+   "role": "tło sekcji (potwierdzone pixel-sample ze screenshota: RGB 224,224,224)"
+  },
+  {
+   "hex": "#0A0A0A",
+   "role": "border kart (jasny wariant, 3.624px) + kolor tekstu na jasnej karcie + ikona strzałki w przycisku nawigacji + tytuł/subtitle sekcji"
+  },
+  {
+   "hex": "#0A0A0A",
+   "role": "tło karty — wariant ciemny (3. karta w designie), border tej samej karty również #0A0A0A (niewidoczny, bo = tło)"
+  },
+  {
+   "hex": "#E0E0E0",
+   "role": "kolor tekstu (cytat + autor/firma) na ciemnej karcie"
+  },
+  {
+   "hex": "#FFFFFF",
+   "role": "ikona cudzysłowu na ciemnej karcie (osobny asset, biały glif — potwierdzone pixel-sample)"
+  },
+  {
+   "hex": "#FFA370",
+   "role": "akcent — tło okrągłych przycisków nawigacji slidera (potwierdzone pixel-sample: RGB 255,163,112)"
+  }
+ ],
+ "typography": [
+  {
+   "element": "eyebrow/subtitle (\"OPINIE NASZYCH KLIENTÓW\")",
+   "family": "PP Mori",
+   "sizePx": 20,
+   "weight": "400 (Regular) — font-variation-settings: 'wght' 400",
+   "lineHeight": "20px (100%)",
+   "letterSpacing": "0.4px (token: 2%)",
+   "transform": "uppercase (klasa CSS, nie literalny tekst źródłowy)"
+  },
+  {
+   "element": "h2 tytuł (\"Co mówią nasi klienci?\")",
+   "family": "PP Mori",
+   "sizePx": 80,
+   "weight": "700 (Bold) — font-variation-settings: 'wght' 700",
+   "lineHeight": "1.05",
+   "letterSpacing": "-2px (token: -2.5%)",
+   "transform": "none"
+  },
+  {
+   "element": "cytat / quote (p wewnątrz karty)",
+   "family": "PP Mori",
+   "sizePx": 29.957,
+   "weight": "400 (Regular)",
+   "lineHeight": "39.943px (~1.333)",
+   "letterSpacing": "brak (0)",
+   "transform": "none"
+  },
+  {
+   "element": "autor — imię i nazwisko (linia 1 bloku autora)",
+   "family": "PP Mori",
+   "sizePx": 17.594,
+   "weight": "400 (Regular)",
+   "lineHeight": "24.632px (~1.4)",
+   "letterSpacing": "brak (0)",
+   "transform": "none"
+  },
+  {
+   "element": "autor — nazwa firmy (linia 2, np. \"WYDAWNICTWO ABC\")",
+   "family": "PP Mori",
+   "sizePx": 17.594,
+   "weight": "400 (Regular)",
+   "lineHeight": "24.632px (~1.4)",
+   "letterSpacing": "brak (0)",
+   "transform": "BRAK klasy uppercase w exporcie — tekst źródłowy jest już wpisany wielkimi literami; NIE wymuszać CSS text-transform, traktować jako zwykły input RichText"
+  }
+ ],
+ "spacing": [
+  {
+   "what": "gap między kartami w rzędzie slidera",
+   "value": "42.226px (~42px)"
+  },
+  {
+   "what": "margines boczny rzędu kart względem sekcji (lewo/prawo)",
+   "value": "~43px / ~44px (2.24% / 2.29% z 1920px) — bliskie edge-to-edge, WIĘKSZE niż typowy kontener treści — do potwierdzenia z userem"
+  },
+  {
+   "what": "padding-left karty (do tekstu cytatu)",
+   "value": "~52.8px"
+  },
+  {
+   "what": "padding-top karty (do ikony cudzysłowu)",
+   "value": "~64px"
+  },
+  {
+   "what": "gap: dół ikony cudzysłowu → góra tekstu cytatu",
+   "value": "~60px (64+52 do 176)"
+  },
+  {
+   "what": "padding-right karty (przybliżone, z szerokości bloku tekstu)",
+   "value": "~34px"
+  },
+  {
+   "what": "padding-bottom karty (dół bloku autora → dół karty)",
+   "value": "~46px"
+  },
+  {
+   "what": "szerokość karty",
+   "value": "630.744px"
+  },
+  {
+   "what": "wysokość karty",
+   "value": "585px"
+  },
+  {
+   "what": "grubość bordera karty",
+   "value": "3.624px"
+  },
+  {
+   "what": "gap: subtitle → h2 tytuł (blok nagłówka sekcji)",
+   "value": "40px"
+  },
+  {
+   "what": "padding pionowy wrappera nagłówka (\"tytul\")",
+   "value": "70px góra/dół"
+  },
+  {
+   "what": "offset góra nagłówka od góry sekcji",
+   "value": "~101px (7.88% z 1280px)"
+  },
+  {
+   "what": "offset góra rzędu kart od góry sekcji",
+   "value": "~443.6px (34.66% z 1280px)"
+  },
+  {
+   "what": "gap: dół rzędu kart → góra przycisków nawigacji",
+   "value": "~39px"
+  },
+  {
+   "what": "gap między dwoma przyciskami nawigacji (prev/next)",
+   "value": "~144.25px"
+  },
+  {
+   "what": "średnica przycisku nawigacji (kółko+ikona, asset)",
+   "value": "~59.87–59.94px (~60px)"
+  }
+ ],
+ "radii": [
+  {
+   "what": "karta opinii (oba warianty, jasny i ciemny)",
+   "px": 0
+  },
+  {
+   "what": "przycisk nawigacji slidera (okrągły)",
+   "px": 30
+  }
+ ],
+ "layout": "\"Sekcja fixed-frame 1920×1280 (desktop only — brak wersji mobile w tym framie, NIE zgadywać). Struktura pionowa: (1) blok nagłówka (eyebrow uppercase + h2, flex-col gap 40px, wrapper z padding pionowym 70px), pozycjonowany ~101px od góry sekcji, wyrównany do lewej strony treści; (2) rząd kart opinii — flex row, align-items:flex-start, gap 42.226px, zaczyna się ~443.6px od góry sekcji, margines boczny ~43-44px z każdej strony (bliżej edge-to-edge niż typowy kontener — DO POTWIERDZENIA z userem, bo inne sekcje mogą mieć węższy kontener); w designie widoczne są 4 karty (Opinia 1-4), ale tylko 3 mieszczą się w pełni w kadrze 1920px — 4. karta jest ucięta na prawej krawędzi sekcji = jednoznaczny sygnał slidera/karuzeli z 'peek' efektem (overflow ukryty na poziomie sekcji, track szerszy niż viewport); (3) rząd przycisków nawigacji (prev/next) pod kartami, gap ~39px od dołu rzędu kart, przyciski okrągłe ~60px, odstęp między nimi ~144px, wyrównane w lewej połowie sekcji (nie na pełną szerokość). Karty: każda to inline-grid 1 kolumna/1 wiersz z elementami warstwowanymi na sobie (border/tło jako tło absolutne, ikona cudzysłowu + tekst cytatu + blok autora pozycjonowane absolutnie wewnątrz — trzeba przepisać na normalny flow z padding, NIE kopiować absolute positioning 1:1 do bloku Gutenberg). Karta = stały box 630.744×585px w Figma (fixed, bez wersji mobile) — do konwersji na fluid/clamp trzeba dodatkowych danych (np. tablet/mobile), których w tym framie brak.\"",
+ "interactivity": "\"Slider/karuzela pozioma z efektem 'peek' (widać ucięty fragment kolejnej karty na prawej krawędzi sekcji — potwierdza to, że card 4 w kodzie eksportu wykracza poza 1920px canvas). Nawigacja: 2 okrągłe przyciski (prev ← / next →), tło #FFA370, ikona strzałki #0A0A0A wypalona w assecie — w implementacji WAJNE: to muszą być prawdziwe <button> (nie <img>), z SVG strzałki rysowanym inline (fill: currentColor) żeby dało się stylować hover zgodnie z zasadą theme (@media (hover:hover)). W nazwach warstw Figma BRAK wariantów 'hover' dla tych przycisków — kolor/stan hover nie jest zdefiniowany w tym designie, trzeba dopytać usera lub przyjąć rozsądny fallback (np. przyciemnienie/pomarańcz o innym odcieniu). Brak w designie danych o autoplay, infinite-loop czy liczbie kart na slajd — to decyzje do ustalenia z userem przy budowie bloku (rekomendacja: Swiper, zależność już jest w projekcie per CLAUDE.md).\"",
+ "repeatable": "\"Karty opinii = testimonials[] — element powtarzalny renderowany przez .map() w edit.js i w render.php. Pola edytowalne per karta (inline, zgodnie z regułą 'widoczne treści → inline'): quote (RichText — treść cytatu), author (RichText/text — imię i nazwisko), company (text — nazwa firmy; UWAGA: tekst wpisany wprost wielkimi literami w źródle Figma, BRAK klasy CSS uppercase — nie wymuszać text-transform, zostawić jak user wpisze), variant (enum 'light'/'dark' — select w sidebarze, zgodnie z zasadą 'warianty zamiast duplikacji': ta sama struktura karty, zmienia się tylko tło/border/kolor tekstu/kolor ikony cudzysłowu). W designie: 4 karty widoczne w exporcie (Opinia 1, 2, 4 = light; Opinia 3 = dark) — użytkownik powinien móc dodawać/usuwać karty ('+ Dodaj' pod listą, '✕' na hover per kartę) i przełączać wariant każdej niezależnie. Brak zdjęć/avatarów w kartach — tylko tekst.\"",
+ "suggestedBlock": {
+  "name": "opinie-klientow",
+  "prefix": "aotm",
+  "attributes": [
+   {
+    "name": "anchor",
+    "type": "string",
+    "note": "SSR (save→null) — jawnie w attributes, inaczej ginie po save"
+   },
+   {
+    "name": "className",
+    "type": "string",
+    "note": "SSR — jawnie w attributes (customClassName support)"
+   },
+   {
+    "name": "subtitle",
+    "type": "string",
+    "note": "RichText, eyebrow uppercase, default: 'opinie naszych klientów'"
+   },
+   {
+    "name": "title",
+    "type": "string",
+    "note": "RichText, h2, default: 'Co mówią nasi klienci?'"
+   },
+   {
+    "name": "testimonials",
+    "type": "array",
+    "note": "repeater; item shape: {quote:string, author:string, company:string, variant:'light'|'dark'}; default 4 pozycje z designu (3. = variant dark)"
+   },
+   {
+    "name": "autoplay",
+    "type": "boolean",
+    "note": "sidebar toggle, jeśli slider ma auto-przewijać — DO POTWIERDZENIA z userem, brak danych w Figma"
+   },
+   {
+    "name": "loop",
+    "type": "boolean",
+    "note": "sidebar toggle infinite-loop slidera — DO POTWIERDZENIA z userem"
+   }
+  ]
+ },
+ "section": "\"OPINIE — testimoniale / \\\"Co mówią nasi klienci?\\\" (node 1538:668, symbol 1920×1280, desktop-only frame — brak mobile w tym node, nie zgadywać wartości mobile)\"",
+ "notes": "\"Dane pobrane: get_screenshot(1538:668, maxDim 1400) → opinie-1.png (pobrany i obejrzany); get_metadata(1538:668) zwrócił WYŁĄCZNIE self-closing <symbol> bez dzieci (prawdopodobnie ograniczenie API dla węzła typu 'symbol' — brak możliwości zejścia głębiej tą drogą). Ponieważ get_metadata nie dał dzieci do wyboru, per krok 4 instrukcji wykonano get_design_context bezpośrednio na 1538:668 (węzeł, mimo że 'duży', zwrócił PEŁNY kod, nie tylko metadata-fallback — więc dane są kompletne i dokładne, nie przybliżone) oraz dodatkowo get_design_context na mniejszym węźle 1501:629 ('Strzałki') dla precyzyjnych wartości przycisków nawigacji. Kolory zweryfikowane podwójnie: raz z design_context (lista stylów), raz przez pixel-sampling zrzutu ekranu (PIL) — wartości się zgadzają. Rozbieżność do odnotowania: token stylu 'Nagłówek 01' podaje letterSpacing -2.5 (interpretacja: -2.5% em → -2px przy 80px, zgodne z renderowanym kodem tracking-[-2px]); podobnie SUBTITLE letterSpacing 2 → 2% → 0.4px przy 20px, zgodne z kodem. Wymiary kart (630.744px, 29.957px itd.) to DOKŁADNE wartości z Figmy — niebieżące liczby całkowite sugerują globalny współczynnik skalowania w pliku designu, ale zgodnie z instrukcją raportowane 1:1 bez zaokrąglania 'na oko'. Karty w exporcie używają absolute/inline-grid positioning (typowe dla Figma-to-code) — przy budowie bloku Gutenberg trzeba przepisać na normalny flow (padding/flex), zachowując te same odległości.\"",
+ "openQuestions": [
+  "Wariant karty (light/dark) — atrybut per-item w repeaterze (rekomendacja, zgodnie z zasadą 'warianty zamiast duplikacji') czy sztywno 'co 3. karta ciemna'? W designie tylko 3. z 4 kart jest dark.",
+  "Kontener treści: rząd kart ma margines boczny ~43-44px (blisko edge-to-edge, 1920px frame) — czy to zamierzony szerszy container tylko dla tej sekcji, czy powinien być spójny z globalnym kontenerem treści reszty strony (theme.json contentSize)? Trzeba zweryfikować względem innych sekcji.",
+  "Slider: ile kart faktycznie w danych (4 w designie to placeholder czy docelowa liczba)? Czy ma być infinite-loop / autoplay? W Figmie brak tych informacji (tylko wizualny 'peek' 4. karty).",
+  "Stan hover przycisków nawigacji (prev/next) — brak wariantu 'hover' w nazwach warstw Figma, trzeba ustalić kolor/efekt hover z userem (zgodnie z regułą @media (hover:hover) z CLAUDE.md).",
+  "Ikony cudzysłowu — zaimplementować jako 2 statyczne assety PNG/SVG z exportu (1:1 z designu) czy jako 1 inline SVG z fill:currentColor, sterowany przez klasę wariantu karty (czystsze, mniej assetów, łatwiejsze theme'owanie)?",
+  "Przyciski nawigacji (kółko+strzałka) w exporcie to jeden złączony obrazek — potwierdzić rozbicie na prawdziwy <button> + CSS circle + inline SVG strzałki (wymagane przez zasadę 'Media trigger = prawdziwy <button>' i hover), zamiast wklejania obrazka 1:1.",
+  "Brak wersji mobile tego frame'u — kiedy dostarczona, jakie zmiany layoutu (np. karty w kolumnie, 1 karta na slajd)? Na razie NIE zgadywać, budować tylko desktop wg tego designu do czasu dostarczenia mobile."
+ ]
+}

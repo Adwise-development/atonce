@@ -1,0 +1,181 @@
+{
+ "section": "Nawigacja górna (sticky navbar) — homepage AT ONCE, node 3798:5356, frame 1920×112px (desktop only, brak wersji mobile w tym node)",
+ "layout": "Sekcja edge-to-edge (tło #0A0A0A rozciągnięte na całą szerokość 1920px, inset-0), wysokość stała 112px — docelowo `position: sticky; top:0`. Semantycznie flex row, `justify-content: space-between`, `align-items: center`. LEWA STRONA: logo (box ~80×58px) zaczyna się przy left ≈64px (3.33% z 1920), wyśrodkowane pionowo (top/bottom inset po 24.11% ⇒ 27px/27px). PRAWA STRONA: grupa \"podstrony\" — pojedynczy flex row, `align-items:center`, `gap:60px` między WSZYSTKIMI dziećmi (5 linków + tekst promo + button), grupa zaczyna się w left:584px, top:32px (offset 32px = wyśrodkowanie buttona 50px w barze 112px: (112-50)/2=31≈32, spójne). Między prawą krawędzią logo (144px) a startem grupy nav (584px) jest ok. 440px pustej przestrzeni — typowe dla layoutu space-between wewnątrz kontenera treści. Dokładny prawy margines/kontener max-width NIE został zmierzony (metadata pominięta wg instrukcji) — do potwierdzenia względem innych sekcji (np. hero) dla spójnego content-container. Brak wersji mobile w tym frame'ie — layout hamburger/mobile nieznany, nie zgadywać.",
+ "colors": [
+  {
+   "role": "tło sekcji navbar (pełna szerokość)",
+   "hex": "#0A0A0A"
+  },
+  {
+   "role": "tekst przycisku CTA (ciemny na jasnym tle)",
+   "hex": "#0A0A0A"
+  },
+  {
+   "role": "tekst linków menu + tekst promo \"badanie rynku 2024\" (off-white)",
+   "hex": "#F7F7F7"
+  },
+  {
+   "role": "obrys (border) prostokątów logo, 1.359px solid",
+   "hex": "#F7F7F7"
+  },
+  {
+   "role": "tło przycisku CTA \"bezpłatna konsultacja\" (akcent)",
+   "hex": "#FFA370"
+  }
+ ],
+ "typography": [
+  {
+   "element": "Link nawigacji (USŁUGI / O NAS / DLA KOGO / BLOG / KONTAKT)",
+   "family": "PP Mori",
+   "sizePx": 20,
+   "weight": "Regular (named style w Figma; wartość liczbowa 400 domyślnie — jeśli variable font, potwierdzić dokładny font-variation-settings 'wght' względem plików fontu, Figma nie podała surowej wartości osi)",
+   "lineHeight": "30px (1.5)",
+   "letterSpacing": "normal / 0 (brak tokenu tracking w exporcie)",
+   "transform": "uppercase — UWAGA: klasa 'uppercase' jest jawnie na warstwie KONTAKT (treść 'Kontakt' pisana normalnie) oraz na 'badanie rynku 2024' (treść pisana małymi literami), ale USŁUGI/O NAS/DLA KOGO/BLOG nie mają klasy uppercase — ich treść jest po prostu wpisana wielkimi literami w warstwie. Zalecenie: zastosować text-transform:uppercase globalnie w CSS bloku (spójność + edytowalność treści przez usera), nie polegać na wpisanych capsach."
+  },
+  {
+   "element": "Tekst/link promo \"badanie rynku 2024\"",
+   "family": "PP Mori",
+   "sizePx": 20,
+   "weight": "Regular",
+   "lineHeight": "30px",
+   "transform": "uppercase (jawna klasa, treść źródłowa małymi literami)",
+   "letterSpacing": "normal"
+  },
+  {
+   "element": "Label przycisku CTA \"bezpłatna konsultacja\"",
+   "family": "PP Mori",
+   "sizePx": 20,
+   "weight": "Regular (variable — potwierdzić font-variation-settings)",
+   "lineHeight": "30px",
+   "transform": "uppercase (jawna klasa, treść źródłowa małymi literami)",
+   "letterSpacing": "normal"
+  },
+  {
+   "element": "Logo \"AT\"/\"ONCE\"",
+   "sizePx": 0,
+   "family": "n/a — logo wyeksportowane jako grafika/wektor (image groups), nie jako live text; brak danych typograficznych do wyciągnięcia, traktować jako hardcoded asset graficzny"
+  }
+ ],
+ "spacing": [
+  {
+   "what": "Wysokość całego navbaru",
+   "value": "112px"
+  },
+  {
+   "what": "Logo — pozycja od lewej krawędzi sekcji",
+   "value": "64px (3.33% z 1920)"
+  },
+  {
+   "what": "Logo — box size",
+   "value": "~80×58px, wyśrodkowany pionowo (27px top/bottom)"
+  },
+  {
+   "what": "Logo — górny bordered box (\"AT\")",
+   "value": "pełna szerokość logo-boxa, wysokość ~27.2px (inset bottom 53.13%)"
+  },
+  {
+   "what": "Logo — dolny bordered box (\"ONCE\")",
+   "value": "pełna szerokość logo-boxa, wysokość ~27.2px (inset top 53.13%), boxy stykają się bez odstępu"
+  },
+  {
+   "what": "Logo — grubość obrysu boxów",
+   "value": "1.359px (nietypowa wartość — prawdopodobnie docelowo 1px lub 1.5px po zaokrągleniu, do potwierdzenia)"
+  },
+  {
+   "what": "Grupa nav (\"podstrony\") — pozycja",
+   "value": "left:584px, top:32px względem sekcji"
+  },
+  {
+   "what": "Grupa nav — gap między elementami",
+   "value": "60px (jednolity gap między WSZYSTKIMI dziećmi: 5 linków + tekst promo + button)"
+  },
+  {
+   "what": "Button CTA — wysokość",
+   "value": "50px (jawnie ustawiona)"
+  },
+  {
+   "what": "Button CTA — padding",
+   "value": "22px poziomo / 12px pionowo (px-22 py-12)"
+  },
+  {
+   "what": "Pusta przestrzeń logo→nav (do zweryfikowania jako część kontenera treści)",
+   "value": "~440px (144px prawa krawędź logo → 584px start grupy nav)"
+  }
+ ],
+ "assets": [
+  {
+   "name": "Logo \"AT / ONCE\" (dwa boxy z obramowaniem + monogram)",
+   "classification": "hardcoded",
+   "kind": "logo/dekoracja (grafika wektorowa/rastrowa, 2 image-groups + 2 bordered rects)",
+   "nodeId": "I3798:5356;1226:915"
+  }
+ ],
+ "interactivity": "Brak widocznych wariantów hover w tym node/eksporcie Figmy (brak warstw/nazw sugerujących stan hover dla linków ani buttona) — zachowanie hover NIE jest zdefiniowane w designie, trzeba przyjąć wg konwencji projektu (`@media (hover: hover)`, np. zmiana koloru/opacity na linkach i przycisku). Sekcja ma być `position: sticky; top:0` (wynika z hinta zadania, nie z warstw Figmy — brak literalnego oznaczenia sticky w pliku). Brak slidera/akordeonu/marquee w tej sekcji.",
+ "repeatable": "Główne linki menu (USŁUGI, O NAS, DLA KOGO, BLOG, KONTAKT) — repeatable lista {label, url}, edytowalne inline (RichText label + LinkControl url), z „+ Dodaj\"/„✕\" per konwencja block-template.md. Domyślnie 5 pozycji zasiane z designu, user może dodawać/usuwać. Dodatkowy element \"badanie rynku 2024\" — niejasne czy to 6. pozycja tej samej repeatable listy, czy osobny stały atrybut promo (patrz openQuestions). Przycisk CTA — pojedynczy, nie-repeatable: label (RichText) + url (LinkControl). Logo — pojedynczy, nie-repeatable asset (patrz assets).",
+ "radii": [
+  {
+   "what": "Button CTA \"bezpłatna konsultacja\" (pill, przy height 50px)",
+   "px": 50
+  },
+  {
+   "what": "Logo — bordered boxes (górny/dolny)",
+   "px": 0
+  }
+ ],
+ "suggestedBlock": {
+  "name": "navbar",
+  "prefix": "nav",
+  "attributes": [
+   {
+    "name": "logo",
+    "type": "object",
+    "note": "{id,url,alt} — MediaUpload z fallbackiem do domyślnego theme asset (window.ADWISE.themeUri), '✕' przywraca domyślny, per docs/patterns/media-images.md — nawet jeśli logo jest brandowe/stałe, wpiąć przez tę samą konwencję co inne assety theme"
+   },
+   {
+    "name": "menuItems",
+    "type": "array",
+    "note": "[{label:string, url:string}] — repeatable, inline RichText+LinkControl, domyślnie 5 pozycji z designu (USŁUGI/O NAS/DLA KOGO/BLOG/KONTAKT)"
+   },
+   {
+    "name": "promoText",
+    "type": "string",
+    "note": "RichText dla 'badanie rynku 2024' — OTWARTE: może być zamiast tego 6. pozycją menuItems"
+   },
+   {
+    "name": "promoUrl",
+    "type": "string",
+    "note": "URL dla promoText jeśli ma być linkiem (LinkControl)"
+   },
+   {
+    "name": "ctaLabel",
+    "type": "string",
+    "note": "RichText, default 'Bezpłatna konsultacja'"
+   },
+   {
+    "name": "ctaUrl",
+    "type": "string",
+    "note": "LinkControl url dla przycisku CTA"
+   },
+   {
+    "name": "anchor",
+    "type": "string",
+    "note": "jawnie w attributes — SSR/save=null wymaga (patrz CLAUDE.md Supports)"
+   },
+   {
+    "name": "className",
+    "type": "string",
+    "note": "jawnie w attributes — customClassName, SSR wymaga jawnego atrybutu"
+   }
+  ]
+ },
+ "openQuestions": [
+  "Logo 'AT/ONCE' — hardcoded theme asset (stały SVG w render.php/edit.js fallback) czy pełny MediaUpload z możliwością podmiany przez usera (mimo że to brand mark)?",
+  "Element 'badanie rynku 2024' — czy to 6. pozycja tej samej repeatable listy menuItems (link), czy osobny, oddzielnie stylowany atrybut promo (w designzie jest to <p>, nie <a> — brak cursor-pointer/link stylu w eksporcie, więc może być tylko tekstem, nie linkiem)?",
+  "Dokładny prawy padding/margines sekcji i szerokość content-container (max-width) — nie zmierzone w tym node (get_metadata pominięte wg instrukcji kroku 3); do potwierdzenia względem innych sekcji homepage dla spójności kontenera treści across bloków.",
+  "Grubość obrysu logo 1.359px — potwierdzić czy to docelowo 1px czy 1.5px (wartość niecałkowita sugeruje artefakt skalowania w Figmie).",
+  "Zachowanie hover linków/przycisku — brak wariantu w designie, przyjąć wg konwencji site (jaki dokładnie efekt: zmiana koloru tekstu, podkreślenie, zmiana tła przycisku?).",
+  "Wersja mobile navbaru (hamburger menu) — całkowicie nieobecna w tym frame; trzeba osobnego designu/decyzji usera zanim zrobimy breakpoint mobile.",
+  "Czy KONTAKT i pozostałe linki mają być stylowane z jawnym text-transform:uppercase w CSS, czy poleganie na wpisanej treści caps wystarczy (ryzyko niespójności przy edycji treści przez usera)?"
+ ]
+}
