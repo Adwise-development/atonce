@@ -1,0 +1,11 @@
+# Dependencies
+node_modules/
+
+# System
+.DS_Store
+*.log
+
+# Per-projekt / sekrety — NIE commitować do repo (CLAUDE.md)
+project.md
+.mcp.json
+.claude/settings.local.json
