@@ -111,6 +111,9 @@ font-size: clamp(24px, calc(24px + 16 * ((100vw - 768px) / 672)), 40px);
 
 Pełny wzór, przykłady i breakpointy → `css-conventions.md`.
 
+### Uwaga: przeskalowane instancje komponentów
+`get_design_context` na instancji komponentu zwraca wartości **naturalne komponentu**, a instancja na canvasie bywa PRZESKALOWANA (Figma scale tool). Porównaj w×h instancji z metadata vs naturalny rozmiar z design_context (font + paddingi) — jeśli się różnią, wygląd na canvasie = wartości × współczynnik skali. Decyzja per projekt: która wersja obowiązuje (w AT ONCE: font z komponentu + paddingi w skali wizualnej canvasu, radius „połowa wysokości" = pill).
+
 ### Uwaga: design_context mobile może kłamać
 `get_design_context` na node mobile bywa **odziedziczony z desktop componenta** (np. padding 128px zamiast realnych 76px). ZAWSZE weryfikuj wartości mobile ze screenshotem. Jeśli wartość = identyczna jak desktop i wygląda podejrzanie — zmierz proporcjonalnie ze screenshota.
 
