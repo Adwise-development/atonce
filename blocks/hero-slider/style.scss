@@ -1,0 +1,238 @@
+// Hero slider — sekcja edge-to-edge, tło tertiary. Prefix CSS: hero.
+// Projekt 1920px — clamp(MOBILE, calc(MOBILEpx + DIFF * ((100vw - 768px) / 1152)), DESKTOP).
+// GOTCHA: import CSS Swipera TYLKO tutaj (style.scss), NIGDY w view.js (patterns/slider.md).
+@use 'swiper/css' as *;
+
+.wp-block-atonce-hero-slider {
+	position: relative;
+	background-color: var( --wp--preset--color--tertiary );
+	/* ZERO padding — tło edge-to-edge, patrz .hero__inner */
+
+	*,
+	*::before,
+	*::after {
+		box-sizing: border-box;
+	}
+}
+
+.hero__inner {
+	max-width: 1792px;
+	margin: 0 auto;
+	box-sizing: border-box;
+	padding: clamp( 24px, calc( 24px + 36 * ( ( 100vw - 768px ) / 1152 ) ), 60px )
+		clamp( 16px, calc( 16px + 48 * ( ( 100vw - 768px ) / 1152 ) ), 64px );
+}
+
+.hero__slider {
+	position: relative;
+	overflow: hidden;
+}
+
+// --- Slajd — bazowe wspólne wartości (cta / photo / split) ---
+.hero__slide {
+	box-sizing: border-box;
+	min-height: clamp( 420px, calc( 420px + 300 * ( ( 100vw - 768px ) / 1152 ) ), 720px );
+	display: flex;
+	flex-direction: column;
+	border: 4px solid var( --wp--preset--color--primary );
+	border-radius: 0;
+}
+
+.hero__slide--cta,
+.hero__slide--photo {
+	position: relative;
+	padding: clamp( 40px, calc( 40px + 74 * ( ( 100vw - 768px ) / 1152 ) ), 114px )
+		clamp( 24px, calc( 24px + 83 * ( ( 100vw - 768px ) / 1152 ) ), 107px );
+}
+
+// --- Wariant photo — zdjęcie tło + overlay ---
+.hero__slide--photo {
+	background-color: var( --wp--preset--color--primary ); // fallback gdy brak obrazu
+	background-image: var( --hero-bg );
+	background-size: cover;
+	background-position: center;
+
+	&::before {
+		content: '';
+		position: absolute;
+		inset: 0;
+		background: rgba( 0, 0, 0, 0.2 );
+		z-index: 1;
+		pointer-events: none; // dekoracyjny overlay — nie blokuje kliku w media-trigger pod spodem (edytor)
+	}
+}
+
+.hero__content {
+	position: relative;
+	z-index: 2;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+}
+
+// --- Typografia (ujednolicona na wszystkich slajdach) ---
+.hero__heading {
+	margin: 0;
+	max-width: 1216px;
+	font-size: clamp( 34px, calc( 34px + 46 * ( ( 100vw - 768px ) / 1152 ) ), 80px );
+	font-weight: 700; // PP Mori statyczny (nie variable) — font-weight wystarcza
+	line-height: 1.05;
+	letter-spacing: -0.025em;
+	color: var( --wp--preset--color--primary );
+}
+
+.hero__slide--photo .hero__heading {
+	color: var( --wp--preset--color--secondary );
+}
+
+.hero__text {
+	margin: clamp( 24px, calc( 24px + 18 * ( ( 100vw - 768px ) / 1152 ) ), 42px ) 0 0;
+	max-width: 544px;
+	font-size: clamp( 17px, calc( 17px + 9 * ( ( 100vw - 768px ) / 1152 ) ), 26px );
+	line-height: 1.577;
+	color: var( --wp--preset--color--primary );
+}
+
+// --- Buttony (wariant cta) ---
+.hero__buttons {
+	margin-top: clamp( 32px, calc( 32px + 32 * ( ( 100vw - 768px ) / 1152 ) ), 64px );
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: clamp( 16px, calc( 16px + 10 * ( ( 100vw - 768px ) / 1152 ) ), 26px );
+}
+
+.hero__btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	font-size: clamp( 18px, calc( 18px + 20 * ( ( 100vw - 768px ) / 1152 ) ), 38px );
+	line-height: 1;
+	letter-spacing: 0.01em;
+	text-transform: uppercase;
+	text-decoration: none;
+	border-radius: 24px;
+	max-width: 100%;
+	box-sizing: border-box;
+	-webkit-tap-highlight-color: transparent;
+}
+
+.hero__btn--filled {
+	padding: clamp( 12px, calc( 12px + 4 * ( ( 100vw - 768px ) / 1152 ) ), 16px )
+		clamp( 24px, calc( 24px + 26 * ( ( 100vw - 768px ) / 1152 ) ), 50px );
+	background: var( --wp--preset--color--accent-orange );
+	color: var( --wp--preset--color--primary );
+	border: none;
+
+	@media ( hover: hover ) {
+		&:hover {
+			background: #ff9457;
+		}
+	}
+}
+
+.hero__btn--outline {
+	padding: clamp( 12px, calc( 12px + 4 * ( ( 100vw - 768px ) / 1152 ) ), 16px )
+		clamp( 20px, calc( 20px + 12 * ( ( 100vw - 768px ) / 1152 ) ), 32px );
+	background: transparent;
+	color: var( --wp--preset--color--primary );
+	border: 1.5px solid var( --wp--preset--color--primary );
+
+	@media ( hover: hover ) {
+		&:hover {
+			background: var( --wp--preset--color--primary );
+			color: var( --wp--preset--color--secondary );
+		}
+	}
+}
+
+// --- Wariant split — dwie karty obok siebie, border na dzieciach (nie na slajdzie) ---
+.hero__slide--split {
+	flex-direction: row;
+	border: none;
+	gap: clamp( 16px, calc( 16px + 21 * ( ( 100vw - 768px ) / 1152 ) ), 37px );
+}
+
+.hero__split-text {
+	box-sizing: border-box;
+	flex: 1099 1 0%; // ratio 1099:655 z makiety (lewa karta ~61%)
+	border: 4px solid var( --wp--preset--color--primary );
+	padding: clamp( 40px, calc( 40px + 74 * ( ( 100vw - 768px ) / 1152 ) ), 114px )
+		clamp( 24px, calc( 24px + 83 * ( ( 100vw - 768px ) / 1152 ) ), 107px );
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+
+	.hero__text {
+		margin-top: 0; // odstęp robi justify-content: space-between, nie margin
+	}
+}
+
+.hero__split-image {
+	box-sizing: border-box;
+	position: relative;
+	flex: 655 1 0%; // ratio 1099:655 (prawa karta ~39%)
+	overflow: hidden;
+}
+
+.hero__split-img {
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	border-radius: 0;
+}
+
+// --- Strzałki nawigacji ---
+.hero__nav {
+	position: absolute;
+	right: clamp( 24px, calc( 24px + 32 * ( ( 100vw - 768px ) / 1152 ) ), 56px );
+	bottom: clamp( 24px, calc( 24px + 32 * ( ( 100vw - 768px ) / 1152 ) ), 56px );
+	z-index: 5;
+	display: flex;
+	gap: 12px;
+}
+
+.hero__arrow {
+	width: clamp( 44px, calc( 44px + 16 * ( ( 100vw - 768px ) / 1152 ) ), 60px );
+	height: clamp( 44px, calc( 44px + 16 * ( ( 100vw - 768px ) / 1152 ) ), 60px );
+	flex-shrink: 0;
+	border-radius: 50%;
+	background: var( --wp--preset--color--accent-orange );
+	color: var( --wp--preset--color--primary );
+	border: none;
+	padding: 0;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	-webkit-tap-highlight-color: transparent;
+
+	svg {
+		width: 40%;
+		height: 40%;
+	}
+
+	@media ( hover: hover ) {
+		&:hover {
+			background: #ff9457;
+		}
+	}
+}
+
+// --- @1024px — layout: split → kolumna (zdjęcie pod tekstem) ---
+@media ( max-width: 1024px ) {
+	.hero__slide--split {
+		flex-direction: column;
+	}
+
+	.hero__split-text {
+		flex: none; // reset ratio desktopowy (flex-grow liczy się tylko na osi głównej)
+	}
+
+	.hero__split-image {
+		flex: none;
+		width: 100%;
+		aspect-ratio: 4 / 3;
+	}
+}

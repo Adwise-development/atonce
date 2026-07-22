@@ -1,0 +1,349 @@
+// Hero slider — editor.scss. IDENTYCZNE clamp/breakpointy jak style.scss (css-conventions.md),
+// BEZ importu swiper/css (edytor nie inicjalizuje Swipera, patterns/slider.md) + UI edytorowe.
+
+.wp-block-atonce-hero-slider {
+	position: relative;
+	background-color: var( --wp--preset--color--tertiary );
+
+	*,
+	*::before,
+	*::after {
+		box-sizing: border-box;
+	}
+}
+
+.hero__inner {
+	max-width: 1792px;
+	margin: 0 auto;
+	box-sizing: border-box;
+	padding: clamp( 24px, calc( 24px + 36 * ( ( 100vw - 768px ) / 1152 ) ), 60px )
+		clamp( 16px, calc( 16px + 48 * ( ( 100vw - 768px ) / 1152 ) ), 64px );
+}
+
+.hero__slider {
+	position: relative;
+	overflow: hidden;
+}
+
+// --- Slajd — bazowe wspólne wartości (cta / photo / split) ---
+.hero__slide {
+	box-sizing: border-box;
+	min-height: clamp( 420px, calc( 420px + 300 * ( ( 100vw - 768px ) / 1152 ) ), 720px );
+	display: flex;
+	flex-direction: column;
+	border: 4px solid var( --wp--preset--color--primary );
+	border-radius: 0;
+}
+
+.hero__slide--cta,
+.hero__slide--photo {
+	position: relative;
+	padding: clamp( 40px, calc( 40px + 74 * ( ( 100vw - 768px ) / 1152 ) ), 114px )
+		clamp( 24px, calc( 24px + 83 * ( ( 100vw - 768px ) / 1152 ) ), 107px );
+}
+
+.hero__slide--photo {
+	background-color: var( --wp--preset--color--primary );
+	background-image: var( --hero-bg );
+	background-size: cover;
+	background-position: center;
+
+	&::before {
+		content: '';
+		position: absolute;
+		inset: 0;
+		background: rgba( 0, 0, 0, 0.2 );
+		z-index: 1;
+		pointer-events: none; // dekoracyjny overlay — nie blokuje kliku w media-trigger pod spodem
+	}
+}
+
+.hero__content {
+	position: relative;
+	z-index: 2;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+}
+
+// --- Typografia ---
+.hero__heading {
+	margin: 0;
+	max-width: 1216px;
+	font-size: clamp( 34px, calc( 34px + 46 * ( ( 100vw - 768px ) / 1152 ) ), 80px );
+	font-weight: 700;
+	line-height: 1.05;
+	letter-spacing: -0.025em;
+	color: var( --wp--preset--color--primary );
+}
+
+.hero__slide--photo .hero__heading {
+	color: var( --wp--preset--color--secondary );
+}
+
+.hero__text {
+	margin: clamp( 24px, calc( 24px + 18 * ( ( 100vw - 768px ) / 1152 ) ), 42px ) 0 0;
+	max-width: 544px;
+	font-size: clamp( 17px, calc( 17px + 9 * ( ( 100vw - 768px ) / 1152 ) ), 26px );
+	line-height: 1.577;
+	color: var( --wp--preset--color--primary );
+}
+
+// --- Buttony (wariant cta) ---
+.hero__buttons {
+	margin-top: clamp( 32px, calc( 32px + 32 * ( ( 100vw - 768px ) / 1152 ) ), 64px );
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: clamp( 16px, calc( 16px + 10 * ( ( 100vw - 768px ) / 1152 ) ), 26px );
+}
+
+.hero__btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	font-size: clamp( 18px, calc( 18px + 20 * ( ( 100vw - 768px ) / 1152 ) ), 38px );
+	line-height: 1;
+	letter-spacing: 0.01em;
+	text-transform: uppercase;
+	border-radius: 24px;
+	max-width: 100%;
+	box-sizing: border-box;
+	cursor: text; // edytowalny RichText inline, nie link realny
+}
+
+.hero__btn--filled {
+	padding: clamp( 12px, calc( 12px + 4 * ( ( 100vw - 768px ) / 1152 ) ), 16px )
+		clamp( 24px, calc( 24px + 26 * ( ( 100vw - 768px ) / 1152 ) ), 50px );
+	background: var( --wp--preset--color--accent-orange );
+	color: var( --wp--preset--color--primary );
+}
+
+.hero__btn--outline {
+	padding: clamp( 12px, calc( 12px + 4 * ( ( 100vw - 768px ) / 1152 ) ), 16px )
+		clamp( 20px, calc( 20px + 12 * ( ( 100vw - 768px ) / 1152 ) ), 32px );
+	background: transparent;
+	color: var( --wp--preset--color--primary );
+	border: 1.5px solid var( --wp--preset--color--primary );
+}
+
+// --- Wariant split ---
+.hero__slide--split {
+	flex-direction: row;
+	border: none;
+	gap: clamp( 16px, calc( 16px + 21 * ( ( 100vw - 768px ) / 1152 ) ), 37px );
+}
+
+.hero__split-text {
+	box-sizing: border-box;
+	flex: 1099 1 0%;
+	border: 4px solid var( --wp--preset--color--primary );
+	padding: clamp( 40px, calc( 40px + 74 * ( ( 100vw - 768px ) / 1152 ) ), 114px )
+		clamp( 24px, calc( 24px + 83 * ( ( 100vw - 768px ) / 1152 ) ), 107px );
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+
+	.hero__text {
+		margin-top: 0;
+	}
+}
+
+.hero__split-image {
+	box-sizing: border-box;
+	position: relative;
+	flex: 655 1 0%;
+	overflow: hidden;
+}
+
+.hero__split-img {
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	border-radius: 0;
+}
+
+// --- @1024px — layout: split → kolumna (testuj w wąskim panelu edytora) ---
+@media ( max-width: 1024px ) {
+	.hero__slide--split {
+		flex-direction: column;
+	}
+
+	.hero__split-text {
+		flex: none;
+	}
+
+	.hero__split-image {
+		flex: none;
+		width: 100%;
+		aspect-ratio: 4 / 3;
+	}
+}
+
+// ---------------------------------------------------------------------------
+// UI edytorowe (bez odpowiednika na froncie) — brak Swipera: zakładki + podgląd
+// jednego aktywnego slajdu, media trigger, popover linku, toggle stylu buttona.
+// ---------------------------------------------------------------------------
+
+.hero__tabs {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 8px;
+	margin-bottom: 16px;
+}
+
+.hero__tab {
+	position: relative;
+	display: inline-flex;
+	align-items: stretch;
+}
+
+.hero__tab-select {
+	background: rgba( 10, 10, 10, 0.06 );
+	border: 1px solid rgba( 10, 10, 10, 0.2 );
+	border-radius: 4px;
+	padding: 6px 28px 6px 12px;
+	font-size: 13px;
+	cursor: pointer;
+	color: var( --wp--preset--color--primary );
+
+	&:hover {
+		background: rgba( 10, 10, 10, 0.1 );
+	}
+}
+
+.hero__tab.is-active .hero__tab-select {
+	background: var( --wp--preset--color--primary );
+	color: var( --wp--preset--color--secondary );
+	border-color: var( --wp--preset--color--primary );
+}
+
+.hero__tab-remove {
+	position: absolute;
+	top: -6px;
+	right: -6px;
+	width: 18px;
+	height: 18px;
+	background: rgba( 220, 38, 38, 0.85 );
+	color: #fff;
+	border: none;
+	border-radius: 50%;
+	font-size: 9px;
+	line-height: 1;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	&:hover {
+		background: rgba( 220, 38, 38, 1 );
+	}
+}
+
+// Media trigger (photo bg / split image) — button-reset, wypełnia cały slot
+.hero__media-btn {
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	background: none;
+	border: none;
+	padding: 0;
+	margin: 0;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 0;
+}
+
+.hero__media-preview {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	display: block;
+}
+
+.hero__media-placeholder {
+	font-size: 14px;
+	padding: 8px 16px;
+	border: 1px dashed rgba( 10, 10, 10, 0.35 );
+	border-radius: 4px;
+	background: rgba( 255, 255, 255, 0.6 );
+	color: var( --wp--preset--color--primary );
+}
+
+.hero__slide--photo .hero__media-placeholder {
+	background: rgba( 247, 247, 247, 0.15 );
+	border-color: rgba( 247, 247, 247, 0.4 );
+	color: var( --wp--preset--color--secondary );
+}
+
+.hero__media-remove {
+	position: absolute;
+	top: 8px;
+	right: 8px;
+	z-index: 3;
+	width: 22px;
+	height: 22px;
+	background: rgba( 220, 38, 38, 0.85 );
+	color: #fff;
+	border: none;
+	border-radius: 50%;
+	font-size: 10px;
+	line-height: 1;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	&:hover {
+		background: rgba( 220, 38, 38, 1 );
+	}
+}
+
+// Rząd buttonów w edytorze — wrap per button + toolbar (link/style/remove) na hover
+.hero__btn-edit-wrap {
+	position: relative;
+	display: inline-flex;
+}
+
+.hero__btn-toolbar {
+	position: absolute;
+	top: -30px;
+	left: 0;
+	display: flex;
+	gap: 4px;
+	opacity: 0;
+	pointer-events: none;
+	transition: opacity 0.15s ease;
+	z-index: 4;
+}
+
+.hero__btn-edit-wrap:hover .hero__btn-toolbar,
+.hero__btn-edit-wrap:focus-within .hero__btn-toolbar {
+	opacity: 1;
+	pointer-events: auto;
+}
+
+.hero__btn-tool {
+	background: var( --wp--preset--color--primary );
+	color: #fff;
+	border: none;
+	border-radius: 3px;
+	font-size: 11px;
+	line-height: 1;
+	padding: 5px 7px;
+	cursor: pointer;
+	white-space: nowrap;
+
+	&:hover {
+		background: #333;
+	}
+}
+
+.hero__btn-add {
+	margin-top: 8px;
+}

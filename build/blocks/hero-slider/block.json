@@ -1,0 +1,59 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "atonce/hero-slider",
+	"version": "1.0.0",
+	"title": "Hero slider",
+	"category": "theme",
+	"description": "Baner główny — slider 3 wariantów slajdów (CTA, zdjęcie, split), Swiper z konfigurowalnym autoplay.",
+	"textdomain": "adwise",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"viewScript": "file:./view.js",
+	"render": "file:./render.php",
+	"attributes": {
+		"anchor": { "type": "string" },
+		"className": { "type": "string" },
+		"slides": {
+			"type": "array",
+			"default": [
+				{
+					"variant": "cta",
+					"heading": "W AT ONCE wspieramy Twój biznes i rynek wydawniczy.",
+					"text": "Zredagujemy, zaprojektujemy i wydrukujemy Twoje książki, a ty w tym czasie skupisz się na kampanii marketingowej i sprzedaży.",
+					"image": {},
+					"buttons": [
+						{ "label": "Dowiedz się więcej", "url": "#", "style": "filled" },
+						{ "label": "Sprawdź warsztat strategiczny", "url": "https://at.atonce.pl/warsztat-zaplanuj-swoja-ksiazke", "style": "outline" }
+					]
+				},
+				{
+					"variant": "photo",
+					"heading": "Zobacz książki, które wydaliśmy dla naszych klientów.",
+					"text": "",
+					"image": {},
+					"buttons": []
+				},
+				{
+					"variant": "split",
+					"heading": "W AT ONCE wspieramy Twój biznes i rynek wydawniczy.",
+					"text": "Zredagujemy, zaprojektujemy i wydrukujemy Twoje książki, a ty w tym czasie skupisz się na kampanii marketingowej i sprzedaży.",
+					"image": {},
+					"buttons": []
+				}
+			]
+		},
+		"autoplay": { "type": "boolean", "default": true },
+		"autoplayDelay": { "type": "number", "default": 6000 },
+		"loop": { "type": "boolean", "default": true }
+	},
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"customClassName": true,
+		"align": ["wide", "full"],
+		"color": false,
+		"spacing": false
+	}
+}
