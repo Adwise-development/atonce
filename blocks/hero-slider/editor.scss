@@ -158,6 +158,7 @@
 	position: relative;
 	flex: 655 1 0%;
 	overflow: hidden;
+	border: 4px solid var( --wp--preset--color--primary ); // makieta: zdjęcie też ma ramkę (≡ style.scss)
 }
 
 .hero__split-img {
