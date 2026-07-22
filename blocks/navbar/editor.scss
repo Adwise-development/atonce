@@ -78,11 +78,13 @@
 	.menu-item-has-children > a::after {
 		content: '';
 		display: inline-block;
-		width: 6px;
-		height: 6px;
-		margin-left: 6px;
-		border-right: 1.5px solid currentColor;
-		border-bottom: 1.5px solid currentColor;
+		position: relative;
+		top: -2px;
+		width: 8px;
+		height: 8px;
+		margin-left: 8px;
+		border-right: 2.5px solid currentColor;
+		border-bottom: 2.5px solid currentColor;
 		transform: rotate( 45deg );
 	}
 
@@ -126,10 +128,11 @@
 	background: var( --wp--preset--color--accent-orange );
 	color: var( --wp--preset--color--primary );
 	font-size: clamp( 16px, calc( 16px + 4 * ( ( 100vw - 768px ) / 1152 ) ), 20px );
-	line-height: 1.5;
+	// jak style.scss: lh 1 + więcej paddingu u góry = optyczne centrowanie wersalików PP Mori
+	line-height: 1;
 	text-transform: uppercase;
 	text-decoration: none;
-	padding: 12px 22px;
+	padding: 15px 22px 12px;
 	border: none;
 	border-radius: 999px;
 	max-width: 100%;

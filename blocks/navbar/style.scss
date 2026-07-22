@@ -103,15 +103,19 @@
 		}
 	}
 
-	// Chevron dla pozycji z dropdownem (CSS border trick, bez inline SVG)
+	// Chevron dla pozycji z dropdownem (CSS border trick, bez inline SVG).
+	// Link jest inline-flex + align-items center — ::after centruje się jako flex item;
+	// top -2px koryguje optycznie środek masy "V" (dolna połowa rombu po rotacji).
 	.menu-item-has-children > a::after {
 		content: '';
 		display: inline-block;
-		width: 6px;
-		height: 6px;
-		margin-left: 6px;
-		border-right: 1.5px solid currentColor;
-		border-bottom: 1.5px solid currentColor;
+		position: relative;
+		top: -2px;
+		width: 8px;
+		height: 8px;
+		margin-left: 8px;
+		border-right: 2.5px solid currentColor;
+		border-bottom: 2.5px solid currentColor;
 		transform: rotate( 45deg );
 		transition: transform 0.2s ease;
 	}
@@ -158,10 +162,12 @@
 	background: var( --wp--preset--color--accent-orange );
 	color: var( --wp--preset--color--primary );
 	font-size: clamp( 16px, calc( 16px + 4 * ( ( 100vw - 768px ) / 1152 ) ), 20px );
-	line-height: 1.5;
+	// lh 1 + asymetryczny padding (więcej u góry) = optyczne centrowanie wersalików
+	// PP Mori — font ma duży zapas pod baseline (spójne z makietą: buttony 16/14, 17/10).
+	line-height: 1;
 	text-transform: uppercase;
 	text-decoration: none;
-	padding: 12px 22px;
+	padding: 15px 22px 12px;
 	border: none;
 	border-radius: 999px;
 	max-width: 100%;
@@ -181,26 +187,54 @@
 		display: inline-flex;
 	}
 
-	.wp-block-atonce-navbar:not( .is-open ) .nav__panel {
-		display: none;
+	// Pasek (logo + burger) musi zostać NAD wysuwaną szufladą — własny kontekst z wyższym z-index
+	.nav__inner {
+		position: relative;
+		z-index: 2;
+		background: var( --wp--preset--color--primary );
 	}
 
-	.wp-block-atonce-navbar.is-open {
-		.nav__panel {
-			display: flex;
-			flex-direction: column;
-			align-items: flex-start;
-			gap: 24px;
-			position: absolute;
-			top: 100%;
-			left: 0;
-			right: 0;
-			max-height: calc( 100vh - 100% );
-			overflow-y: auto;
-			background: var( --wp--preset--color--primary );
-			padding: 24px;
-			box-sizing: border-box;
+	// Burger → "X" po otwarciu (spany: 2px wysokości, gap 5px → środki oddalone o 7px)
+	.wp-block-atonce-navbar.is-open .nav__burger {
+		span:nth-child( 1 ) {
+			transform: translateY( 7px ) rotate( 45deg );
 		}
+		span:nth-child( 2 ) {
+			opacity: 0;
+		}
+		span:nth-child( 3 ) {
+			transform: translateY( -7px ) rotate( -45deg );
+		}
+	}
+
+	// Panel = szuflada wysuwana z LEWEJ (zostaje w DOM dla animacji → focus blokuje
+	// inert z view.js + visibility; navbar-menu.md §4 wariant animowany)
+	.nav__panel {
+		position: fixed;
+		z-index: 1;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		width: min( 360px, 85vw );
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 24px;
+		// pasek navbara (sticky, z-index 2) przykrywa górę szuflady — padding-top robi miejsce
+		// (wysokość paska na mobile: 68px @375px → ~84px @1120px)
+		padding: 96px 24px 24px;
+		box-sizing: border-box;
+		overflow-y: auto;
+		background: var( --wp--preset--color--primary );
+		box-shadow: 24px 0 48px rgba( 0, 0, 0, 0.35 );
+		visibility: hidden;
+		transform: translateX( -100% );
+		transition: transform 0.3s ease, visibility 0s linear 0.3s;
+	}
+
+	.wp-block-atonce-navbar.is-open .nav__panel {
+		visibility: visible;
+		transform: translateX( 0 );
+		transition: transform 0.3s ease;
 	}
 
 	.nav__menu {

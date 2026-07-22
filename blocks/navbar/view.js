@@ -11,14 +11,30 @@
 	const setOpen = ( open ) => {
 		nav.classList.toggle( 'is-open', open );
 		burger.setAttribute( 'aria-expanded', String( open ) );
-		panel.toggleAttribute( 'inert', ! open ); // niedostępny dla focus gdy zamknięty
+		// inert TYLKO na mobile — na desktopie panel to zawsze widoczne menu poziome
+		if ( mobileQuery.matches ) {
+			panel.toggleAttribute( 'inert', ! open );
+		} else {
+			panel.removeAttribute( 'inert' );
+		}
 		document.body.style.overflow = open ? 'hidden' : ''; // blokuj scroll tła
 	};
+
+	// Stan początkowy + zmiana breakpointu (desktop nigdy nie może zostać z inert)
+	if ( mobileQuery.matches ) panel.setAttribute( 'inert', '' );
+	mobileQuery.addEventListener( 'change', ( ev ) => {
+		if ( ! ev.matches ) {
+			setOpen( false );
+			panel.removeAttribute( 'inert' );
+		} else if ( ! nav.classList.contains( 'is-open' ) ) {
+			panel.setAttribute( 'inert', '' );
+		}
+	} );
 
 	burger.addEventListener( 'click', () => setOpen( ! nav.classList.contains( 'is-open' ) ) );
 
 	document.addEventListener( 'keydown', ( e ) => {
-		if ( e.key === 'Escape' ) setOpen( false );
+		if ( e.key === 'Escape' && nav.classList.contains( 'is-open' ) ) setOpen( false );
 	} );
 
 	document.addEventListener( 'click', ( e ) => {
