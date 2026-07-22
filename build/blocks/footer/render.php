@@ -72,20 +72,43 @@ $render_social_icon = function ( $name, $url ) use ( $social_icons ) {
 				<p class="ft__address"><?php echo wp_kses_post( $company_info ); ?></p>
 			</div>
 
-			<?php if ( $menu_id ) : ?>
+			<?php
+			// Płaskie menu WP dzielone ręcznie na 2 kolumny wyrównane DOŁEM (makieta:
+			// rytm wiersza 31px, doły kolumn na jednej linii — CSS columns tego nie umie).
+			$menu_cols = [];
+			if ( $menu_id ) {
+				$menu_items = wp_get_nav_menu_items( $menu_id );
+				$menu_items = array_values(
+					array_filter(
+						(array) $menu_items,
+						static function ( $it ) {
+							return empty( $it->menu_item_parent );
+						}
+					)
+				);
+				if ( $menu_items ) {
+					$half      = (int) ceil( count( $menu_items ) / 2 );
+					$menu_cols = [
+						array_slice( $menu_items, 0, $half ),
+						array_slice( $menu_items, $half ),
+					];
+				}
+			}
+			?>
+			<?php if ( $menu_cols ) : ?>
 				<div class="ft__group ft__group--menu">
-					<?php
-					// Płaskie menu WP — pozycje łamią się na 2 kolumny przez CSS columns (.ft__menu).
-					wp_nav_menu(
-						[
-							'menu'        => $menu_id,
-							'container'   => false,
-							'menu_class'  => 'ft__menu',
-							'fallback_cb' => false,
-							'depth'       => 1,
-						]
-					);
-					?>
+					<nav class="ft__menu" aria-label="<?php echo esc_attr__( 'Menu stopki', 'adwise' ); ?>">
+						<?php foreach ( $menu_cols as $col ) : ?>
+							<?php if ( empty( $col ) ) { continue; } ?>
+							<ul class="ft__menu-col">
+								<?php foreach ( $col as $item ) : ?>
+									<li>
+										<a href="<?php echo esc_url( $item->url ); ?>"><?php echo esc_html( $item->title ); ?></a>
+									</li>
+								<?php endforeach; ?>
+							</ul>
+						<?php endforeach; ?>
+					</nav>
 				</div>
 			<?php endif; ?>
 

@@ -43,21 +43,21 @@
 	white-space: normal;
 }
 
-/* Menu WP — pozycje łamią się na 2 kolumny (≡ style.scss) */
+/* Menu WP — 2 kolumny wyrównane DOŁEM, rytm 31px — ≡ style.scss */
 .ft__menu {
 	margin: 0;
 	padding: 0;
-	list-style: none;
-	columns: 2;
-	column-gap: clamp( 40px, calc( 40px + 56 * ( ( 100vw - 768px ) / 1152 ) ), 96px );
+	display: flex;
+	align-items: flex-end;
+	gap: clamp( 40px, calc( 40px + 56 * ( ( 100vw - 768px ) / 1152 ) ), 96px );
 
-	li {
-		break-inside: avoid;
-		margin: 0 0 20px;
-
-		&:last-child {
-			margin-bottom: 0;
-		}
+	.ft__menu-col {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		display: flex;
+		flex-direction: column;
+		gap: 7px;
 	}
 
 	a {

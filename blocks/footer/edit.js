@@ -141,18 +141,36 @@ export default function Edit( { attributes, setAttributes } ) {
 							) : (
 								<div className="ft__menu-preview">
 									{ loading && <Spinner /> }
-									<ul className="ft__menu">
-										{ items.map( ( it ) => (
-											<li key={ it.id }>
-												<a
-													href={ it.url }
-													onClick={ ( e ) => e.preventDefault() }
-												>
-													{ it.title?.rendered || it.title }
-												</a>
-											</li>
-										) ) }
-									</ul>
+									{ ( () => {
+										// top-level only + podział na 2 kolumny jak w render.php
+										const tops = items.filter(
+											( it ) => ! parseInt( it.parent ?? 0, 10 )
+										);
+										const half = Math.ceil( tops.length / 2 );
+										const cols = [ tops.slice( 0, half ), tops.slice( half ) ].filter(
+											( c ) => c.length
+										);
+										return (
+											<nav className="ft__menu">
+												{ cols.map( ( col, ci ) => (
+													<ul className="ft__menu-col" key={ ci }>
+														{ col.map( ( it ) => (
+															<li key={ it.id }>
+																<a
+																	href={ it.url }
+																	onClick={ ( e ) =>
+																		e.preventDefault()
+																	}
+																>
+																	{ it.title?.rendered || it.title }
+																</a>
+															</li>
+														) ) }
+													</ul>
+												) ) }
+											</nav>
+										);
+									} )() }
 									<button
 										type="button"
 										className="ft__menu-reset"
