@@ -28,6 +28,13 @@
 	overflow: hidden;
 }
 
+// Równa wysokość slajdów: swiper core daje .swiper-slide height:100% liczone od
+// auto-wysokiego wrappera (= nic) — height:auto przywraca flexowe stretch,
+// więc każdy slajd dociąga do najwyższego (bez dziury pod krótszą kartą).
+.hero__slider .swiper-slide {
+	height: auto;
+}
+
 // --- Slajd — bazowe wspólne wartości (cta / photo / split) ---
 .hero__slide {
 	box-sizing: border-box;
@@ -227,6 +234,14 @@
 
 // --- @1024px — layout: split → kolumna (zdjęcie pod tekstem) ---
 @media ( max-width: 1024px ) {
+	// strzałki w normalnym flow pod sliderem — absolute w rogu kolidowałoby
+	// z buttonami CTA na wąskich ekranach
+	.hero__nav {
+		position: static;
+		justify-content: flex-end;
+		margin-top: 16px;
+	}
+
 	.hero__slide--split {
 		flex-direction: column;
 	}
