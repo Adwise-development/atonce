@@ -113,14 +113,16 @@
 	letter-spacing: 0.01em;
 	text-transform: uppercase;
 	text-decoration: none;
-	border-radius: 24px;
+	border-radius: 999px; // komponent: radius 24 przy wys. 49 = pełny pill
 	max-width: 100%;
 	box-sizing: border-box;
 	-webkit-tap-highlight-color: transparent;
 }
 
 .hero__btn--filled {
-	padding: 12px clamp( 24px, calc( 24px + 12 * ( ( 100vw - 768px ) / 1152 ) ), 36px ) 10px;
+	padding: clamp( 14px, calc( 14px + 6 * ( ( 100vw - 768px ) / 1152 ) ), 20px )
+		clamp( 28px, calc( 28px + 21 * ( ( 100vw - 768px ) / 1152 ) ), 49px )
+		clamp( 12px, calc( 12px + 6 * ( ( 100vw - 768px ) / 1152 ) ), 18px );
 	background: var( --wp--preset--color--accent-orange );
 	color: var( --wp--preset--color--primary );
 	border: none;
@@ -133,7 +135,9 @@
 }
 
 .hero__btn--outline {
-	padding: 12px clamp( 24px, calc( 24px + 12 * ( ( 100vw - 768px ) / 1152 ) ), 36px ) 10px;
+	padding: clamp( 14px, calc( 14px + 6 * ( ( 100vw - 768px ) / 1152 ) ), 20px )
+		clamp( 22px, calc( 22px + 9 * ( ( 100vw - 768px ) / 1152 ) ), 31px )
+		clamp( 12px, calc( 12px + 6 * ( ( 100vw - 768px ) / 1152 ) ), 18px );
 	background: transparent;
 	color: var( --wp--preset--color--primary );
 	border: 1.5px solid var( --wp--preset--color--primary );
