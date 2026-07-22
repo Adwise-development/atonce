@@ -143,10 +143,26 @@
 	}
 }
 
-/* @767px — layout: grid 2 kolumny → 1 kolumna */
+/* @767px — layout: grid 2 kolumny → 1 kolumna; menu = 2 kolumny po 50% szerokości */
 @media ( max-width: 767px ) {
 	.ft__frame {
 		grid-template-columns: 1fr;
 		gap: 32px;
+	}
+
+	.ft__group--menu {
+		width: 100%;
+	}
+
+	.ft__menu {
+		width: 100%;
+		gap: 0;
+		align-items: flex-start; // mobile: kolumny od góry (makieta mobilna)
+
+		.ft__menu-col {
+			flex: 0 0 50%;
+			max-width: 50%;
+			box-sizing: border-box;
+		}
 	}
 }
