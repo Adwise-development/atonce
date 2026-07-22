@@ -23,6 +23,12 @@ const VARIANT_LABELS = {
 	split: __( 'Split (tekst + zdjęcie obok)', 'adwise' ),
 };
 
+const VARIANT_SHORT = {
+	cta: 'CTA',
+	photo: __( 'Zdjęcie', 'adwise' ),
+	split: 'Split',
+};
+
 export default function Edit( { attributes, setAttributes } ) {
 	const { slides, autoplay, autoplayDelay, loop } = attributes;
 	const blockProps = useBlockProps( { className: 'wp-block-atonce-hero-slider' } );
@@ -342,7 +348,9 @@ export default function Edit( { attributes, setAttributes } ) {
 									className="hero__tab-select"
 									onClick={ () => setActiveSlide( i ) }
 								>
-									{ `${ __( 'Slajd', 'adwise' ) } ${ i + 1 }` }
+									{ `${ __( 'Slajd', 'adwise' ) } ${ i + 1 } · ${
+										VARIANT_SHORT[ _slide.variant ] || 'CTA'
+									}` }
 								</button>
 								{ slides.length > 1 && (
 									<button
