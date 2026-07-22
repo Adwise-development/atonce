@@ -1,0 +1,272 @@
+// Navbar — editor.scss. IDENTYCZNE clamp/breakpointy jak style.scss (css-conventions.md),
+// + UI edytorowe (picker menu, reset, remove logo, popover CTA).
+
+.wp-block-atonce-navbar {
+	position: sticky;
+	top: 0;
+	z-index: 100;
+	padding: 0;
+	background: var( --wp--preset--color--primary );
+
+	&.is-scrolled {
+		border-bottom: 1px solid rgba( 247, 247, 247, 0.15 );
+	}
+}
+
+.nav__inner {
+	max-width: 1792px;
+	margin: 0 auto;
+	box-sizing: border-box;
+	padding-inline: clamp( 16px, calc( 16px + 48 * ( ( 100vw - 768px ) / 1152 ) ), 64px );
+	padding-block: clamp( 12px, calc( 12px + 15 * ( ( 100vw - 768px ) / 1152 ) ), 27px );
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+// Logo — preview
+.nav__logo-img {
+	display: block;
+	height: clamp( 44px, calc( 44px + 14 * ( ( 100vw - 768px ) / 1152 ) ), 58px );
+	width: auto;
+}
+
+// Burger (markup nieobecny w edit.js — brak interakcji burgera w edytorze,
+// panel jest zawsze widoczny, patrz override niżej)
+.nav__burger {
+	display: none;
+	flex-direction: column;
+	gap: 5px;
+
+	span {
+		display: block;
+		width: 24px;
+		height: 2px;
+		background: var( --wp--preset--color--secondary );
+		border-radius: 2px;
+	}
+}
+
+.nav__panel {
+	display: flex;
+	align-items: center;
+	gap: clamp( 24px, calc( 24px + 36 * ( ( 100vw - 768px ) / 1152 ) ), 60px );
+}
+
+.nav__menu {
+	display: flex;
+	align-items: center;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	gap: clamp( 24px, calc( 24px + 36 * ( ( 100vw - 768px ) / 1152 ) ), 60px );
+
+	li {
+		position: relative;
+	}
+
+	a {
+		display: inline-flex;
+		align-items: center;
+		color: var( --wp--preset--color--secondary );
+		font-size: clamp( 16px, calc( 16px + 4 * ( ( 100vw - 768px ) / 1152 ) ), 20px );
+		line-height: 1.5;
+		text-transform: uppercase;
+		text-decoration: none;
+	}
+
+	.menu-item-has-children > a::after {
+		content: '';
+		display: inline-block;
+		width: 6px;
+		height: 6px;
+		margin-left: 6px;
+		border-right: 1.5px solid currentColor;
+		border-bottom: 1.5px solid currentColor;
+		transform: rotate( 45deg );
+	}
+
+	.sub-menu {
+		display: none;
+		list-style: none;
+		margin: 0;
+		position: absolute;
+		top: 100%;
+		left: 0;
+		min-width: 280px;
+		z-index: 10;
+		background: var( --wp--preset--color--primary );
+		border: 1px solid rgba( 247, 247, 247, 0.25 );
+		border-radius: 4px;
+		padding: 20px;
+		flex-direction: column;
+		gap: 14px;
+		box-shadow: 0 16px 32px rgba( 0, 0, 0, 0.3 );
+
+		li {
+			position: static;
+		}
+		a {
+			font-size: 16px;
+			line-height: 1.4;
+			text-transform: uppercase;
+		}
+	}
+
+	.menu-item-has-children:hover .sub-menu,
+	.menu-item-has-children:focus-within .sub-menu {
+		display: flex;
+	}
+}
+
+.nav__cta {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	background: var( --wp--preset--color--accent-orange );
+	color: var( --wp--preset--color--primary );
+	font-size: clamp( 16px, calc( 16px + 4 * ( ( 100vw - 768px ) / 1152 ) ), 20px );
+	line-height: 1.5;
+	text-transform: uppercase;
+	text-decoration: none;
+	padding: 12px 22px;
+	border: none;
+	border-radius: 999px;
+	max-width: 100%;
+	box-sizing: border-box;
+	cursor: text; // edytowalny RichText inline, nie link realny
+}
+
+@media ( max-width: 1120px ) {
+	.nav__menu {
+		flex-direction: column;
+		align-items: flex-start;
+		width: 100%;
+		gap: 24px;
+
+		li {
+			width: 100%;
+		}
+		.sub-menu {
+			position: static;
+			display: flex; // w edytorze pokazujemy zawsze pełne drzewo (bez akordeonu JS)
+			border: none;
+			box-shadow: none;
+			min-width: 0;
+			width: 100%;
+			padding: 14px 0 0 16px;
+			background: transparent;
+		}
+	}
+	.nav__cta {
+		width: 100%;
+		text-align: center;
+	}
+}
+
+// ---------------------------------------------------------------------------
+// UI edytorowe (bez odpowiednika na froncie)
+// ---------------------------------------------------------------------------
+
+// Panel zawsze widoczny w edytorze — edit.js nie ma interaktywnego burgera
+// (toggle .is-open robi view.js tylko na froncie), więc nie chowamy contentu.
+.wp-block-atonce-navbar .nav__panel {
+	display: flex !important;
+}
+@media ( max-width: 1120px ) {
+	.wp-block-atonce-navbar .nav__panel {
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 24px;
+	}
+}
+
+// Logo — trigger button-reset + „✕” przywracający domyślny asset
+.nav__logo-wrap {
+	position: relative;
+	display: inline-flex;
+}
+.nav__logo-btn {
+	background: none;
+	border: none;
+	padding: 0;
+	margin: 0;
+	cursor: pointer;
+	display: block;
+	line-height: 0;
+}
+.nav__logo-remove {
+	display: none;
+	position: absolute;
+	top: -6px;
+	right: -6px;
+	width: 18px;
+	height: 18px;
+	background: rgba( 220, 38, 38, 0.8 );
+	color: #fff;
+	border: none;
+	border-radius: 50%;
+	font-size: 9px;
+	line-height: 1;
+	cursor: pointer;
+	align-items: center;
+	justify-content: center;
+
+	&:hover {
+		background: rgba( 220, 38, 38, 1 );
+	}
+}
+.nav__logo-wrap:hover .nav__logo-remove {
+	display: flex;
+}
+
+// Picker / empty-state (menu nie wybrane)
+.nav__menu-empty {
+	background: rgba( 247, 247, 247, 0.08 );
+	border: 1px dashed rgba( 247, 247, 247, 0.35 );
+	border-radius: 4px;
+	padding: 16px;
+	color: var( --wp--preset--color--secondary );
+	max-width: 360px;
+
+	p {
+		margin: 0 0 8px;
+		font-size: 13px;
+	}
+	a {
+		color: var( --wp--preset--color--accent-orange );
+		font-size: 13px;
+	}
+}
+.nav__panel .components-base-control {
+	min-width: 220px;
+	color: var( --wp--preset--color--secondary );
+}
+
+// Preview menu wybranego + reset
+.nav__menu-preview {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	flex-wrap: wrap;
+}
+.nav__menu-reset {
+	background: rgba( 247, 247, 247, 0.12 );
+	border: 1px solid rgba( 247, 247, 247, 0.3 );
+	color: var( --wp--preset--color--secondary );
+	border-radius: 4px;
+	padding: 4px 10px;
+	font-size: 12px;
+	cursor: pointer;
+	white-space: nowrap;
+
+	&:hover {
+		background: rgba( 247, 247, 247, 0.2 );
+	}
+}
+
+// CTA wrap — kontener popovera LinkControl
+.nav__cta-wrap {
+	position: relative;
+	display: inline-flex;
+}

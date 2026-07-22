@@ -1,0 +1,31 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "atonce/navbar",
+	"version": "1.0.0",
+	"title": "Navbar",
+	"category": "theme",
+	"description": "Górny pasek nawigacji — logo, menu WP (z rozwijanymi pozycjami) i przycisk CTA. Menu wybierane z „Wygląd → Menu”.",
+	"textdomain": "adwise",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"viewScript": "file:./view.js",
+	"render": "file:./render.php",
+	"attributes": {
+		"anchor": { "type": "string" },
+		"className": { "type": "string" },
+		"menuId": { "type": "integer", "default": 0 },
+		"logo": { "type": "object", "default": {} },
+		"ctaText": { "type": "string", "default": "Napisz do nas" },
+		"ctaUrl": { "type": "string", "default": "/kontakt/" }
+	},
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"customClassName": true,
+		"align": ["wide", "full"],
+		"color": false,
+		"spacing": false
+	}
+}
