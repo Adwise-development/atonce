@@ -25,7 +25,7 @@
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-between;
-	align-items: center; // grupy wycentrowane w pionie względem najwyższej (adres) — jak w makiecie
+	align-items: flex-end; // grupy wyrównane do dołu ramki — jak w makiecie
 	gap: clamp( 32px, calc( 32px + 32 * ( ( 100vw - 768px ) / 1152 ) ), 64px );
 }
 
