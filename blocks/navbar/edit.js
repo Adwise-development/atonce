@@ -22,7 +22,9 @@ function buildMenuTree( items ) {
 	} );
 	const roots = [];
 	items.forEach( ( it ) => {
-		const parentId = it.menu_item_parent ? parseInt( it.menu_item_parent, 10 ) : 0;
+		// REST /wp/v2/menu-items zwraca rodzica w polu `parent` (menu_item_parent to
+		// właściwość klasycznego WP_Post — w REST nie istnieje)
+		const parentId = parseInt( it.parent ?? it.menu_item_parent ?? 0, 10 ) || 0;
 		if ( parentId && map[ parentId ] ) {
 			map[ parentId ].children.push( map[ it.id ] );
 		} else {
