@@ -187,11 +187,11 @@
 		display: inline-flex;
 	}
 
-	// Pasek (logo + burger) musi zostać NAD wysuwaną szufladą — własny kontekst z wyższym z-index
-	.nav__inner {
-		position: relative;
-		z-index: 2;
-		background: var( --wp--preset--color--primary );
+	// Szuflada wyjeżdża translateX(100%) poza prawą krawędź — clip ucina ją w poziomie
+	// (bez poziomego scrolla), pion zostaje visible (szuflada wystaje pod belkę).
+	// 'clip' nie zamienia visible w auto (w przeciwieństwie do hidden) i nie psuje sticky.
+	.wp-block-atonce-navbar {
+		overflow-x: clip;
 	}
 
 	// Burger → "X" po otwarciu (spany: 2px wysokości, gap 5px → środki oddalone o 7px)
@@ -207,25 +207,24 @@
 		}
 	}
 
-	// Panel = szuflada wysuwana z PRAWEJ (zostaje w DOM dla animacji → focus blokuje
-	// inert z view.js + visibility; navbar-menu.md §4 wariant animowany)
+	// Panel = szuflada wysuwana z PRAWEJ, PONIŻEJ belki (top: 100% względem navbara —
+	// belka z logo i hamburgerem/X zawsze widoczna). Zostaje w DOM dla animacji →
+	// focus blokuje inert z view.js + visibility (navbar-menu.md §4 wariant animowany).
 	.nav__panel {
-		position: fixed;
-		z-index: 1;
-		top: 0;
+		position: absolute;
+		top: 100%;
 		right: 0;
-		bottom: 0;
 		width: min( 360px, 85vw );
+		height: calc( 100vh - 100% );
+		height: calc( 100dvh - 100% );
 		flex-direction: column;
 		align-items: flex-start;
 		gap: 24px;
-		// pasek navbara (sticky, z-index 2) przykrywa górę szuflady — padding-top robi miejsce
-		// (wysokość paska na mobile: 68px @375px → ~84px @1120px)
-		padding: 96px 24px 24px;
+		padding: 24px;
 		box-sizing: border-box;
 		overflow-y: auto;
 		background: var( --wp--preset--color--primary );
-		box-shadow: -24px 0 48px rgba( 0, 0, 0, 0.35 );
+		box-shadow: -24px 24px 48px rgba( 0, 0, 0, 0.35 );
 		visibility: hidden;
 		transform: translateX( 100% );
 		transition: transform 0.3s ease, visibility 0s linear 0.3s;
