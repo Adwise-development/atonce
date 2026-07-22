@@ -39,8 +39,13 @@ $hero_arrow_right_path = 'M23.4282 11.2353V9.16114L14.9131 0.645996L13.3574 2.01
 					$buttons = is_array( $slide['buttons'] ?? null ) ? $slide['buttons'] : [];
 
 					$slide_style = '';
-					if ( 'photo' === $variant && ! empty( $image['url'] ) ) {
-						$slide_style = '--hero-bg:url(' . esc_url( $image['url'] ) . ');';
+					if ( 'photo' === $variant ) {
+						if ( ! empty( $image['url'] ) ) {
+							$slide_style .= '--hero-bg:url(' . esc_url( $image['url'] ) . ');';
+						}
+						// Przyciemnienie overlay per slajd (suwak w edytorze), 0–80%, default 20%.
+						$overlay      = isset( $slide['overlay'] ) ? max( 0, min( 80, (int) $slide['overlay'] ) ) : 20;
+						$slide_style .= '--hero-overlay:' . ( $overlay / 100 ) . ';';
 					}
 					?>
 					<div

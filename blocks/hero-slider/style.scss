@@ -56,7 +56,7 @@
 		content: '';
 		position: absolute;
 		inset: 0;
-		background: rgba( 0, 0, 0, 0.2 );
+		background: rgba( 0, 0, 0, var( --hero-overlay, 0.2 ) ); // suwak w edytorze (per slajd)
 		z-index: 1;
 		pointer-events: none; // dekoracyjny overlay — nie blokuje kliku w media-trigger pod spodem (edytor)
 	}

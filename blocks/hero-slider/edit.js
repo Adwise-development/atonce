@@ -271,10 +271,16 @@ export default function Edit( { attributes, setAttributes } ) {
 		}
 
 		if ( slide.variant === 'photo' ) {
+			const photoStyle = {
+				'--hero-overlay': ( slide.overlay ?? 20 ) / 100,
+			};
+			if ( slide.image?.url ) {
+				photoStyle[ '--hero-bg' ] = `url(${ slide.image.url })`;
+			}
 			return (
 				<div
 					className="hero__slide hero__slide--photo"
-					style={ slide.image?.url ? { '--hero-bg': `url(${ slide.image.url })` } : {} }
+					style={ photoStyle }
 				>
 					{ imageFieldFor( i, slide.image, 'hero__media-btn' ) }
 					<div className="hero__content">{ headingField }</div>
@@ -335,6 +341,17 @@ export default function Edit( { attributes, setAttributes } ) {
 						} ) ) }
 						onChange={ ( val ) => updateSlide( safeActiveSlide, 'variant', val ) }
 					/>
+					{ slide.variant === 'photo' && (
+						<RangeControl
+							label={ __( 'Przyciemnienie zdjęcia (%)', 'adwise' ) }
+							help={ __( 'Overlay pod białym tekstem — podbij na jasnych zdjęciach.', 'adwise' ) }
+							value={ slide.overlay ?? 20 }
+							onChange={ ( val ) => updateSlide( safeActiveSlide, 'overlay', val ) }
+							min={ 0 }
+							max={ 80 }
+							step={ 5 }
+						/>
+					) }
 				</PanelBody>
 			</InspectorControls>
 
