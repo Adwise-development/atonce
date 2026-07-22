@@ -25,7 +25,7 @@
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-between;
-	align-items: flex-start;
+	align-items: center; // grupy wycentrowane w pionie względem najwyższej (adres) — jak w makiecie
 	gap: clamp( 32px, calc( 32px + 32 * ( ( 100vw - 768px ) / 1152 ) ), 64px );
 }
 
@@ -43,33 +43,35 @@
 	white-space: normal;
 }
 
-/* Kolumny linków */
-.ft__list {
+/* Menu WP — pozycje łamią się na 2 kolumny (CSS columns, flow góra→dół) */
+.ft__menu {
 	margin: 0;
 	padding: 0;
 	list-style: none;
-	display: flex;
-	flex-direction: column;
-	gap: 20px;
-}
+	columns: 2;
+	column-gap: clamp( 40px, calc( 40px + 56 * ( ( 100vw - 768px ) / 1152 ) ), 96px );
 
-.ft__list-item {
-	position: relative;
-	display: flex;
-	align-items: center;
-	gap: 6px;
-}
+	li {
+		break-inside: avoid;
+		margin: 0 0 20px;
 
-.ft__link {
-	font-size: 16px;
-	line-height: 24px;
-	color: var( --wp--preset--color--primary );
-	text-decoration: none;
-	-webkit-tap-highlight-color: transparent;
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	a {
+		display: inline-block;
+		font-size: 16px;
+		line-height: 24px;
+		color: var( --wp--preset--color--primary );
+		text-decoration: none;
+		-webkit-tap-highlight-color: transparent;
+	}
 }
 
 @media ( hover: hover ) {
-	.ft__link:hover {
+	.ft__menu a:hover {
 		text-decoration: underline;
 	}
 }
@@ -103,7 +105,6 @@
 	align-items: center;
 	flex-wrap: wrap;
 	gap: clamp( 20px, calc( 20px + 18 * ( ( 100vw - 768px ) / 1152 ) ), 38px );
-	margin-top: clamp( 24px, calc( 24px + 8 * ( ( 100vw - 768px ) / 1152 ) ), 32px );
 }
 
 .ft__social-link {

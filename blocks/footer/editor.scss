@@ -24,7 +24,7 @@
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-between;
-	align-items: flex-start;
+	align-items: center; // grupy wycentrowane w pionie jak w makiecie (≡ style.scss)
 	gap: clamp( 32px, calc( 32px + 32 * ( ( 100vw - 768px ) / 1152 ) ), 64px );
 }
 
@@ -43,33 +43,35 @@
 	white-space: normal;
 }
 
-/* Kolumny linków */
-.ft__list {
+/* Menu WP — pozycje łamią się na 2 kolumny (≡ style.scss) */
+.ft__menu {
 	margin: 0;
 	padding: 0;
 	list-style: none;
-	display: flex;
-	flex-direction: column;
-	gap: 20px;
-}
+	columns: 2;
+	column-gap: clamp( 40px, calc( 40px + 56 * ( ( 100vw - 768px ) / 1152 ) ), 96px );
 
-.ft__list-item {
-	position: relative;
-	display: flex;
-	align-items: center;
-	gap: 6px;
-}
+	li {
+		break-inside: avoid;
+		margin: 0 0 20px;
 
-.ft__link {
-	font-size: 16px;
-	line-height: 24px;
-	color: var( --wp--preset--color--primary );
-	text-decoration: none;
-	-webkit-tap-highlight-color: transparent;
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	a {
+		display: inline-block;
+		font-size: 16px;
+		line-height: 24px;
+		color: var( --wp--preset--color--primary );
+		text-decoration: none;
+		-webkit-tap-highlight-color: transparent;
+	}
 }
 
 @media ( hover: hover ) {
-	.ft__link:hover {
+	.ft__menu a:hover {
 		text-decoration: underline;
 	}
 }
@@ -103,7 +105,6 @@
 	align-items: center;
 	flex-wrap: wrap;
 	gap: clamp( 20px, calc( 20px + 18 * ( ( 100vw - 768px ) / 1152 ) ), 38px );
-	margin-top: clamp( 24px, calc( 24px + 8 * ( ( 100vw - 768px ) / 1152 ) ), 32px );
 }
 
 .ft__social-link {
@@ -153,39 +154,51 @@
 
 /* --- Edytorowe UI (bez odpowiednika na froncie) --- */
 .wp-block-atonce-footer {
-	.ft__link-edit,
-	.ft__link-remove {
-		flex-shrink: 0;
-		width: 20px;
-		height: 20px;
-		border: none;
-		border-radius: 2px;
-		background: rgba( 0, 0, 0, 0.65 );
-		color: #fff;
-		font-size: 11px;
-		line-height: 1;
-		cursor: pointer;
-		display: inline-flex;
-		align-items: center;
-		justify-content: center;
-		opacity: 0;
-		pointer-events: none;
-		transition: opacity 0.15s ease;
-	}
-
-	.ft__list-item:hover .ft__link-edit,
-	.ft__list-item:hover .ft__link-remove,
-	.ft__list-item:focus-within .ft__link-edit,
-	.ft__list-item:focus-within .ft__link-remove {
-		opacity: 1;
-		pointer-events: auto;
-	}
-
-	.ft__add-link {
-		margin-top: 12px;
-	}
-
 	.ft__social-link {
 		cursor: default;
+	}
+
+	// Picker / empty-state menu (jak w blocks/navbar, na jasnym tle stopki)
+	.ft__menu-empty {
+		background: rgba( 10, 10, 10, 0.04 );
+		border: 1px dashed rgba( 10, 10, 10, 0.35 );
+		border-radius: 4px;
+		padding: 16px;
+		color: var( --wp--preset--color--primary );
+		max-width: 360px;
+
+		p {
+			margin: 0 0 8px;
+			font-size: 13px;
+		}
+		a {
+			color: var( --wp--preset--color--primary );
+			font-size: 13px;
+		}
+	}
+
+	.ft__group--menu .components-base-control {
+		min-width: 220px;
+	}
+
+	.ft__menu-preview {
+		display: flex;
+		align-items: flex-start;
+		gap: 12px;
+		flex-wrap: wrap;
+	}
+	.ft__menu-reset {
+		background: rgba( 10, 10, 10, 0.06 );
+		border: 1px solid rgba( 10, 10, 10, 0.3 );
+		color: var( --wp--preset--color--primary );
+		border-radius: 4px;
+		padding: 4px 10px;
+		font-size: 12px;
+		cursor: pointer;
+		white-space: nowrap;
+
+		&:hover {
+			background: rgba( 10, 10, 10, 0.12 );
+		}
 	}
 }

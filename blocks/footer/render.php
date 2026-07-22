@@ -8,8 +8,7 @@
  */
 
 $company_info = $attributes['companyInfo'] ?? '';
-$links_col1   = is_array( $attributes['linksCol1'] ?? null ) ? $attributes['linksCol1'] : [];
-$links_col2   = is_array( $attributes['linksCol2'] ?? null ) ? $attributes['linksCol2'] : [];
+$menu_id      = absint( $attributes['menuId'] ?? 0 );
 $phone        = $attributes['phone'] ?? '';
 $email        = $attributes['email'] ?? '';
 $social_fb    = $attributes['socialFacebook'] ?? '';
@@ -43,10 +42,11 @@ $social_icons = [
 	],
 ];
 
+// Kolejność jak w makiecie: LinkedIn, Instagram, Facebook.
 $social_links = [
-	'facebook'  => $social_fb,
-	'instagram' => $social_ig,
 	'linkedin'  => $social_li,
+	'instagram' => $social_ig,
+	'facebook'  => $social_fb,
 ];
 
 $render_social_icon = function ( $name, $url ) use ( $social_icons ) {
@@ -72,29 +72,20 @@ $render_social_icon = function ( $name, $url ) use ( $social_icons ) {
 				<p class="ft__address"><?php echo wp_kses_post( $company_info ); ?></p>
 			</div>
 
-			<?php if ( ! empty( $links_col1 ) ) : ?>
-				<div class="ft__group ft__group--links">
-					<ul class="ft__list">
-						<?php foreach ( $links_col1 as $link ) : ?>
-							<?php if ( empty( $link['label'] ) ) { continue; } ?>
-							<li class="ft__list-item">
-								<a class="ft__link" href="<?php echo esc_url( $link['url'] ?? '#' ); ?>"><?php echo esc_html( $link['label'] ); ?></a>
-							</li>
-						<?php endforeach; ?>
-					</ul>
-				</div>
-			<?php endif; ?>
-
-			<?php if ( ! empty( $links_col2 ) ) : ?>
-				<div class="ft__group ft__group--links">
-					<ul class="ft__list">
-						<?php foreach ( $links_col2 as $link ) : ?>
-							<?php if ( empty( $link['label'] ) ) { continue; } ?>
-							<li class="ft__list-item">
-								<a class="ft__link" href="<?php echo esc_url( $link['url'] ?? '#' ); ?>"><?php echo esc_html( $link['label'] ); ?></a>
-							</li>
-						<?php endforeach; ?>
-					</ul>
+			<?php if ( $menu_id ) : ?>
+				<div class="ft__group ft__group--menu">
+					<?php
+					// Płaskie menu WP — pozycje łamią się na 2 kolumny przez CSS columns (.ft__menu).
+					wp_nav_menu(
+						[
+							'menu'        => $menu_id,
+							'container'   => false,
+							'menu_class'  => 'ft__menu',
+							'fallback_cb' => false,
+							'depth'       => 1,
+						]
+					);
+					?>
 				</div>
 			<?php endif; ?>
 
@@ -107,15 +98,17 @@ $render_social_icon = function ( $name, $url ) use ( $social_icons ) {
 						<a class="ft__contact-link" href="mailto:<?php echo esc_attr( $email ); ?>"><?php echo esc_html( $email ); ?></a>
 					<?php endif; ?>
 				</div>
+			</div>
 
-				<?php if ( array_filter( $social_links ) ) : ?>
+			<?php if ( array_filter( $social_links ) ) : ?>
+				<div class="ft__group ft__group--social">
 					<div class="ft__social">
 						<?php foreach ( $social_links as $name => $url ) : ?>
 							<?php $render_social_icon( $name, $url ); ?>
 						<?php endforeach; ?>
 					</div>
-				<?php endif; ?>
-			</div>
+				</div>
+			<?php endif; ?>
 		</div>
 	</div>
 </section>

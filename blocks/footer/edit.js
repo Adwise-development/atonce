@@ -1,12 +1,10 @@
-import {
-	useBlockProps,
-	RichText,
-	InspectorControls,
-	__experimentalLinkControl as LinkControl,
-} from '@wordpress/block-editor';
-import { PanelBody, TextControl, Popover, Button } from '@wordpress/components';
-import { useState, useRef, useEffect } from '@wordpress/element';
+import { useBlockProps, RichText, InspectorControls } from '@wordpress/block-editor';
+import { PanelBody, TextControl, SelectControl, Spinner } from '@wordpress/components';
+import { useSelect } from '@wordpress/data';
+import { store as coreStore } from '@wordpress/core-data';
+import { useState, useEffect } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
+import apiFetch from '@wordpress/api-fetch';
 
 // Glyphy przerysowane z assets/icons/social/*-white.svg — fill statyczny → currentColor (musi być 1:1 z render.php).
 const SOCIAL_ICON_PATHS = {
@@ -37,109 +35,48 @@ const SocialIcon = ( { name } ) => (
 );
 
 export default function Edit( { attributes, setAttributes } ) {
-	const {
-		companyInfo,
-		linksCol1,
-		linksCol2,
-		phone,
-		email,
-		socialFacebook,
-		socialInstagram,
-		socialLinkedin,
-	} = attributes;
+	const { companyInfo, menuId, phone, email, socialFacebook, socialInstagram, socialLinkedin } =
+		attributes;
 
 	const blockProps = useBlockProps( { className: 'wp-block-atonce-footer' } );
 
-	// Popover LinkControl per-item — klucz "col-index" (patterns/buttons-links.md, wariant "wiele buttonów").
-	const [ activeLinkPopover, setActiveLinkPopover ] = useState( null );
-	const linkRefs = useRef( {} );
+	// Lista dostępnych menu do SelectControl (jak w blocks/navbar).
+	const menus = useSelect(
+		( select ) => select( coreStore ).getEntityRecords( 'root', 'menu', { per_page: -1 } ),
+		[]
+	);
 
+	// Pozycje wybranego menu — live preview (płaska lista, depth 1 jak wp_nav_menu na froncie).
+	const [ items, setItems ] = useState( [] );
+	const [ loading, setLoading ] = useState( false );
 	useEffect( () => {
-		if ( activeLinkPopover === null ) {
+		if ( ! menuId ) {
+			setItems( [] );
 			return;
 		}
-		const handle = ( e ) => {
-			const wrapEl = linkRefs.current[ activeLinkPopover ];
-			if ( wrapEl && ! wrapEl.contains( e.target ) ) {
-				if ( ! e.target.closest( '.components-popover' ) ) {
-					setActiveLinkPopover( null );
-				}
-			}
+		let cancelled = false;
+		setLoading( true );
+		apiFetch( { path: `/wp/v2/menu-items?menus=${ menuId }&per_page=100` } )
+			.then( ( data ) => {
+				if ( cancelled ) return;
+				const sorted = [ ...( data || [] ) ].sort( ( a, b ) => a.menu_order - b.menu_order );
+				setItems( sorted );
+			} )
+			.catch( () => {
+				if ( ! cancelled ) setItems( [] );
+			} )
+			.finally( () => {
+				if ( ! cancelled ) setLoading( false );
+			} );
+		return () => {
+			cancelled = true;
 		};
-		document.addEventListener( 'mousedown', handle );
-		return () => document.removeEventListener( 'mousedown', handle );
-	}, [ activeLinkPopover ] );
+	}, [ menuId ] );
 
-	const updateLink = ( colKey, i, key, value ) => {
-		const updated = [ ...attributes[ colKey ] ];
-		updated[ i ] = { ...updated[ i ], [ key ]: value };
-		setAttributes( { [ colKey ]: updated } );
-	};
-	const addLink = ( colKey ) => {
-		setAttributes( {
-			[ colKey ]: [ ...attributes[ colKey ], { label: __( 'Nowy link', 'adwise' ), url: '#' } ],
-		} );
-	};
-	const removeLink = ( colKey, i ) => {
-		setAttributes( { [ colKey ]: attributes[ colKey ].filter( ( _, idx ) => idx !== i ) } );
-	};
-
-	const renderLinksColumn = ( colKey, items ) => (
-		<div className="ft__group ft__group--links" key={ colKey }>
-			<ul className="ft__list">
-				{ items.map( ( item, i ) => {
-					const popoverKey = `${ colKey }-${ i }`;
-					return (
-						<li
-							className="ft__list-item"
-							key={ popoverKey }
-							ref={ ( el ) => {
-								linkRefs.current[ popoverKey ] = el;
-							} }
-						>
-							<RichText
-								tagName="span"
-								className="ft__link"
-								value={ item.label }
-								onChange={ ( val ) => updateLink( colKey, i, 'label', val ) }
-								allowedFormats={ [] }
-								placeholder={ __( 'Link…', 'adwise' ) }
-							/>
-							<button
-								type="button"
-								className="ft__link-edit"
-								aria-label={ __( 'Edytuj adres URL', 'adwise' ) }
-								onClick={ () => setActiveLinkPopover( popoverKey ) }
-							>
-								🔗
-							</button>
-							{ items.length > 1 && (
-								<button
-									type="button"
-									className="ft__link-remove"
-									aria-label={ __( 'Usuń link', 'adwise' ) }
-									onClick={ () => removeLink( colKey, i ) }
-								>
-									✕
-								</button>
-							) }
-							{ activeLinkPopover === popoverKey && (
-								<Popover position="bottom center">
-									<LinkControl
-										value={ { url: item.url } }
-										onChange={ ( { url } ) => updateLink( colKey, i, 'url', url || '#' ) }
-									/>
-								</Popover>
-							) }
-						</li>
-					);
-				} ) }
-			</ul>
-			<Button variant="secondary" className="ft__add-link" onClick={ () => addLink( colKey ) }>
-				{ __( '+ Dodaj link', 'adwise' ) }
-			</Button>
-		</div>
-	);
+	const menuOptions = [
+		{ value: 0, label: '— wybierz menu —' },
+		...( menus || [] ).map( ( m ) => ( { value: m.id, label: m.name } ) ),
+	];
 
 	const hasSocial = socialFacebook || socialInstagram || socialLinkedin;
 
@@ -148,9 +85,9 @@ export default function Edit( { attributes, setAttributes } ) {
 			<InspectorControls>
 				<PanelBody title={ __( 'Social media', 'adwise' ) } initialOpen={ true }>
 					<TextControl
-						label={ __( 'Facebook — URL', 'adwise' ) }
-						value={ socialFacebook }
-						onChange={ ( val ) => setAttributes( { socialFacebook: val } ) }
+						label={ __( 'LinkedIn — URL', 'adwise' ) }
+						value={ socialLinkedin }
+						onChange={ ( val ) => setAttributes( { socialLinkedin: val } ) }
 					/>
 					<TextControl
 						label={ __( 'Instagram — URL', 'adwise' ) }
@@ -158,9 +95,9 @@ export default function Edit( { attributes, setAttributes } ) {
 						onChange={ ( val ) => setAttributes( { socialInstagram: val } ) }
 					/>
 					<TextControl
-						label={ __( 'LinkedIn — URL', 'adwise' ) }
-						value={ socialLinkedin }
-						onChange={ ( val ) => setAttributes( { socialLinkedin: val } ) }
+						label={ __( 'Facebook — URL', 'adwise' ) }
+						value={ socialFacebook }
+						onChange={ ( val ) => setAttributes( { socialFacebook: val } ) }
 					/>
 				</PanelBody>
 			</InspectorControls>
@@ -179,8 +116,53 @@ export default function Edit( { attributes, setAttributes } ) {
 							/>
 						</div>
 
-						{ renderLinksColumn( 'linksCol1', linksCol1 ) }
-						{ renderLinksColumn( 'linksCol2', linksCol2 ) }
+						<div className="ft__group ft__group--menu">
+							{ ! menuId ? (
+								menus && menus.length === 0 ? (
+									<div className="ft__menu-empty">
+										<p>
+											Brak menu. Utwórz je w <strong>Wygląd → Menu</strong>,
+											dodaj pozycje, zapisz, wróć tu i odśwież.
+										</p>
+										<a href="nav-menus.php" target="_blank" rel="noopener noreferrer">
+											Otwórz Wygląd → Menu ↗
+										</a>
+									</div>
+								) : (
+									<SelectControl
+										label={ __( 'Menu stopki', 'adwise' ) }
+										value={ menuId }
+										options={ menuOptions }
+										onChange={ ( val ) =>
+											setAttributes( { menuId: parseInt( val, 10 ) } )
+										}
+									/>
+								)
+							) : (
+								<div className="ft__menu-preview">
+									{ loading && <Spinner /> }
+									<ul className="ft__menu">
+										{ items.map( ( it ) => (
+											<li key={ it.id }>
+												<a
+													href={ it.url }
+													onClick={ ( e ) => e.preventDefault() }
+												>
+													{ it.title?.rendered || it.title }
+												</a>
+											</li>
+										) ) }
+									</ul>
+									<button
+										type="button"
+										className="ft__menu-reset"
+										onClick={ () => setAttributes( { menuId: 0 } ) }
+									>
+										✕ zmień menu
+									</button>
+								</div>
+							) }
+						</div>
 
 						<div className="ft__group ft__group--contact">
 							<div className="ft__contact">
@@ -201,12 +183,14 @@ export default function Edit( { attributes, setAttributes } ) {
 									placeholder={ __( 'E-mail…', 'adwise' ) }
 								/>
 							</div>
+						</div>
 
-							{ hasSocial && (
+						{ hasSocial && (
+							<div className="ft__group ft__group--social">
 								<div className="ft__social">
-									{ socialFacebook && (
+									{ socialLinkedin && (
 										<span className="ft__social-link">
-											<SocialIcon name="facebook" />
+											<SocialIcon name="linkedin" />
 										</span>
 									) }
 									{ socialInstagram && (
@@ -214,14 +198,14 @@ export default function Edit( { attributes, setAttributes } ) {
 											<SocialIcon name="instagram" />
 										</span>
 									) }
-									{ socialLinkedin && (
+									{ socialFacebook && (
 										<span className="ft__social-link">
-											<SocialIcon name="linkedin" />
+											<SocialIcon name="facebook" />
 										</span>
 									) }
 								</div>
-							) }
-						</div>
+							</div>
+						) }
 					</div>
 				</div>
 			</section>

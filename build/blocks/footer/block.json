@@ -5,7 +5,7 @@
 	"version": "1.0.0",
 	"title": "Stopka",
 	"category": "theme",
-	"description": "Sekcja stopki: dane firmy, dwie kolumny linków, kontakt i social media.",
+	"description": "Sekcja stopki: dane firmy, menu WP łamane na dwie kolumny, kontakt i social media.",
 	"textdomain": "adwise",
 	"editorScript": "file:./index.js",
 	"editorStyle": "file:./index.css",
@@ -16,24 +16,9 @@
 		"className": { "type": "string" },
 		"companyInfo": {
 			"type": "string",
-			"default": "AT ONCE SP. Z O. O.<br>ul. Gabriela Narutowicza 57/4<br>20-016 Lublin<br>KRS 0000937147<br>NIP 712-342-77-45<br>Kapitał zakładowy: 50 000,00 zł"
+			"default": "AT ONCE SP. Z O. O.<br>ul. Gabriela Narutowicza 57/4<br>20-016 Lublin<br>KRS 0000937147<br>NIP 712-342-77-45<br><br>Kapitał zakładowy: 50 000,00 zł"
 		},
-		"linksCol1": {
-			"type": "array",
-			"default": [
-				{ "label": "O nas", "url": "/o-nas/" },
-				{ "label": "Blog", "url": "/blog/" },
-				{ "label": "Usługi", "url": "/doradztwo/" },
-				{ "label": "Portfolio", "url": "/#portfolio" }
-			]
-		},
-		"linksCol2": {
-			"type": "array",
-			"default": [
-				{ "label": "Kontakt", "url": "/kontakt/" },
-				{ "label": "Polityka prywatności", "url": "/polityka-prywatnosci/" }
-			]
-		},
+		"menuId": { "type": "integer", "default": 0 },
 		"phone": { "type": "string", "default": "+48 575 127 152" },
 		"email": { "type": "string", "default": "hello@atonce.pl" },
 		"socialFacebook": {
