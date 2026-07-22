@@ -207,13 +207,13 @@
 		}
 	}
 
-	// Panel = szuflada wysuwana z LEWEJ (zostaje w DOM dla animacji → focus blokuje
+	// Panel = szuflada wysuwana z PRAWEJ (zostaje w DOM dla animacji → focus blokuje
 	// inert z view.js + visibility; navbar-menu.md §4 wariant animowany)
 	.nav__panel {
 		position: fixed;
 		z-index: 1;
 		top: 0;
-		left: 0;
+		right: 0;
 		bottom: 0;
 		width: min( 360px, 85vw );
 		flex-direction: column;
@@ -225,9 +225,9 @@
 		box-sizing: border-box;
 		overflow-y: auto;
 		background: var( --wp--preset--color--primary );
-		box-shadow: 24px 0 48px rgba( 0, 0, 0, 0.35 );
+		box-shadow: -24px 0 48px rgba( 0, 0, 0, 0.35 );
 		visibility: hidden;
-		transform: translateX( -100% );
+		transform: translateX( 100% );
 		transition: transform 0.3s ease, visibility 0s linear 0.3s;
 	}
 
